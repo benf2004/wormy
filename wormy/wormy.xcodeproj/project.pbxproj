@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25FED09D1AEC77EF0073F697 /* Head.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FED09C1AEC77EF0073F697 /* Head.swift */; };
 		B51B7E441AEC2CF7002895B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B7E431AEC2CF7002895B9 /* AppDelegate.swift */; };
 		B51B7E461AEC2CF8002895B9 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B51B7E451AEC2CF8002895B9 /* GameScene.sks */; };
 		B51B7E481AEC2CF8002895B9 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B7E471AEC2CF8002895B9 /* GameScene.swift */; };
 		B51B7E4A1AEC2CF8002895B9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B7E491AEC2CF8002895B9 /* GameViewController.swift */; };
 		B51B7E4D1AEC2CF8002895B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B51B7E4B1AEC2CF8002895B9 /* Main.storyboard */; };
 		B51B7E4F1AEC2CF8002895B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B51B7E4E1AEC2CF8002895B9 /* Images.xcassets */; };
-		B51B7E521AEC2CF8002895B9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B51B7E501AEC2CF8002895B9 /* LaunchScreen.xib */; };
 		B51B7E5E1AEC2CF8002895B9 /* wormyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B7E5D1AEC2CF8002895B9 /* wormyTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25FED09C1AEC77EF0073F697 /* Head.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Head.swift; sourceTree = "<group>"; };
 		B51B7E3E1AEC2CF7002895B9 /* wormy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wormy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51B7E421AEC2CF7002895B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B51B7E431AEC2CF7002895B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +37,6 @@
 		B51B7E491AEC2CF8002895B9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		B51B7E4C1AEC2CF8002895B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B51B7E4E1AEC2CF8002895B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B51B7E511AEC2CF8002895B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B51B7E571AEC2CF8002895B9 /* wormyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wormyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51B7E5C1AEC2CF8002895B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B51B7E5D1AEC2CF8002895B9 /* wormyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wormyTests.swift; sourceTree = "<group>"; };
@@ -87,8 +87,8 @@
 				B51B7E491AEC2CF8002895B9 /* GameViewController.swift */,
 				B51B7E4B1AEC2CF8002895B9 /* Main.storyboard */,
 				B51B7E4E1AEC2CF8002895B9 /* Images.xcassets */,
-				B51B7E501AEC2CF8002895B9 /* LaunchScreen.xib */,
 				B51B7E411AEC2CF7002895B9 /* Supporting Files */,
+				25FED09C1AEC77EF0073F697 /* Head.swift */,
 			);
 			path = wormy;
 			sourceTree = "<group>";
@@ -198,7 +198,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B51B7E521AEC2CF8002895B9 /* LaunchScreen.xib in Resources */,
 				B51B7E4F1AEC2CF8002895B9 /* Images.xcassets in Resources */,
 				B51B7E461AEC2CF8002895B9 /* GameScene.sks in Resources */,
 				B51B7E4D1AEC2CF8002895B9 /* Main.storyboard in Resources */,
@@ -222,6 +221,7 @@
 				B51B7E481AEC2CF8002895B9 /* GameScene.swift in Sources */,
 				B51B7E4A1AEC2CF8002895B9 /* GameViewController.swift in Sources */,
 				B51B7E441AEC2CF7002895B9 /* AppDelegate.swift in Sources */,
+				25FED09D1AEC77EF0073F697 /* Head.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,14 +250,6 @@
 				B51B7E4C1AEC2CF8002895B9 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B51B7E501AEC2CF8002895B9 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B51B7E511AEC2CF8002895B9 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -351,7 +343,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = wormy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -362,7 +354,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = wormy/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -421,6 +413,7 @@
 				B51B7E631AEC2CF8002895B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B51B7E641AEC2CF8002895B9 /* Build configuration list for PBXNativeTarget "wormyTests" */ = {
 			isa = XCConfigurationList;
@@ -429,6 +422,7 @@
 				B51B7E661AEC2CF8002895B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
