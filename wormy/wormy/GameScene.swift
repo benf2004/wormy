@@ -10,25 +10,30 @@ import SpriteKit
 
 class GameScene: SKScene {
     var head: HeadNode!
-    var tail: HeadNode!
+    var tail: BodyNode!
     var target: CGPoint = CGPoint()
     var touching = false
     override func didMoveToView(view: SKView) {
-        head = HeadNode.head(CGPoint(x:self.size.width / 4, y:self.size.height / 2))
+        head = HeadNode.node(CGPoint(x:self.size.width - 20, y:self.size.height / 2))
         self.addChild(head)
         
-        tail = HeadNode.head(CGPoint(x:head.position.x-head.size.width, y:head.position.y))
-        self.addChild(tail)
-        head.joinToOther(tail, physicsWorld: self.physicsWorld)
+        var prev : Node = head
+        for i in 1...10 {
+            let seg = BodyNode.node(CGPoint(x:prev.position.x-prev.size.width, y:prev.position.y))
+            self.addChild(seg)
+            prev.joinToOther(seg, physicsWorld: self.physicsWorld)
+            prev = seg
+        }
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
-            if head.frame.contains(location) {
-                target = location
-                touching = true
-            }
+            head.moveToLocationWithVelocity(location)
+//            if head.frame.contains(location) {
+//                target = location
+//                touching = true
+//            }
         }
 //        for touch: AnyObject in touches {
 //            let sprite = HeadNode.head(touch.locationInNode(self))
@@ -39,7 +44,8 @@ class GameScene: SKScene {
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
-            target = location
+//            target = location
+            head.moveToLocationWithVelocity(location)
         }
     }
     
@@ -48,8 +54,8 @@ class GameScene: SKScene {
     }
    
     override func update(currentTime: CFTimeInterval) {
-        if touching {
-            head.moveToLocationWithVelocity(target)
-        }
+//        if touching {
+//            head.moveToLocationWithVelocity(target)
+//        }
     }
 }
