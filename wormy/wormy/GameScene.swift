@@ -8,54 +8,70 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
-    var head: HeadNode!
-    var tail: BodyNode!
-    var target: CGPoint = CGPoint()
-    var touching = false
+class GameScene: SKScene, SKPhysicsContactDelegate {
+    var worm: Worm!
     override func didMoveToView(view: SKView) {
-        head = HeadNode.node(CGPoint(x:self.size.width - 20, y:self.size.height / 2))
-        self.addChild(head)
-        
-        var prev : Node = head
-        for i in 1...10 {
+        //Make a worm
+        let head = HeadNode.node(CGPoint(x:self.size.width - 50, y:self.size.height / 2))
+        worm = Worm(head: head, scene: self)
+        for i in 1...2 {
+            let prev = worm.tail()
             let seg = BodyNode.node(CGPoint(x:prev.position.x-prev.size.width, y:prev.position.y))
-            self.addChild(seg)
-            prev.joinToOther(seg, physicsWorld: self.physicsWorld)
-            prev = seg
+            worm.grow(seg, scene: self)
         }
+        
+        
+        //Food delivery
+        var wait = SKAction.waitForDuration(2.5)
+        var run = SKAction.runBlock {
+            let food = Food.morsel(self.randomPosition())
+            self.addChild(food)
+        }
+        self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
+        self.physicsWorld.contactDelegate = self
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
-            head.moveToLocationWithVelocity(location)
-//            if head.frame.contains(location) {
-//                target = location
-//                touching = true
-//            }
+            worm.moveToLocation(location)
         }
-//        for touch: AnyObject in touches {
-//            let sprite = HeadNode.head(touch.locationInNode(self))
-//            self.addChild(sprite)
-//        }
     }
     
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
-//            target = location
-            head.moveToLocationWithVelocity(location)
+            worm.moveToLocation(location)
         }
     }
     
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent)  {
-        touching = false
     }
    
     override func update(currentTime: CFTimeInterval) {
-//        if touching {
-//            head.moveToLocationWithVelocity(target)
-//        }
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        let secondNode = contact.bodyB.node as! SKSpriteNode
+        
+        if (contact.bodyA.categoryBitMask == Node.collisionCategory) &&
+            (contact.bodyB.categoryBitMask == Food.collisionCategory) {
+                secondNode.removeFromParent()
+//                let prev = worm.tail()
+//                let seg = BodyNode.node(CGPoint(x:prev.position.x-prev.size.width, y:prev.position.y))
+//                worm.grow(seg, scene: self)
+        }
+    }
+    
+    func randomInRange(lo: Int, hi : Int) -> Int {
+        return lo + Int(arc4random_uniform(UInt32(hi - lo + 1)))
+    }
+    
+    func randomPosition() -> CGPoint {
+        // x coordinate between MinX (left) and MaxX (right):
+        let randomX = randomInRange(Int(CGRectGetMinX(self.frame)), hi: Int(CGRectGetMaxX(self.frame)))
+        // y coordinate between MinY (top) and MidY (middle):
+        let randomY = randomInRange(Int(CGRectGetMinY(self.frame)), hi: Int(CGRectGetMidY(self.frame)))
+        return CGPoint(x: randomX, y: randomY)
     }
 }

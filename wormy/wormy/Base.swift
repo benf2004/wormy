@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 
 class Node : SKSpriteNode {
+    static let collisionCategory = UInt32(1)
     var halfWidth : CGFloat = 0.0
     var tailAnchor : CGPoint = CGPoint()
     var headAnchor : CGPoint = CGPoint()
@@ -28,14 +29,16 @@ class Node : SKSpriteNode {
             physics.affectedByGravity = false
             physics.allowsRotation = true
             physics.dynamic = true
+            physics.density = 10000
+            physics.linearDamping = 4
+            physics.angularDamping = 3
+            
+            physics.categoryBitMask = Node.collisionCategory
+            physics.collisionBitMask = Food.collisionCategory
+            physics.contactTestBitMask = Food.collisionCategory
         }
     }
         
-//    func joinToOther(node : Node, physicsWorld : SKPhysicsWorld) {
-//        var joint = SKPhysicsJointLimit.jointWithBodyA(self.physicsBody, bodyB: node.physicsBody, anchorA: self.tailAnchor, anchorB: node.headAnchor)
-//        joint.maxLength = 5
-//        physicsWorld.addJoint(joint)
-//    }
     func joinToOther(node : Node, physicsWorld : SKPhysicsWorld) {
         var joint = SKPhysicsJointPin.jointWithBodyA(self.physicsBody, bodyB: node.physicsBody, anchor: self.tailAnchor)
         physicsWorld.addJoint(joint)
