@@ -26,9 +26,9 @@ class Node : SKSpriteNode {
             physics.affectedByGravity = false
             physics.allowsRotation = true
             physics.dynamic = true
-            physics.density = 100
-            physics.linearDamping = 2
-            physics.angularDamping = 1
+            physics.density = 1000
+            physics.linearDamping = 4
+            physics.angularDamping = 2
         }
     }
         

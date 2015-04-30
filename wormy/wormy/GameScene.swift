@@ -14,7 +14,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //Make a worm
         let head = HeadNode.node(CGPoint(x:self.size.width - 50, y:self.size.height / 2))
         worm = Worm(head: head, scene: self)
-        for i in 1...2 {
+        for i in 1...10 {
             let prev = worm.tail()
             worm.grow(self)
         }
