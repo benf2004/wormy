@@ -14,6 +14,13 @@ class HeadNode : Node {
     class func node(location: CGPoint) -> HeadNode {
         let sprite = HeadNode(imageNamed:"Pointed")
         sprite.initialize(location)
+        
+        if let physics = sprite.physicsBody {
+            physics.categoryBitMask = Node.collisionCategory
+            physics.collisionBitMask = Food.collisionCategory
+            physics.contactTestBitMask = Food.collisionCategory
+        }
+        
         return sprite
     }
 }

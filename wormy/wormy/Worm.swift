@@ -20,7 +20,9 @@ class Worm {
         self.body.append(head)
     }
     
-    func grow(bodyNode : BodyNode, scene : SKScene) {
+    func grow(scene : SKScene) {
+        let anchorPoint = tail().tailAnchorPosition()
+        let bodyNode = BodyNode.node(anchorPoint)
         scene.addChild(bodyNode)
         tail().joinToOther(bodyNode, physicsWorld: scene.physicsWorld)
         self.body.append(bodyNode)

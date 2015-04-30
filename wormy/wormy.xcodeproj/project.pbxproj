@@ -47,7 +47,7 @@
 		B51B7E4E1AEC2CF8002895B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B51B7E571AEC2CF8002895B9 /* wormyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wormyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51B7E5C1AEC2CF8002895B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B51B7E5D1AEC2CF8002895B9 /* wormyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wormyTests.swift; sourceTree = "<group>"; };
+		B51B7E5D1AEC2CF8002895B9 /* wormyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = wormyTests.swift; path = wormyTests/wormyTests.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

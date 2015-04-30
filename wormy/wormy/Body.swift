@@ -11,7 +11,7 @@ import SpriteKit
 
 class BodyNode : Node {
     class func node(location: CGPoint) -> BodyNode {
-        let sprite = BodyNode(imageNamed:"Pointed")
+        let sprite = BodyNode(imageNamed:"Simple")
         sprite.initialize(location)
         return sprite
     }

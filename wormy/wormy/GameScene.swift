@@ -16,10 +16,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         worm = Worm(head: head, scene: self)
         for i in 1...2 {
             let prev = worm.tail()
-            let seg = BodyNode.node(CGPoint(x:prev.position.x-prev.size.width, y:prev.position.y))
-            worm.grow(seg, scene: self)
+            worm.grow(self)
         }
-        
         
         //Food delivery
         var wait = SKAction.waitForDuration(2.5)
@@ -27,6 +25,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let food = Food.morsel(self.randomPosition())
             self.addChild(food)
         }
+        
         self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
         self.physicsWorld.contactDelegate = self
     }
@@ -52,14 +51,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
-        let secondNode = contact.bodyB.node as! SKSpriteNode
-        
         if (contact.bodyA.categoryBitMask == Node.collisionCategory) &&
             (contact.bodyB.categoryBitMask == Food.collisionCategory) {
-                secondNode.removeFromParent()
-//                let prev = worm.tail()
-//                let seg = BodyNode.node(CGPoint(x:prev.position.x-prev.size.width, y:prev.position.y))
-//                worm.grow(seg, scene: self)
+                if let secondNode = contact.bodyB.node as? SKSpriteNode {
+                    secondNode.removeFromParent()
+                    let seg = BodyNode.node(worm.tail().tailAnchorPosition())
+                    worm.grow(self)
+                }
         }
     }
     
@@ -71,7 +69,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // x coordinate between MinX (left) and MaxX (right):
         let randomX = randomInRange(Int(CGRectGetMinX(self.frame)), hi: Int(CGRectGetMaxX(self.frame)))
         // y coordinate between MinY (top) and MidY (middle):
-        let randomY = randomInRange(Int(CGRectGetMinY(self.frame)), hi: Int(CGRectGetMidY(self.frame)))
+        let randomY = randomInRange(Int(CGRectGetMinY(self.frame)), hi: Int(CGRectGetMaxY(self.frame)))
         return CGPoint(x: randomX, y: randomY)
     }
 }
