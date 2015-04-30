@@ -12,7 +12,7 @@ import Foundation
 
 class HeadNode : Node {
     class func node(location: CGPoint) -> HeadNode {
-        let sprite = HeadNode(imageNamed:"Pointed")
+        let sprite = HeadNode(imageNamed:"Simple")
         sprite.initialize(location)
         
         if let physics = sprite.physicsBody {
