@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		25211BF61AEFA486002BFE7C /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25211BF51AEFA486002BFE7C /* Body.swift */; };
 		25211BF81AEFA622002BFE7C /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25211BF71AEFA622002BFE7C /* Base.swift */; };
+		256A57011AF3A9B700E83694 /* BaseWormNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A56FE1AF3A9B700E83694 /* BaseWormNode.swift */; };
+		256A57021AF3A9B700E83694 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A56FF1AF3A9B700E83694 /* Protocols.swift */; };
+		256A57031AF3A9B700E83694 /* WormHeadNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A57001AF3A9B700E83694 /* WormHeadNode.swift */; };
+		256A57061AF3AA9F00E83694 /* ImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A57051AF3AA9F00E83694 /* ImageName.swift */; };
 		25705A741AF075CA0018194B /* Worm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25705A731AF075CA0018194B /* Worm.swift */; };
 		25705A761AF07D400018194B /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25705A751AF07D400018194B /* Food.swift */; };
 		25FED09D1AEC77EF0073F697 /* Head.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FED09C1AEC77EF0073F697 /* Head.swift */; };
@@ -34,6 +38,10 @@
 /* Begin PBXFileReference section */
 		25211BF51AEFA486002BFE7C /* Body.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Body.swift; sourceTree = "<group>"; };
 		25211BF71AEFA622002BFE7C /* Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
+		256A56FE1AF3A9B700E83694 /* BaseWormNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWormNode.swift; sourceTree = "<group>"; };
+		256A56FF1AF3A9B700E83694 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		256A57001AF3A9B700E83694 /* WormHeadNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WormHeadNode.swift; sourceTree = "<group>"; };
+		256A57051AF3AA9F00E83694 /* ImageName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageName.swift; sourceTree = "<group>"; };
 		25705A731AF075CA0018194B /* Worm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worm.swift; sourceTree = "<group>"; };
 		25705A751AF07D400018194B /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		25FED09C1AEC77EF0073F697 /* Head.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Head.swift; sourceTree = "<group>"; };
@@ -68,6 +76,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		256A57041AF3A9C400E83694 /* Worm */ = {
+			isa = PBXGroup;
+			children = (
+				256A57001AF3A9B700E83694 /* WormHeadNode.swift */,
+				256A56FE1AF3A9B700E83694 /* BaseWormNode.swift */,
+				256A56FF1AF3A9B700E83694 /* Protocols.swift */,
+				256A57051AF3AA9F00E83694 /* ImageName.swift */,
+			);
+			name = Worm;
+			sourceTree = "<group>";
+		};
 		B51B7E351AEC2CF7002895B9 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +108,7 @@
 		B51B7E401AEC2CF7002895B9 /* wormy */ = {
 			isa = PBXGroup;
 			children = (
+				256A57041AF3A9C400E83694 /* Worm */,
 				B51B7E431AEC2CF7002895B9 /* AppDelegate.swift */,
 				B51B7E451AEC2CF8002895B9 /* GameScene.sks */,
 				B51B7E471AEC2CF8002895B9 /* GameScene.swift */,
@@ -231,11 +251,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				25211BF81AEFA622002BFE7C /* Base.swift in Sources */,
+				256A57061AF3AA9F00E83694 /* ImageName.swift in Sources */,
 				B51B7E481AEC2CF8002895B9 /* GameScene.swift in Sources */,
+				256A57031AF3A9B700E83694 /* WormHeadNode.swift in Sources */,
 				25705A741AF075CA0018194B /* Worm.swift in Sources */,
 				B51B7E4A1AEC2CF8002895B9 /* GameViewController.swift in Sources */,
 				B51B7E441AEC2CF7002895B9 /* AppDelegate.swift in Sources */,
+				256A57021AF3A9B700E83694 /* Protocols.swift in Sources */,
 				25705A761AF07D400018194B /* Food.swift in Sources */,
+				256A57011AF3A9B700E83694 /* BaseWormNode.swift in Sources */,
 				25FED09D1AEC77EF0073F697 /* Head.swift in Sources */,
 				25211BF61AEFA486002BFE7C /* Body.swift in Sources */,
 			);
