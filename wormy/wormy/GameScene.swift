@@ -11,13 +11,9 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var worm: Worm!
     override func didMoveToView(view: SKView) {
-        //Make a worm
-        let head = HeadNode.node(CGPoint(x:self.size.width - 50, y:self.size.height / 2))
-        worm = Worm(head: head, scene: self)
-        for i in 1...10 {
-            let prev = worm.tail()
-            worm.grow(self)
-        }
+        worm = Worm(position: CGPoint(x:self.size.width - 50, y:self.size.height / 2), scene: self)
+        let food = Food.morsel(self.randomPosition())
+        worm.consume(food)
         
         //Food delivery
         var wait = SKAction.waitForDuration(2.5)
@@ -51,12 +47,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
-        if (contact.bodyA.categoryBitMask == Node.collisionCategory) &&
-            (contact.bodyB.categoryBitMask == Food.collisionCategory) {
-                if let secondNode = contact.bodyB.node as? SKSpriteNode {
-                    secondNode.removeFromParent()
-                    let seg = BodyNode.node(worm.tail().tailAnchorPosition())
-                    worm.grow(self)
+        if (contact.bodyA.categoryBitMask == Categories.head) &&
+            (contact.bodyB.categoryBitMask == Categories.food) {
+                if let food = contact.bodyB.node as? Food {
+                    worm.consume(food)
+                    food.removeFromParent()
                 }
         }
     }

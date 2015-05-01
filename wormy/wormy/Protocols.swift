@@ -14,4 +14,12 @@ protocol WormNode {
     func decay()
     func activate()
     func digest(Food)
+    func physics() -> SKPhysicsBody?
 }
+
+struct Textures {
+    static let head = "Pointed"
+    static let basic = "Simple"
+}
+
+

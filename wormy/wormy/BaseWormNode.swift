@@ -12,14 +12,15 @@ import SpriteKit
 class BaseWormNode : SKSpriteNode, WormNode {
     var strength = 5 //todo:  read this from property file
 
-    init(previous : WormNode?, imageName : ImageName) {
-        let texture = SKTexture(imageNamed: imageName.rawValue)
+    init(previous : WormNode?, textureName : String) {
+        let texture = SKTexture(imageNamed: textureName)
         let color = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         super.init(texture: texture, color: color, size: texture.size())
         let halfWidth = self.size.width / 2
+        let quarterWidth = self.size.width / 4
         if let neighbor = previous {
             let anchorPosition = neighbor.anchorPosition()
-            self.position = CGPoint(x: anchorPosition.x - halfWidth, y: anchorPosition.y)
+            self.position = CGPoint(x: anchorPosition.x, y: anchorPosition.y)
         }
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: halfWidth)
@@ -33,8 +34,12 @@ class BaseWormNode : SKSpriteNode, WormNode {
         }
     }
     
+    func physics() -> SKPhysicsBody? {
+        return self.physicsBody
+    }
+    
     func anchorPosition() -> CGPoint {
-        return self.position
+        return CGPoint(x: self.position.x - self.size.width / 2, y: self.position.y)
     }
     
     func decay() {

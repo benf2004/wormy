@@ -11,24 +11,33 @@ import SpriteKit
 
 class Worm {
     let collisionCategory = 1
-    let head : HeadNode
-    var body = [Node]()
+    let scene : SKScene
+    let head : WormHeadNode
+    var body = [WormNode]()
     
-    init(head : HeadNode, scene : SKScene) {
-        self.head = head
+    init(position : CGPoint, scene : SKScene) {
+        self.scene = scene
+        self.head = WormHeadNode(position: position, imageName: Textures.head)
         scene.addChild(head)
         self.body.append(head)
     }
     
-    func grow(scene : SKScene) {
-        let anchorPoint = tail().tailAnchorPosition()
-        let bodyNode = BodyNode.node(anchorPoint)
-        scene.addChild(bodyNode)
-        tail().joinToOther(bodyNode, physicsWorld: scene.physicsWorld)
-        self.body.append(bodyNode)
+    func consume(food : Food) {
+        //todo : transform food into segment type & digest
+        let next = BaseWormNode(previous: tail(), textureName: Textures.basic)
+        scene.addChild(next)
+        extend(next)
     }
     
-    func tail() -> Node {
+    func extend(next : WormNode) {
+        if let physics = tail().physics() {
+            var joint = SKPhysicsJointPin.jointWithBodyA(physics, bodyB: next.physics()!, anchor: tail().anchorPosition())
+            scene.physicsWorld.addJoint(joint)
+            self.body.append(next)
+        }
+    }
+    
+    func tail() -> WormNode {
         return self.body.last!
     }
     

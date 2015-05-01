@@ -10,9 +10,14 @@ import Foundation
 import SpriteKit
 
 class WormHeadNode : BaseWormNode {
-    init(position : CGPoint, imageName : ImageName) {
-        super.init(previous: nil, imageName: imageName)
+    init(position : CGPoint, imageName : String) {
+        super.init(previous: nil, textureName: imageName)
         self.position = position
+        if let physics = self.physics() {
+            physics.categoryBitMask = Categories.head
+            physics.collisionBitMask = Categories.food
+            physics.contactTestBitMask = Categories.food
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -10,8 +10,6 @@ import Foundation
 import SpriteKit
 
 class Food : SKSpriteNode {
-    static let collisionCategory = UInt32(4)
-    
     class func morsel(location: CGPoint) -> Food {
         let sprite = Food(imageNamed:"Simple")
         sprite.initialize(location)
@@ -29,7 +27,7 @@ class Food : SKSpriteNode {
             physics.allowsRotation = false
             physics.dynamic = false
             physics.density = 1000000
-            physics.categoryBitMask = Food.collisionCategory
+            physics.categoryBitMask = Categories.food
         }
     }
 }
