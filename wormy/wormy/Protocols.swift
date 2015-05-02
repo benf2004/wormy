@@ -10,6 +10,17 @@ import Foundation
 import SpriteKit
 
 protocol WormNode : AnyObject {
+    var forwardJoint : SKPhysicsJoint? {get set}
+    var rearwardJoint : SKPhysicsJoint? {get set}
+    var trailing : WormNode? {get set}
+    var leading : WormNode? {get set}
+    var position : CGPoint {get set}
+    
+    func attach(next : WormNode)
+    func detachFromLeading()
+    func detachFromTrailing()
+    func isHead() -> Bool
+    func isTail() -> Bool
     func anchorPosition() -> CGPoint
     func decay()
     func activate()
@@ -21,7 +32,6 @@ struct Textures {
     static let head = "eyewormhead"
     static let basic = "body"
     static let blink = "blinkywormhead"
-    
 }
 
 

@@ -9,9 +9,9 @@
 import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate {
-    var worm: Worm!
+    var worm: HeadWorm!
     override func didMoveToView(view: SKView) {
-        worm = Worm(position: CGPoint(x:self.size.width - 50, y:self.size.height / 2), scene: self)
+        worm = HeadWorm(position: CGPoint(x:self.size.width - 50, y:self.size.height / 2), scene: self)
         let food = Food.morsel(self.randomPosition())
         worm.consume(food)
         worm.consume(food)
@@ -32,7 +32,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
-            worm.moveToLocation(location)
+            if let touchedNode = self.nodeAtPoint(location) as? WormNode {
+                touchedNode.activate()
+            }
         }
     }
     
@@ -44,19 +46,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     }
     
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent)  {
-        for touch: AnyObject in touches {
-            let location = touch.locationInNode(self)
-            if let touchedNode = self.nodeAtPoint(location) as? WormNode {
-                worm.divide(touchedNode)
-            }
-        }
     }
    
     override func update(currentTime: CFTimeInterval) {
-    }
-    
-    func handleTap(sender : UITapGestureRecognizer) {
-        
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
