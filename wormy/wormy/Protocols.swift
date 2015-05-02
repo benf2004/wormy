@@ -18,7 +18,7 @@ protocol WormNode : AnyObject {
 }
 
 struct Textures {
-    static let head = "Pointed"
+    static let head = "wormhead"
     static let basic = "Simple"
 }
 
