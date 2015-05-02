@@ -18,9 +18,27 @@ class WormHeadNode : BaseWormNode {
             physics.collisionBitMask = Categories.food
             physics.contactTestBitMask = Categories.food
         }
+        animate()
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    func animate() {
+        let head_run_anim = SKAction.animateWithTextures([
+            SKTexture(imageNamed: Textures.head),
+            SKTexture(imageNamed: Textures.head),
+            SKTexture(imageNamed: Textures.head),
+            SKTexture(imageNamed: Textures.blink),
+         
+            ], timePerFrame: 1)
+        
+        let run = SKAction.repeatActionForever(head_run_anim)
+        
+        self.runAction(run, withKey: "running")
+    }
+    
+    
 }
