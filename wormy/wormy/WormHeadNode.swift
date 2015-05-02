@@ -29,6 +29,8 @@ class WormHeadNode : BaseWormNode {
     func animate() {
         let head_run_anim = SKAction.animateWithTextures([
             SKTexture(imageNamed: Textures.head),
+            SKTexture(imageNamed: Textures.head),
+            SKTexture(imageNamed: Textures.head),
             SKTexture(imageNamed: Textures.blink),
          
             ], timePerFrame: 1)
