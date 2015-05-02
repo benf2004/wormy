@@ -12,21 +12,24 @@ import SpriteKit
 class Worm {
     let collisionCategory = 1
     var head : WormHeadNode? = nil
-    var scene : SKScene
+    var scene : GameScene
     var body = [WormNode]()
     var joints = [SKPhysicsJoint]()
     
-    init(position : CGPoint, scene : SKScene) {
+    init(position : CGPoint, scene : GameScene) {
         self.scene = scene
         self.head = WormHeadNode(position: position, imageName: Textures.head)
         scene.addChild(self.head!)
         self.body.append(self.head!)
     }
     
-    init(body : [WormNode], joints : [SKPhysicsJoint], scene : SKScene) {
+    init(body : [WormNode], joints : [SKPhysicsJoint], scene : GameScene) {
         self.body = body
         self.joints = joints
         self.scene = scene
+        if let head = self.body[0] as? WormHeadNode {
+            self.head = head
+        }
     }
     
     func consume(food : Food) {
@@ -47,8 +50,17 @@ class Worm {
     
     func divide(node : WormNode) {
         if let index = indexOfWormNode(node) {
-            let leftWorm = buildLeftWorm(index)
+            println(index)
             let rightWorm = buildRightWorm(index)
+            let leftWorm = buildLeftWorm(index)
+            
+            if let left = leftWorm {
+                println("loading left")
+                scene.worm = left
+            } else {
+                println("loading right")
+                scene.worm = rightWorm!
+            }
             
             if index > 0 {
               scene.physicsWorld.removeJoint(joints[index-1])
@@ -61,8 +73,6 @@ class Worm {
     }
         
     func buildLeftWorm(index : Int) -> Worm? {
-        println(index)
-        
         var leftWormBody = [WormNode]()
         var leftWormJoints = [SKPhysicsJoint]()
         for i in 0...index {
@@ -109,11 +119,13 @@ class Worm {
     }
     
     func moveToLocation(location: CGPoint) {
-        let dt:CGFloat = 5.0/60.0
-        let dx = location.x-self.head!.position.x
-        let dy = location.y-self.head!.position.y
-        let distance = CGVector(dx: dx, dy: dy)
-        let velocity = CGVector(dx: distance.dx/dt, dy: distance.dy/dt)
-        self.head!.physicsBody!.velocity=velocity
+        if let headToMove = head {
+            let dt:CGFloat = 5.0/60.0
+            let dx = location.x-headToMove.position.x
+            let dy = location.y-headToMove.position.y
+            let distance = CGVector(dx: dx, dy: dy)
+            let velocity = CGVector(dx: distance.dx/dt, dy: distance.dy/dt)
+            headToMove.physicsBody!.velocity=velocity
+        }
     }
 }
