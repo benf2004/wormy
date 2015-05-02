@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-protocol WormNode {
+protocol WormNode : AnyObject {
     func anchorPosition() -> CGPoint
     func decay()
     func activate()
