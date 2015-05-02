@@ -19,7 +19,7 @@ protocol WormNode {
 
 struct Textures {
     static let head = "eyewormhead"
-    static let basic = "Simple"
+    static let basic = "body"
     static let blink = "blinkywormhead"
     
 }
