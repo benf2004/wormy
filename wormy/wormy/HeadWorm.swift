@@ -16,13 +16,19 @@ class HeadWorm : BaseWorm {
         self.animate()
         if let physics = self.physics() {
             physics.categoryBitMask = Categories.head
-            physics.collisionBitMask = Categories.food
-            physics.contactTestBitMask = Categories.food
+            physics.collisionBitMask = Categories.food | Categories.body
+            physics.contactTestBitMask = Categories.food | Categories.body
         }
     }
     
     func consume(food : Food) {
         self.digest(food)
+    }
+    
+    func consume(wormNode : WormNode) {
+        if (wormNode.head() !== self) {
+            attach(wormNode.head())
+        }
     }
     
     func animate() {
@@ -34,15 +40,6 @@ class HeadWorm : BaseWorm {
             ], timePerFrame: 1)
         let run = SKAction.repeatActionForever(head_run_anim)
         self.runAction(run, withKey: "running")
-    }
-    
-    func moveToLocation(location: CGPoint) {
-        let dt:CGFloat = 5.0/60.0
-        let dx = location.x-position.x
-        let dy = location.y-position.y
-        let distance = CGVector(dx: dx, dy: dy)
-        let velocity = CGVector(dx: distance.dx/dt, dy: distance.dy/dt)
-        physics()!.velocity=velocity
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -34,6 +34,7 @@ class BaseWorm : SKSpriteNode, WormNode {
             physics.density = 1000
             physics.linearDamping = 4
             physics.angularDamping = 2
+            physics.categoryBitMask = Categories.body
         }
         
         scene.addChild(self)
@@ -41,16 +42,28 @@ class BaseWorm : SKSpriteNode, WormNode {
     
     func attach(next : WormNode) {
         if (isTail()) {
+            next.affectedByGravity(false)
+            //todo ... how to avoid cross pinning??
             next.position = CGPoint(x: position.x - size.width / 2, y: position.y)
             let joint = SKPhysicsJointPin.jointWithBodyA(self.physics(), bodyB: next.physics(), anchor: anchorPosition())
             rearwardJoint = joint
             next.forwardJoint = joint
             trailing = next
             next.leading = self
+            head().reorderZ()
             scene?.physicsWorld.addJoint(joint)
         } else {
-            next.attach(next)
+            trailing!.attach(next)
         }
+    }
+    
+    func reorderZ() -> CGFloat {
+        if (isTail()) {
+            zPosition = 100
+        } else {
+            zPosition = trailing!.reorderZ()
+        }
+        return zPosition + 1
     }
     
     func detachFromLeading() {
@@ -60,6 +73,7 @@ class BaseWorm : SKSpriteNode, WormNode {
             leading!.rearwardJoint = nil
             leading!.trailing = nil
             leading = nil
+            affectedByGravity(true)
         }
     }
     
@@ -70,6 +84,27 @@ class BaseWorm : SKSpriteNode, WormNode {
             trailing!.forwardJoint = nil
             trailing!.leading = nil
             trailing = nil
+        }
+    }
+    
+    func affectedByGravity(affected : Bool) {
+        self.physics()?.affectedByGravity = affected
+        trailing?.affectedByGravity(affected)
+    }
+    
+    func head() -> WormNode {
+        if (isHead()) {
+            return self
+        } else {
+            return leading!.head()
+        }
+    }
+    
+    func tail() -> WormNode {
+        if (isTail()) {
+            return self
+        } else {
+            return trailing!.tail()
         }
     }
     
@@ -100,6 +135,11 @@ class BaseWorm : SKSpriteNode, WormNode {
     func activate() {
         self.detachFromLeading()
         self.detachFromTrailing()
+        let location = self.position
+        let explosion = BaseExplosion.explosion(location)
+        explosion.targetNode = scene!
+        scene!.addChild(explosion)
+        self.removeFromParent()
     }
     
     func digest(food: Food) {
@@ -116,6 +156,15 @@ class BaseWorm : SKSpriteNode, WormNode {
     
     func physics() -> SKPhysicsBody? {
         return self.physicsBody
+    }
+    
+    func moveToLocation(location: CGPoint) {
+        let dt:CGFloat = 5.0/60.0
+        let dx = location.x-position.x
+        let dy = location.y-position.y
+        let distance = CGVector(dx: dx, dy: dy)
+        let velocity = CGVector(dx: distance.dx/dt, dy: distance.dy/dt)
+        physics()!.velocity=velocity
     }
     
     required init?(coder aDecoder: NSCoder) {

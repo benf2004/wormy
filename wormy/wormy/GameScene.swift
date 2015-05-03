@@ -52,12 +52,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
-        if (contact.bodyA.categoryBitMask == Categories.head) &&
-            (contact.bodyB.categoryBitMask == Categories.food) {
+        if (contact.bodyA.categoryBitMask == Categories.head) {
+            if (contact.bodyB.categoryBitMask == Categories.food) {
                 if let food = contact.bodyB.node as? Food {
                     worm.consume(food)
                     food.removeFromParent()
                 }
+            } else if (contact.bodyB.categoryBitMask == Categories.body) {
+                if let body = contact.bodyB.node as? WormNode {
+                    worm.consume(body)
+                }
+            }
         }
     }
     

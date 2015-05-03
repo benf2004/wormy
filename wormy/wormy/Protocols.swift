@@ -17,10 +17,14 @@ protocol WormNode : AnyObject {
     var position : CGPoint {get set}
     
     func attach(next : WormNode)
+    func reorderZ() -> CGFloat
     func detachFromLeading()
     func detachFromTrailing()
+    func affectedByGravity(Bool)
     func isHead() -> Bool
     func isTail() -> Bool
+    func head() -> WormNode
+    func tail() -> WormNode
     func anchorPosition() -> CGPoint
     func decay()
     func activate()
