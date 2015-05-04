@@ -21,6 +21,10 @@ class HeadWorm : BaseWorm {
         }
     }
     
+    override func activate() {
+        
+    }
+    
     func consume(food : Food) {
         self.digest(food)
     }

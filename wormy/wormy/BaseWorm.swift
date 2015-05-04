@@ -145,7 +145,7 @@ class BaseWorm : SKSpriteNode, WormNode {
     func digest(food: Food) {
         if (trailing == nil) {
             //todo: convert food to worm type
-            let next = BaseWorm(scene: scene!)
+            let next = AnchorWorm(scene: scene!)
             self.attach(next)
         } else {
             //digest animation
