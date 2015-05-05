@@ -154,6 +154,7 @@ class BaseWorm : SKSpriteNode, WormNode {
             }
         } else {
             let grow = SKAction.runBlock {
+            self.size.width = self.normalSize! * 1.5
                 //Ben:  Issue #2 goes here.
             }
             let shrink = SKAction.runBlock {
