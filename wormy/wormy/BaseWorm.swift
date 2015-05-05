@@ -147,7 +147,7 @@ class BaseWorm : SKSpriteNode, WormNode {
             if let anchorFood = food as? AnchorFood {
                 let next = AnchorWorm(scene: scene!)
             } else {
-                let next = BaseWorm(scene: scene!)
+                let next = GravityWorm(scene: scene!)
                 self.attach(next)
             }
         } else {
