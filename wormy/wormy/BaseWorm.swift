@@ -14,6 +14,7 @@ class BaseWorm : SKSpriteNode, WormNode {
     var rearwardJoint : SKPhysicsJoint? = nil
     var trailing : WormNode? = nil
     var leading : WormNode? = nil
+    var normalSize : CGFloat? = nil
     
     let textureName = Textures.basic
     
@@ -23,6 +24,7 @@ class BaseWorm : SKSpriteNode, WormNode {
         
         super.init(texture: texture, color: color, size: texture.size())
         
+        normalSize = self.size.width
         let halfWidth = self.size.width / 2
         let quarterWidth = self.size.width / 4
         
@@ -151,9 +153,19 @@ class BaseWorm : SKSpriteNode, WormNode {
                 self.attach(next)
             }
         } else {
-            //digest animation
-            //then
-            trailing!.digest(food)
+            let grow = SKAction.runBlock {
+                //Ben:  Issue #2 goes here.
+            }
+            let shrink = SKAction.runBlock {
+                self.size.width = self.normalSize!
+                self.size.height = self.normalSize!
+            }
+            let wait = SKAction.waitForDuration(0.05)
+            let digestNext = SKAction.runBlock {
+                self.trailing!.digest(food)
+            }
+            let sequence = SKAction.sequence([grow, wait, shrink, digestNext])
+            self.runAction(sequence)
         }
     }
     
