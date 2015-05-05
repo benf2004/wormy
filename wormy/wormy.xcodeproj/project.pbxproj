@@ -12,8 +12,6 @@
 		256A570E1AF5324800E83694 /* BaseWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A570D1AF5324800E83694 /* BaseWorm.swift */; };
 		256A57101AF53BCE00E83694 /* HeadWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A570F1AF53BCE00E83694 /* HeadWorm.swift */; };
 		256A57121AF5AB4600E83694 /* Explosions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A57111AF5AB4600E83694 /* Explosions.swift */; };
-		256A57151AF5B12400E83694 /* Explosions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 256A57131AF5B12400E83694 /* Explosions.sks */; };
-		256A57161AF5B12400E83694 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 256A57141AF5B12400E83694 /* spark.png */; };
 		25705A761AF07D400018194B /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25705A751AF07D400018194B /* Food.swift */; };
 		B51B7E441AEC2CF7002895B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B7E431AEC2CF7002895B9 /* AppDelegate.swift */; };
 		B51B7E461AEC2CF8002895B9 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B51B7E451AEC2CF8002895B9 /* GameScene.sks */; };
@@ -40,8 +38,6 @@
 		256A570D1AF5324800E83694 /* BaseWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWorm.swift; sourceTree = "<group>"; };
 		256A570F1AF53BCE00E83694 /* HeadWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadWorm.swift; sourceTree = "<group>"; };
 		256A57111AF5AB4600E83694 /* Explosions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Explosions.swift; sourceTree = "<group>"; };
-		256A57131AF5B12400E83694 /* Explosions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosions.sks; sourceTree = "<group>"; };
-		256A57141AF5B12400E83694 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		25705A751AF07D400018194B /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		B51B7E3E1AEC2CF7002895B9 /* wormy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wormy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51B7E421AEC2CF7002895B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -97,8 +93,6 @@
 			children = (
 				256A57091AF3BF0D00E83694 /* Collisions.swift */,
 				256A57111AF5AB4600E83694 /* Explosions.swift */,
-				256A57131AF5B12400E83694 /* Explosions.sks */,
-				256A57141AF5B12400E83694 /* spark.png */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -244,9 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				256A57161AF5B12400E83694 /* spark.png in Resources */,
 				B51B7E4F1AEC2CF8002895B9 /* Images.xcassets in Resources */,
-				256A57151AF5B12400E83694 /* Explosions.sks in Resources */,
 				B51B7E461AEC2CF8002895B9 /* GameScene.sks in Resources */,
 				B51B7E4D1AEC2CF8002895B9 /* Main.storyboard in Resources */,
 			);

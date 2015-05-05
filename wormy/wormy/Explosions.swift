@@ -13,11 +13,11 @@ class BaseExplosion : SKEmitterNode {
     class func explosion(position : CGPoint) -> BaseExplosion {
         let explosion = BaseExplosion.init()
         explosion.position = position
-        explosion.particleTexture = SKTexture(imageNamed: "spark")
-        explosion.particleColor = UIColor.brownColor()
+        explosion.particleTexture = SKTexture(imageNamed: Textures.basic)
+        explosion.particleColor = UIColor.purpleColor()
         explosion.numParticlesToEmit = 100
         explosion.particleBirthRate = 450
-        explosion.particleLifetime = 2
+        explosion.particleLifetime = 1.2
         explosion.emissionAngleRange = 360
         explosion.particleSpeed = 100
         explosion.particleSpeedRange = 50

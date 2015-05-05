@@ -19,14 +19,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         worm.consume(food)
         
         //Food delivery
-        var wait = SKAction.waitForDuration(2.5)
-        var run = SKAction.runBlock {
+        let wait = SKAction.waitForDuration(2.5)
+        let run = SKAction.runBlock {
             let food = Food.morsel(self.randomPosition())
             self.addChild(food)
         }
-        
         self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
         self.physicsWorld.contactDelegate = self
+        
+        //Gravity
+//        let gravityAction = SKAction.runBlock {
+//            let x
+//        }
+        self.physicsWorld.gravity = CGVectorMake(0.0, 4.9)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
