@@ -8,14 +8,8 @@
 
 import Foundation
 
-
 class AnchorWorm : BaseWorm {
     override func activate() {
         physics()?.mass=3009
     }
-    
-    
-    
-    
-    
 }
