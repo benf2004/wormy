@@ -31,7 +31,24 @@ class HeadWorm : BaseWorm {
     
     func consume(wormNode : WormNode) {
         if (wormNode.head() !== self) {
-            attach(wormNode.head())
+            if (!wormNode.isHead()) {
+                consume(wormNode.head())
+            }
+            
+            let next = wormNode.trailing
+            wormNode.detachFromTrailing()
+            
+            if wormNode is AnchorWorm {
+                (wormNode as! AnchorWorm).removeFromParent()
+                consume(AnchorFood.morsel(CGPoint(x: 0, y: 0)))
+            } else {
+                (wormNode as! BaseWorm).removeFromParent()
+                consume(Food.morsel(CGPoint(x: 0, y: 0)))
+            }
+            
+            if (next != nil) {
+                consume(next!)
+            }
         }
     }
     

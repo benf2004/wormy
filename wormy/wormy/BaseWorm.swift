@@ -156,11 +156,11 @@ class BaseWorm : SKSpriteNode, WormNode {
         let wait = SKAction.waitForDuration(0.05)
         let digestNext = SKAction.runBlock {
             if (self.trailing == nil) {
-                if let anchorFood = food as? AnchorFood {
+                if food is AnchorFood {
                     let next = AnchorWorm(scene: self.scene!)
                     self.attach(next)
                 //Ben ... see if you can turn GravityFood into a GravityWorm
-                //Hint:  Use else if ...
+                //Hint:  Use if food is ...
                 } else {
                     let next = BaseWorm(scene: self.scene!)
                     self.attach(next)
