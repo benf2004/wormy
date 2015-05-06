@@ -7,7 +7,12 @@
 //
 
 import Foundation
+import SpriteKit
 
 class AnchorFood : Food {
-    
+    override class func morsel(location: CGPoint) -> Food {
+        let sprite = AnchorFood(imageNamed:Textures.simpleblue)
+        sprite.initialize(location)
+        return sprite
+    }
 }

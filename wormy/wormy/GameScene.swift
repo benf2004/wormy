@@ -21,16 +21,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         //Food delivery
         let wait = SKAction.waitForDuration(2.5)
         let run = SKAction.runBlock {
-            let food = Food.morsel(self.randomPosition())
-            self.addChild(food)
+            let foodType = self.randomInRange(0, hi: 1)
+            var food : Food? = nil
+            switch foodType {
+            case 0:
+                food = Food.morsel(self.randomPosition())
+            case 1:
+                food = AnchorFood.morsel(self.randomPosition())
+            //Ben ... add gravity food here.  Make sure you check the random generator above foodType)
+            default: break
+            }
+            
+            self.addChild(food!)
         }
         self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
         self.physicsWorld.contactDelegate = self
         
-        //Gravity
-//        let gravityAction = SKAction.runBlock {
-//            let x
-//        }
         self.physicsWorld.gravity = CGVectorMake(0.0, 4.9)
     }
     

@@ -11,7 +11,8 @@ import SpriteKit
 
 class Food : SKSpriteNode {
     class func morsel(location: CGPoint) -> Food {
-        let sprite = Food(imageNamed:"body")
+        let sprite = Food(imageNamed:Textures.simple)
+        sprite.name = "Food"
         sprite.initialize(location)
         return sprite
     }

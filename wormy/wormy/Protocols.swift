@@ -32,11 +32,4 @@ protocol WormNode : AnyObject {
     func physics() -> SKPhysicsBody?
 }
 
-struct Textures {
-    static let head = "eyewormhead"
-    static let basic = "body"
-    static let blink = "blinkywormhead"
-    static let simple = "Simple"
-}
-
 

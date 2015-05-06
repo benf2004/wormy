@@ -145,30 +145,32 @@ class BaseWorm : SKSpriteNode, WormNode {
     }
     
     func digest(food: Food) {
-        if (trailing == nil) {
-            if let anchorFood = food as? AnchorFood {
-                let next = AnchorWorm(scene: scene!)
-            } else {
-                let next = GravityWorm(scene: scene!)
-                self.attach(next)
-            }
-        } else {
-            let grow = SKAction.runBlock {
+        let grow = SKAction.runBlock {
             self.size.width = self.normalSize! * 1.3
             self.size.height = self.normalSize! * 1.3
-                //Ben:  Issue #2 goes here.
-            }
-            let shrink = SKAction.runBlock {
-                self.size.width = self.normalSize!
-                self.size.height = self.normalSize!
-            }
-            let wait = SKAction.waitForDuration(0.05)
-            let digestNext = SKAction.runBlock {
+        }
+        let shrink = SKAction.runBlock {
+            self.size.width = self.normalSize!
+            self.size.height = self.normalSize!
+        }
+        let wait = SKAction.waitForDuration(0.05)
+        let digestNext = SKAction.runBlock {
+            if (self.trailing == nil) {
+                if let anchorFood = food as? AnchorFood {
+                    let next = AnchorWorm(scene: self.scene!)
+                    self.attach(next)
+                //Ben ... see if you can turn GravityFood into a GravityWorm
+                //Hint:  Use else if ...
+                } else {
+                    let next = BaseWorm(scene: self.scene!)
+                    self.attach(next)
+                }
+            } else {
                 self.trailing!.digest(food)
             }
-            let sequence = SKAction.sequence([grow, wait, shrink, digestNext])
-            self.runAction(sequence)
         }
+        let sequence = SKAction.sequence([grow, wait, shrink, digestNext])
+        self.runAction(sequence)
     }
     
     func physics() -> SKPhysicsBody? {
