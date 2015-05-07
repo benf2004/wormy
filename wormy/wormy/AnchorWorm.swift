@@ -10,6 +10,8 @@ import Foundation
 
 class AnchorWorm : BaseWorm {
     override func activate() {
-        physics()?.mass=3009
+        if (hasBeenConsumed) {
+            physics()?.mass=3009
+        }
     }
 }

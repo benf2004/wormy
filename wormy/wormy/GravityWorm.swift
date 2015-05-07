@@ -11,8 +11,8 @@ import Foundation
 
 class GravityWorm : BaseWorm{
     override func activate(){
-        physics()?.affectedByGravity = true
-        
-        
+        if (hasBeenConsumed) {
+            physics()?.affectedByGravity = true
+        }
     }
 }

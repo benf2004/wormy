@@ -16,6 +16,7 @@ class BaseWorm : SKSpriteNode {
     var leading : BaseWorm? = nil
     var normalSize : CGFloat? = nil
     var isDigesting : Bool = false
+    var hasBeenConsumed : Bool = false
     
     convenience init(textureName : String) {
         self.init(textureName: textureName, position: CGPoint(x: 0,y: 0))
@@ -47,6 +48,7 @@ class BaseWorm : SKSpriteNode {
     
     func attach(next : BaseWorm) {
         if (isTail()) {
+            next.hasBeenConsumed = true
             self.scene!.addChild(next)
             next.affectedByGravity(false)
             next.position = CGPoint(x: position.x - size.width / 2, y: position.y)
@@ -78,7 +80,7 @@ class BaseWorm : SKSpriteNode {
             leading!.rearwardJoint = nil
             leading!.trailing = nil
             leading = nil
-            //affectedByGravity(true)
+            affectedByGravity(true)
         }
     }
     
@@ -138,13 +140,15 @@ class BaseWorm : SKSpriteNode {
     }
     
     func activate() {
-        self.detachFromLeading()
-        self.detachFromTrailing()
-        let location = self.position
-        let explosion = BaseExplosion.explosion(location)
-        explosion.targetNode = scene!
-        scene!.addChild(explosion)
-        self.removeFromParent()
+        if (hasBeenConsumed) {
+            self.detachFromLeading()
+            self.detachFromTrailing()
+            let location = self.position
+            let explosion = BaseExplosion.explosion(location)
+            explosion.targetNode = scene!
+            scene!.addChild(explosion)
+            self.removeFromParent()
+        }
     }
     
     func digest(food: BaseWorm) {

@@ -20,10 +20,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         //Food delivery
         let wait = SKAction.waitForDuration(2.5)
         let run = SKAction.runBlock {
-            let foodType = self.randomInRange(0, hi: 0)
+            let foodType = self.randomInRange(0, hi: 2)
             var food : BaseWorm? = nil
             switch foodType {
-            case 0: food = BaseWorm(textureName: Textures.simple, position: self.randomPosition())
+                case 0: food = BaseWorm(textureName: Textures.simple, position: self.randomPosition())
+                case 1: food = AnchorWorm(textureName: Textures.simpleblue, position: self.randomPosition())
+                case 2: food = GravityWorm(textureName: Textures.simplered, position: self.randomPosition())
             default: break
             }
             self.addChild(food!)
@@ -31,7 +33,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
         self.physicsWorld.contactDelegate = self
         
-        self.physicsWorld.gravity = CGVectorMake(0.0, 4.9)
+        self.physicsWorld.gravity = CGVectorMake(0.0, 2.5)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {

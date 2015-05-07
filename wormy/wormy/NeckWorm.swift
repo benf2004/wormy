@@ -14,7 +14,6 @@ class NeckWorm : BaseWorm {
     
     init() {
         super.init(textureName: Textures.simpleblack, position : CGPoint(x: 0, y: 0))
-//        physics()?.categoryBitMask = Categories.neck
     }
     
     override func activate() {
