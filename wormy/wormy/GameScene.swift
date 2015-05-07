@@ -11,29 +11,21 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate {
     var worm: HeadWorm!
     override func didMoveToView(view: SKView) {
-        worm = HeadWorm(position: CGPoint(x:self.size.width - 50, y:self.size.height / 2), scene: self)
-        let food = Food.morsel(self.randomPosition())
-        worm.consume(food)
-        worm.consume(food)
-        worm.consume(food)
-        worm.consume(food)
+        worm = HeadWorm(position: CGPoint(x:self.size.width - 50, y:self.size.height / 2))
+        self.addChild(worm)
+        worm.consume(NeckWorm())
+        worm.consume(NeckWorm())
+        worm.consume(NeckWorm())
         
         //Food delivery
         let wait = SKAction.waitForDuration(2.5)
         let run = SKAction.runBlock {
-            let foodType = self.randomInRange(0, hi: 2)
-            var food : Food? = nil
+            let foodType = self.randomInRange(0, hi: 0)
+            var food : BaseWorm? = nil
             switch foodType {
-            case 0:
-                food = Food.morsel(self.randomPosition())
-            case 1:
-                food = AnchorFood.morsel(self.randomPosition())
-            //Ben ... add gravity food here.  Make sure you check the random generator above foodType)
-            case 2:
-                food = GravityFood.morsel(self.randomPosition())
+            case 0: food = BaseWorm(textureName: Textures.simple, position: self.randomPosition())
             default: break
             }
-            
             self.addChild(food!)
         }
         self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
@@ -45,7 +37,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
-            if let touchedNode = self.nodeAtPoint(location) as? WormNode {
+            if let touchedNode = self.nodeAtPoint(location) as? BaseWorm {
                 touchedNode.activate()
             }
         }
@@ -66,13 +58,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
     
     func didBeginContact(contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == Categories.head) {
-            if (contact.bodyB.categoryBitMask == Categories.food) {
-                if let food = contact.bodyB.node as? Food {
-                    worm.consume(food)
-                    food.removeFromParent()
-                }
-            } else if (contact.bodyB.categoryBitMask == Categories.body) {
-                if let body = contact.bodyB.node as? WormNode {
+            if (contact.bodyB.categoryBitMask == Categories.body) {
+                if let body = contact.bodyB.node as? BaseWorm {
                     worm.consume(body)
                 }
             }

@@ -10,14 +10,13 @@ import Foundation
 import SpriteKit
 
 class HeadWorm : BaseWorm {
-    init(position : CGPoint, scene : SKScene) {
-        super.init(scene: scene, textureName: Textures.head)
-        self.position = position
+    init(position : CGPoint) {
+        super.init(textureName: Textures.head, position: position)
         self.animate()
         if let physics = self.physics() {
             physics.categoryBitMask = Categories.head
-            physics.collisionBitMask = Categories.food | Categories.body
-            physics.contactTestBitMask = Categories.food | Categories.body
+            physics.collisionBitMask = Categories.body
+            physics.contactTestBitMask = Categories.body
         }
     }
     
@@ -25,11 +24,7 @@ class HeadWorm : BaseWorm {
         
     }
     
-    func consume(food : Food) {
-        self.digest(food)
-    }
-    
-    func consume(wormNode : WormNode) {
+    func consume(wormNode : BaseWorm) {
         if (wormNode.head() !== self && !self.isDigesting) {
             let prev = wormNode.leading
             let next = wormNode.trailing
@@ -37,15 +32,8 @@ class HeadWorm : BaseWorm {
             wormNode.detachFromTrailing()
             wormNode.detachFromLeading()
             
-            (wormNode as! BaseWorm).removeFromParent()
-            
-            if wormNode is AnchorWorm {
-                consume(AnchorFood.morsel(CGPoint(x: 0, y: 0)))
-            } else if wormNode is GravityWorm {
-                consume(GravityFood.morsel(CGPoint(x: 0, y: 0)))
-            } else {
-                consume(Food.morsel(CGPoint(x: 0, y: 0)))
-            }
+            wormNode.removeFromParent()
+            self.digest(wormNode)
             
             next?.moveToLocation(self.position)
             prev?.moveToLocation(self.position)

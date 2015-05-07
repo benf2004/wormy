@@ -8,13 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		252C25801AF9AA7D004B97C7 /* Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C257F1AF9AA7D004B97C7 /* Textures.swift */; };
-		256A57021AF3A9B700E83694 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A56FF1AF3A9B700E83694 /* Protocols.swift */; };
 		256A570A1AF3BF0D00E83694 /* Collisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A57091AF3BF0D00E83694 /* Collisions.swift */; };
 		256A570E1AF5324800E83694 /* BaseWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A570D1AF5324800E83694 /* BaseWorm.swift */; };
 		256A57101AF53BCE00E83694 /* HeadWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A570F1AF53BCE00E83694 /* HeadWorm.swift */; };
 		256A57121AF5AB4600E83694 /* Explosions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A57111AF5AB4600E83694 /* Explosions.swift */; };
-		25705A761AF07D400018194B /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25705A751AF07D400018194B /* Food.swift */; };
-		25A1483C1AF868FD006F7898 /* AnchorFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A1483B1AF868FD006F7898 /* AnchorFood.swift */; };
 		25A1483E1AF86A41006F7898 /* NeckWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A1483D1AF86A41006F7898 /* NeckWorm.swift */; };
 		B51B7E441AEC2CF7002895B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B7E431AEC2CF7002895B9 /* AppDelegate.swift */; };
 		B51B7E461AEC2CF8002895B9 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B51B7E451AEC2CF8002895B9 /* GameScene.sks */; };
@@ -25,7 +22,6 @@
 		B51B7E5E1AEC2CF8002895B9 /* wormyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B7E5D1AEC2CF8002895B9 /* wormyTests.swift */; };
 		B544B9211AF7A47700E8D0C3 /* AnchorWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B9201AF7A47700E8D0C3 /* AnchorWorm.swift */; };
 		B5627B7A1AF8E9B2002583FE /* GravityWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5627B791AF8E9B2002583FE /* GravityWorm.swift */; };
-		B5EB01C51AFA40FA00B823AF /* GravityFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB01C41AFA40FA00B823AF /* GravityFood.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,13 +36,10 @@
 
 /* Begin PBXFileReference section */
 		252C257F1AF9AA7D004B97C7 /* Textures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Textures.swift; sourceTree = "<group>"; };
-		256A56FF1AF3A9B700E83694 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		256A57091AF3BF0D00E83694 /* Collisions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collisions.swift; sourceTree = "<group>"; };
 		256A570D1AF5324800E83694 /* BaseWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWorm.swift; sourceTree = "<group>"; };
 		256A570F1AF53BCE00E83694 /* HeadWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadWorm.swift; sourceTree = "<group>"; };
 		256A57111AF5AB4600E83694 /* Explosions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Explosions.swift; sourceTree = "<group>"; };
-		25705A751AF07D400018194B /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
-		25A1483B1AF868FD006F7898 /* AnchorFood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorFood.swift; sourceTree = "<group>"; };
 		25A1483D1AF86A41006F7898 /* NeckWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeckWorm.swift; sourceTree = "<group>"; };
 		B51B7E3E1AEC2CF7002895B9 /* wormy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wormy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51B7E421AEC2CF7002895B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,7 +54,6 @@
 		B51B7E5D1AEC2CF8002895B9 /* wormyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = wormyTests.swift; path = wormyTests/wormyTests.swift; sourceTree = SOURCE_ROOT; };
 		B544B9201AF7A47700E8D0C3 /* AnchorWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorWorm.swift; sourceTree = "<group>"; };
 		B5627B791AF8E9B2002583FE /* GravityWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GravityWorm.swift; sourceTree = "<group>"; };
-		B5EB01C41AFA40FA00B823AF /* GravityFood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GravityFood.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +77,6 @@
 		256A57041AF3A9C400E83694 /* Worm */ = {
 			isa = PBXGroup;
 			children = (
-				256A56FF1AF3A9B700E83694 /* Protocols.swift */,
 				256A570D1AF5324800E83694 /* BaseWorm.swift */,
 				256A570F1AF53BCE00E83694 /* HeadWorm.swift */,
 				B544B9201AF7A47700E8D0C3 /* AnchorWorm.swift */,
@@ -98,9 +89,6 @@
 		256A57071AF3BC4B00E83694 /* Food */ = {
 			isa = PBXGroup;
 			children = (
-				25705A751AF07D400018194B /* Food.swift */,
-				25A1483B1AF868FD006F7898 /* AnchorFood.swift */,
-				B5EB01C41AFA40FA00B823AF /* GravityFood.swift */,
 			);
 			name = Food;
 			sourceTree = "<group>";
@@ -276,19 +264,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25A1483C1AF868FD006F7898 /* AnchorFood.swift in Sources */,
 				B51B7E481AEC2CF8002895B9 /* GameScene.swift in Sources */,
 				256A57101AF53BCE00E83694 /* HeadWorm.swift in Sources */,
 				B51B7E4A1AEC2CF8002895B9 /* GameViewController.swift in Sources */,
 				B5627B7A1AF8E9B2002583FE /* GravityWorm.swift in Sources */,
-				B5EB01C51AFA40FA00B823AF /* GravityFood.swift in Sources */,
 				B51B7E441AEC2CF7002895B9 /* AppDelegate.swift in Sources */,
 				256A57121AF5AB4600E83694 /* Explosions.swift in Sources */,
 				252C25801AF9AA7D004B97C7 /* Textures.swift in Sources */,
 				B544B9211AF7A47700E8D0C3 /* AnchorWorm.swift in Sources */,
 				25A1483E1AF86A41006F7898 /* NeckWorm.swift in Sources */,
-				256A57021AF3A9B700E83694 /* Protocols.swift in Sources */,
-				25705A761AF07D400018194B /* Food.swift in Sources */,
 				256A570E1AF5324800E83694 /* BaseWorm.swift in Sources */,
 				256A570A1AF3BF0D00E83694 /* Collisions.swift in Sources */,
 			);

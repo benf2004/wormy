@@ -12,9 +12,9 @@ import SpriteKit
 //The neck of the worm cannot be activated or decayed.
 class NeckWorm : BaseWorm {
     
-    override init(scene: SKScene, textureName: String) {
-        super.init(scene: scene, textureName: textureName)
-        physics()?.categoryBitMask = 0 //no collisions with neck
+    init() {
+        super.init(textureName: Textures.simpleblack, position : CGPoint(x: 0, y: 0))
+//        physics()?.categoryBitMask = Categories.neck
     }
     
     override func activate() {

@@ -17,7 +17,6 @@ struct Textures {
     static let simpleblue = "simpleblue"
     static let simplegreen = "simplegreen"
     static let simplered = "simplered"
-
-
-
+    static let pointed = "Pointed"
+    static let simpleblack = "simpleblack"
 }

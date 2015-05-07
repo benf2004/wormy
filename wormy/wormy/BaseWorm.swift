@@ -9,15 +9,19 @@
 import Foundation
 import SpriteKit
 
-class BaseWorm : SKSpriteNode, WormNode {
+class BaseWorm : SKSpriteNode {
     var forwardJoint : SKPhysicsJoint? = nil
     var rearwardJoint : SKPhysicsJoint? = nil
-    var trailing : WormNode? = nil
-    var leading : WormNode? = nil
+    var trailing : BaseWorm? = nil
+    var leading : BaseWorm? = nil
     var normalSize : CGFloat? = nil
     var isDigesting : Bool = false
     
-    init(scene : SKScene, textureName : String) {
+    convenience init(textureName : String) {
+        self.init(textureName: textureName, position: CGPoint(x: 0,y: 0))
+    }
+    
+    init(textureName : String, position: CGPoint) {
         let texture = SKTexture(imageNamed: textureName)
         let color = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         
@@ -38,11 +42,12 @@ class BaseWorm : SKSpriteNode, WormNode {
             physics.categoryBitMask = Categories.body
         }
         
-        scene.addChild(self)
+        self.position = position
     }
     
-    func attach(next : WormNode) {
+    func attach(next : BaseWorm) {
         if (isTail()) {
+            self.scene!.addChild(next)
             next.affectedByGravity(false)
             next.position = CGPoint(x: position.x - size.width / 2, y: position.y)
             let joint = SKPhysicsJointPin.jointWithBodyA(self.physics(), bodyB: next.physics(), anchor: anchorPosition())
@@ -51,7 +56,7 @@ class BaseWorm : SKSpriteNode, WormNode {
             trailing = next
             next.leading = self
             head().reorderZ()
-            scene?.physicsWorld.addJoint(joint)
+            self.scene!.physicsWorld.addJoint(joint)
         } else {
             trailing!.attach(next)
         }
@@ -92,7 +97,7 @@ class BaseWorm : SKSpriteNode, WormNode {
         trailing?.affectedByGravity(affected)
     }
     
-    func head() -> WormNode {
+    func head() -> BaseWorm {
         if (isHead()) {
             return self
         } else {
@@ -100,7 +105,7 @@ class BaseWorm : SKSpriteNode, WormNode {
         }
     }
     
-    func tail() -> WormNode {
+    func tail() -> BaseWorm {
         if (isTail()) {
             return self
         } else {
@@ -142,7 +147,7 @@ class BaseWorm : SKSpriteNode, WormNode {
         self.removeFromParent()
     }
     
-    func digest(food: Food) {
+    func digest(food: BaseWorm) {
         let grow = SKAction.runBlock {
             self.size.width = self.normalSize! * 1.3
             self.size.height = self.normalSize! * 1.3
@@ -156,16 +161,8 @@ class BaseWorm : SKSpriteNode, WormNode {
         }
         let digestNext = SKAction.runBlock {
             if (self.trailing == nil) {
-                if food is AnchorFood {
-                    let next = AnchorWorm(scene: self.scene!, textureName: Textures.simpleblue)
-                    self.attach(next)
-                } else if food is GravityFood {
-                    let next = GravityWorm (scene: self.scene!, textureName: Textures.simplered)
-                    self.attach (next)
-                } else {
-                    let next = BaseWorm(scene: self.scene!, textureName: Textures.simple)
-                    self.attach(next)
-                }
+                self.attach(food)
+                self.hidden = false
             } else {
                 self.trailing!.digest(food)
             }

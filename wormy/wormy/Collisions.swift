@@ -10,6 +10,6 @@ import Foundation
 
 struct Categories {
     static let head = UInt32(1)
-    static let food = UInt32(2)
+    static let neck = UInt32(2)
     static let body = UInt32(4)
 }
