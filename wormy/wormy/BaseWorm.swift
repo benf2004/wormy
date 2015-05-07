@@ -43,7 +43,6 @@ class BaseWorm : SKSpriteNode, WormNode {
     func attach(next : WormNode) {
         if (isTail()) {
             next.affectedByGravity(false)
-            //todo ... how to avoid cross pinning??
             next.position = CGPoint(x: position.x - size.width / 2, y: position.y)
             let joint = SKPhysicsJointPin.jointWithBodyA(self.physics(), bodyB: next.physics(), anchor: anchorPosition())
             rearwardJoint = joint
