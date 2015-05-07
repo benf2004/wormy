@@ -15,6 +15,7 @@ class BaseWorm : SKSpriteNode, WormNode {
     var trailing : WormNode? = nil
     var leading : WormNode? = nil
     var normalSize : CGFloat? = nil
+    var isDigesting : Bool = false
     
     init(scene : SKScene, textureName : String) {
         let texture = SKTexture(imageNamed: textureName)
@@ -145,12 +146,14 @@ class BaseWorm : SKSpriteNode, WormNode {
         let grow = SKAction.runBlock {
             self.size.width = self.normalSize! * 1.3
             self.size.height = self.normalSize! * 1.3
+            self.isDigesting = true
         }
+        let wait = SKAction.waitForDuration(0.05)
         let shrink = SKAction.runBlock {
             self.size.width = self.normalSize!
             self.size.height = self.normalSize!
+            self.isDigesting = false
         }
-        let wait = SKAction.waitForDuration(0.05)
         let digestNext = SKAction.runBlock {
             if (self.trailing == nil) {
                 if food is AnchorFood {
