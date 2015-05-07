@@ -11,7 +11,7 @@ import SpriteKit
 
 class HeadWorm : BaseWorm {
     init(position : CGPoint, scene : SKScene) {
-        super.init(scene: scene)
+        super.init(scene: scene, textureName: Textures.head)
         self.position = position
         self.animate()
         if let physics = self.physics() {
@@ -31,24 +31,24 @@ class HeadWorm : BaseWorm {
     
     func consume(wormNode : WormNode) {
         if (wormNode.head() !== self) {
-            if (!wormNode.isHead()) {
-                consume(wormNode.head())
-            }
-            
+            let prev = wormNode.leading
             let next = wormNode.trailing
+            
             wormNode.detachFromTrailing()
+            wormNode.detachFromLeading()
+            
+            (wormNode as! BaseWorm).removeFromParent()
             
             if wormNode is AnchorWorm {
-                (wormNode as! AnchorWorm).removeFromParent()
                 consume(AnchorFood.morsel(CGPoint(x: 0, y: 0)))
+            } else if wormNode is GravityWorm {
+                consume(GravityFood.morsel(CGPoint(x: 0, y: 0)))
             } else {
-                (wormNode as! BaseWorm).removeFromParent()
                 consume(Food.morsel(CGPoint(x: 0, y: 0)))
             }
             
-            if (next != nil) {
-                consume(next!)
-            }
+            next?.moveToLocation(self.position)
+            prev?.moveToLocation(self.position)
         }
     }
     

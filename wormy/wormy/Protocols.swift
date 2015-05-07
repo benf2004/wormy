@@ -30,6 +30,7 @@ protocol WormNode : AnyObject {
     func activate()
     func digest(Food)
     func physics() -> SKPhysicsBody?
+    func moveToLocation(location: CGPoint)
 }
 
 

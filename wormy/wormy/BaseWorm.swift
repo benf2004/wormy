@@ -16,9 +16,7 @@ class BaseWorm : SKSpriteNode, WormNode {
     var leading : WormNode? = nil
     var normalSize : CGFloat? = nil
     
-    let textureName = Textures.basic
-    
-    init(scene : SKScene) {
+    init(scene : SKScene, textureName : String) {
         let texture = SKTexture(imageNamed: textureName)
         let color = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         
@@ -75,7 +73,7 @@ class BaseWorm : SKSpriteNode, WormNode {
             leading!.rearwardJoint = nil
             leading!.trailing = nil
             leading = nil
-            affectedByGravity(true)
+            //affectedByGravity(true)
         }
     }
     
@@ -157,20 +155,17 @@ class BaseWorm : SKSpriteNode, WormNode {
         let digestNext = SKAction.runBlock {
             if (self.trailing == nil) {
                 if food is AnchorFood {
-                    let next = AnchorWorm(scene: self.scene!)
+                    let next = AnchorWorm(scene: self.scene!, textureName: Textures.simpleblue)
                     self.attach(next)
-                //Ben ... see if you can turn GravityFood into a GravityWorm
-                //Hint:  Use if food is ...
+                } else if food is GravityFood {
+                    let next = GravityWorm (scene: self.scene!, textureName: Textures.simplered)
+                    self.attach (next)
                 } else {
-                    let next = BaseWorm(scene: self.scene!)
+                    let next = BaseWorm(scene: self.scene!, textureName: Textures.simple)
                     self.attach(next)
-            
-                
-                
                 }
             } else {
                 self.trailing!.digest(food)
-                
             }
         }
         let sequence = SKAction.sequence([grow, wait, shrink, digestNext])
