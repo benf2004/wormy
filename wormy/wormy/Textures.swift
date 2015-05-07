@@ -16,4 +16,8 @@ struct Textures {
     static let simple = "Simple"
     static let simpleblue = "simpleblue"
     static let simplegreen = "simplegreen"
+    static let simplered = "simplered"
+
+
+
 }

@@ -164,9 +164,13 @@ class BaseWorm : SKSpriteNode, WormNode {
                 } else {
                     let next = BaseWorm(scene: self.scene!)
                     self.attach(next)
+            
+                
+                
                 }
             } else {
                 self.trailing!.digest(food)
+                
             }
         }
         let sequence = SKAction.sequence([grow, wait, shrink, digestNext])
