@@ -62,6 +62,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         let wait = SKAction.waitForDuration(frequency)
         let run = SKAction.runBlock {
             var food = BaseWorm(textureName: Textures.simple, position: self.randomPosition())
+            food.sheild(true)
             self.addChild(food)
         }
         self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
