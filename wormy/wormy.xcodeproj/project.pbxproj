@@ -22,6 +22,7 @@
 		B51B7E4F1AEC2CF8002895B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B51B7E4E1AEC2CF8002895B9 /* Images.xcassets */; };
 		B51B7E5E1AEC2CF8002895B9 /* wormyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B7E5D1AEC2CF8002895B9 /* wormyTests.swift */; };
 		B544B9211AF7A47700E8D0C3 /* AnchorWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B9201AF7A47700E8D0C3 /* AnchorWorm.swift */; };
+		B5B401A11AFCE8700089FCF0 /* SheildWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B401A01AFCE8700089FCF0 /* SheildWorm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		B51B7E5C1AEC2CF8002895B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B51B7E5D1AEC2CF8002895B9 /* wormyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = wormyTests.swift; path = wormyTests/wormyTests.swift; sourceTree = SOURCE_ROOT; };
 		B544B9201AF7A47700E8D0C3 /* AnchorWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorWorm.swift; sourceTree = "<group>"; };
+		B5B401A01AFCE8700089FCF0 /* SheildWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheildWorm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		256A57041AF3A9C400E83694 /* Worm */ = {
 			isa = PBXGroup;
 			children = (
+				B5B401A01AFCE8700089FCF0 /* SheildWorm.swift */,
 				2567B3981AFCDD2600CACB8F /* GravityWorm.swift */,
 				256A570D1AF5324800E83694 /* BaseWorm.swift */,
 				256A570F1AF53BCE00E83694 /* HeadWorm.swift */,
@@ -273,6 +276,7 @@
 				252D4BD01AFC24CE005DC561 /* BaseScene.swift in Sources */,
 				B544B9211AF7A47700E8D0C3 /* AnchorWorm.swift in Sources */,
 				25A1483E1AF86A41006F7898 /* NeckWorm.swift in Sources */,
+				B5B401A11AFCE8700089FCF0 /* SheildWorm.swift in Sources */,
 				256A570E1AF5324800E83694 /* BaseWorm.swift in Sources */,
 				256A570A1AF3BF0D00E83694 /* Collisions.swift in Sources */,
 			);

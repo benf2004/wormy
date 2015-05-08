@@ -148,7 +148,7 @@ class BaseWorm : SKSpriteNode {
     }
     
     func activate() {
-        if (hasBeenConsumed) {
+        if (!sheilded) {
             self.detachFromLeading()
             self.detachFromTrailing()
             let location = self.position
@@ -174,7 +174,6 @@ class BaseWorm : SKSpriteNode {
         let digestNext = SKAction.runBlock {
             if (self.trailing == nil) {
                 self.attach(food)
-                self.hidden = false
             } else {
                 self.trailing!.digest(food)
             }

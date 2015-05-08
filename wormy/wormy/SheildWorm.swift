@@ -9,7 +9,8 @@
 import Foundation
 class ShieldWorm : BaseWorm{
     override func activate(){
+        if !sheilded {
         head().sheild(true)
        
     
-}   }
+        }   }   }
