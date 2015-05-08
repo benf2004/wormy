@@ -1,39 +1,17 @@
 //
-//  GameScene.swift
+//  BaseScene.swift
 //  wormy
 //
-//  Created by Ben Finch on 4/25/15.
+//  Created by Finch Gregory on 5/7/15.
 //  Copyright (c) 2015 FInch Family. All rights reserved.
 //
 
 import SpriteKit
 
-class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate {
+class BaseScene: SKScene, SKPhysicsContactDelegate {
     var worm: HeadWorm!
     override func didMoveToView(view: SKView) {
-        worm = HeadWorm(position: CGPoint(x:self.size.width - 50, y:self.size.height / 2))
-        self.addChild(worm)
-        worm.consume(NeckWorm())
-        worm.consume(NeckWorm())
-        worm.consume(NeckWorm())
-        
-        //Food delivery
-        let wait = SKAction.waitForDuration(2.5)
-        let run = SKAction.runBlock {
-            let foodType = self.randomInRange(0, hi: 2)
-            var food : BaseWorm? = nil
-            switch foodType {
-                case 0: food = BaseWorm(textureName: Textures.simple, position: self.randomPosition())
-                case 1: food = AnchorWorm(textureName: Textures.simpleblue, position: self.randomPosition())
-                case 2: food = GravityWorm(textureName: Textures.simplered, position: self.randomPosition())
-            default: break
-            }
-            self.addChild(food!)
-        }
-        self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
-        self.physicsWorld.contactDelegate = self
-        
-        self.physicsWorld.gravity = CGVectorMake(0.0, 2.5)
+        initialize()
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -52,12 +30,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
         }
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent)  {
-    }
-   
-    override func update(currentTime: CFTimeInterval) {
-    }
-    
     func didBeginContact(contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == Categories.head) {
             if (contact.bodyB.categoryBitMask == Categories.body) {
@@ -66,6 +38,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate, UIGestureRecognizerDelegate 
                 }
             }
         }
+    }
+    
+    func initialize() {
+        placeWorm()
+        deliverFood(2)
+        self.physicsWorld.contactDelegate = self
+    }
+    
+    func placeWorm() {
+        if let wormStub = self.childNodeWithName("Worm") {
+            let initialPosition = wormStub.position
+            wormStub.removeFromParent()
+            worm = HeadWorm(position: initialPosition)
+            self.addChild(worm)
+            worm.consume(NeckWorm())
+            worm.consume(NeckWorm())
+            worm.consume(NeckWorm())
+        }
+    }
+    
+    func deliverFood(frequency : NSTimeInterval) {
+        let wait = SKAction.waitForDuration(frequency)
+        let run = SKAction.runBlock {
+            var food : BaseWorm? = BaseWorm(textureName: Textures.simple, position: self.randomPosition())
+            self.addChild(food!)
+        }
+        self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
     }
     
     func randomInRange(lo: Int, hi : Int) -> Int {

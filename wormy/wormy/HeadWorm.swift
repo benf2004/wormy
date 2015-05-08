@@ -25,7 +25,7 @@ class HeadWorm : BaseWorm {
     }
     
     func consume(wormNode : BaseWorm) {
-        if (wormNode.head() !== self && !self.isDigesting) {
+        if (wormNode.head() !== self) {
             let prev = wormNode.leading
             let next = wormNode.trailing
             
