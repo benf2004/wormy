@@ -24,7 +24,8 @@
 		B51B7E4F1AEC2CF8002895B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B51B7E4E1AEC2CF8002895B9 /* Images.xcassets */; };
 		B51B7E5E1AEC2CF8002895B9 /* wormyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B7E5D1AEC2CF8002895B9 /* wormyTests.swift */; };
 		B544B9211AF7A47700E8D0C3 /* AnchorWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B9201AF7A47700E8D0C3 /* AnchorWorm.swift */; };
-		B5627B7A1AF8E9B2002583FE /* GravityWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5627B791AF8E9B2002583FE /* GravityWorm.swift */; };
+		B5A1C60E1AFB95C400719034 /* SheildWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A1C60D1AFB95C400719034 /* SheildWorm.swift */; };
+		B5A1C6101AFB9C5600719034 /* GravityWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A1C60F1AFB9C5600719034 /* GravityWorm.swift */; };
 		B5EB01C51AFA40FA00B823AF /* GravityFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EB01C41AFA40FA00B823AF /* GravityFood.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +61,8 @@
 		B51B7E5C1AEC2CF8002895B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B51B7E5D1AEC2CF8002895B9 /* wormyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = wormyTests.swift; path = wormyTests/wormyTests.swift; sourceTree = SOURCE_ROOT; };
 		B544B9201AF7A47700E8D0C3 /* AnchorWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorWorm.swift; sourceTree = "<group>"; };
-		B5627B791AF8E9B2002583FE /* GravityWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GravityWorm.swift; sourceTree = "<group>"; };
+		B5A1C60D1AFB95C400719034 /* SheildWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheildWorm.swift; sourceTree = "<group>"; };
+		B5A1C60F1AFB9C5600719034 /* GravityWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GravityWorm.swift; sourceTree = "<group>"; };
 		B5EB01C41AFA40FA00B823AF /* GravityFood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GravityFood.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,7 +92,8 @@
 				256A570F1AF53BCE00E83694 /* HeadWorm.swift */,
 				B544B9201AF7A47700E8D0C3 /* AnchorWorm.swift */,
 				25A1483D1AF86A41006F7898 /* NeckWorm.swift */,
-				B5627B791AF8E9B2002583FE /* GravityWorm.swift */,
+				B5A1C60D1AFB95C400719034 /* SheildWorm.swift */,
+				B5A1C60F1AFB9C5600719034 /* GravityWorm.swift */,
 			);
 			name = Worm;
 			sourceTree = "<group>";
@@ -139,10 +142,10 @@
 				256A57081AF3BEF800E83694 /* Game */,
 				256A57071AF3BC4B00E83694 /* Food */,
 				256A57041AF3A9C400E83694 /* Worm */,
-				B51B7E431AEC2CF7002895B9 /* AppDelegate.swift */,
 				B51B7E451AEC2CF8002895B9 /* GameScene.sks */,
 				B51B7E471AEC2CF8002895B9 /* GameScene.swift */,
 				B51B7E491AEC2CF8002895B9 /* GameViewController.swift */,
+				B51B7E431AEC2CF7002895B9 /* AppDelegate.swift */,
 				B51B7E4B1AEC2CF8002895B9 /* Main.storyboard */,
 				B51B7E4E1AEC2CF8002895B9 /* Images.xcassets */,
 				B51B7E411AEC2CF7002895B9 /* Supporting Files */,
@@ -280,11 +283,12 @@
 				B51B7E481AEC2CF8002895B9 /* GameScene.swift in Sources */,
 				256A57101AF53BCE00E83694 /* HeadWorm.swift in Sources */,
 				B51B7E4A1AEC2CF8002895B9 /* GameViewController.swift in Sources */,
-				B5627B7A1AF8E9B2002583FE /* GravityWorm.swift in Sources */,
 				B5EB01C51AFA40FA00B823AF /* GravityFood.swift in Sources */,
 				B51B7E441AEC2CF7002895B9 /* AppDelegate.swift in Sources */,
 				256A57121AF5AB4600E83694 /* Explosions.swift in Sources */,
+				B5A1C6101AFB9C5600719034 /* GravityWorm.swift in Sources */,
 				252C25801AF9AA7D004B97C7 /* Textures.swift in Sources */,
+				B5A1C60E1AFB95C400719034 /* SheildWorm.swift in Sources */,
 				B544B9211AF7A47700E8D0C3 /* AnchorWorm.swift in Sources */,
 				25A1483E1AF86A41006F7898 /* NeckWorm.swift in Sources */,
 				256A57021AF3A9B700E83694 /* Protocols.swift in Sources */,

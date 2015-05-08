@@ -15,6 +15,7 @@ protocol WormNode : AnyObject {
     var trailing : WormNode? {get set}
     var leading : WormNode? {get set}
     var position : CGPoint {get set}
+    var sheilded : Bool {get set}
     
     func attach(next : WormNode)
     func reorderZ() -> CGFloat
@@ -30,6 +31,15 @@ protocol WormNode : AnyObject {
     func activate()
     func digest(Food)
     func physics() -> SKPhysicsBody?
+    func sheild (Bool)
+
+
+
+
 }
+
+
+
+
 
 

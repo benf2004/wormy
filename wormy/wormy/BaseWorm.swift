@@ -15,6 +15,7 @@ class BaseWorm : SKSpriteNode, WormNode {
     var trailing : WormNode? = nil
     var leading : WormNode? = nil
     var normalSize : CGFloat? = nil
+    var sheilded : Bool = false
     
     let textureName = Textures.basic
     
@@ -125,6 +126,13 @@ class BaseWorm : SKSpriteNode, WormNode {
             return false
         }
     }
+    func sheild(sheilded: Bool) {
+        self.sheilded = sheilded
+        trailing?.sheild(sheilded)
+    }
+    
+    
+    
     
     func anchorPosition() -> CGPoint {
         return CGPoint(x: self.position.x - self.size.width / 2, y: self.position.y)
@@ -148,6 +156,7 @@ class BaseWorm : SKSpriteNode, WormNode {
         let grow = SKAction.runBlock {
             self.size.width = self.normalSize! * 1.3
             self.size.height = self.normalSize! * 1.3
+        
         }
         let shrink = SKAction.runBlock {
             self.size.width = self.normalSize!
