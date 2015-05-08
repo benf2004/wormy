@@ -136,9 +136,6 @@ class BaseWorm : SKSpriteNode {
         trailing?.sheild(sheilded)
     }
     
-    
-    
-    
     func anchorPosition() -> CGPoint {
         return CGPoint(x: self.position.x - self.size.width / 2, y: self.position.y)
     }
