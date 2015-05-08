@@ -37,6 +37,8 @@ class HeadWorm : BaseWorm {
             
             next?.moveToLocation(self.position)
             prev?.moveToLocation(self.position)
+        } else {
+            wormNode.activate()
         }
     }
     

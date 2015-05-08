@@ -170,6 +170,7 @@ class BaseWorm : SKSpriteNode {
         }
         let digestNext = SKAction.runBlock {
             if (self.trailing == nil) {
+                food.sheild(self.sheilded)
                 self.attach(food)
             } else {
                 self.trailing!.digest(food)
