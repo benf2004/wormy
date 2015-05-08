@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		252C25801AF9AA7D004B97C7 /* Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C257F1AF9AA7D004B97C7 /* Textures.swift */; };
 		252D4BD01AFC24CE005DC561 /* BaseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252D4BCF1AFC24CE005DC561 /* BaseScene.swift */; };
+		2567B3991AFCDD2600CACB8F /* GravityWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2567B3981AFCDD2600CACB8F /* GravityWorm.swift */; };
 		256A570A1AF3BF0D00E83694 /* Collisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A57091AF3BF0D00E83694 /* Collisions.swift */; };
 		256A570E1AF5324800E83694 /* BaseWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A570D1AF5324800E83694 /* BaseWorm.swift */; };
 		256A57101AF53BCE00E83694 /* HeadWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A570F1AF53BCE00E83694 /* HeadWorm.swift */; };
@@ -21,7 +22,6 @@
 		B51B7E4F1AEC2CF8002895B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B51B7E4E1AEC2CF8002895B9 /* Images.xcassets */; };
 		B51B7E5E1AEC2CF8002895B9 /* wormyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B7E5D1AEC2CF8002895B9 /* wormyTests.swift */; };
 		B544B9211AF7A47700E8D0C3 /* AnchorWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B9201AF7A47700E8D0C3 /* AnchorWorm.swift */; };
-		B5627B7A1AF8E9B2002583FE /* GravityWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5627B791AF8E9B2002583FE /* GravityWorm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +37,7 @@
 /* Begin PBXFileReference section */
 		252C257F1AF9AA7D004B97C7 /* Textures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Textures.swift; sourceTree = "<group>"; };
 		252D4BCF1AFC24CE005DC561 /* BaseScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseScene.swift; sourceTree = "<group>"; };
+		2567B3981AFCDD2600CACB8F /* GravityWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GravityWorm.swift; sourceTree = "<group>"; };
 		256A57091AF3BF0D00E83694 /* Collisions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collisions.swift; sourceTree = "<group>"; };
 		256A570D1AF5324800E83694 /* BaseWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWorm.swift; sourceTree = "<group>"; };
 		256A570F1AF53BCE00E83694 /* HeadWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadWorm.swift; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		B51B7E5C1AEC2CF8002895B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B51B7E5D1AEC2CF8002895B9 /* wormyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = wormyTests.swift; path = wormyTests/wormyTests.swift; sourceTree = SOURCE_ROOT; };
 		B544B9201AF7A47700E8D0C3 /* AnchorWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorWorm.swift; sourceTree = "<group>"; };
-		B5627B791AF8E9B2002583FE /* GravityWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GravityWorm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,11 +86,11 @@
 		256A57041AF3A9C400E83694 /* Worm */ = {
 			isa = PBXGroup;
 			children = (
+				2567B3981AFCDD2600CACB8F /* GravityWorm.swift */,
 				256A570D1AF5324800E83694 /* BaseWorm.swift */,
 				256A570F1AF53BCE00E83694 /* HeadWorm.swift */,
 				B544B9201AF7A47700E8D0C3 /* AnchorWorm.swift */,
 				25A1483D1AF86A41006F7898 /* NeckWorm.swift */,
-				B5627B791AF8E9B2002583FE /* GravityWorm.swift */,
 			);
 			name = Worm;
 			sourceTree = "<group>";
@@ -265,8 +265,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				256A57101AF53BCE00E83694 /* HeadWorm.swift in Sources */,
+				2567B3991AFCDD2600CACB8F /* GravityWorm.swift in Sources */,
 				B51B7E4A1AEC2CF8002895B9 /* GameViewController.swift in Sources */,
-				B5627B7A1AF8E9B2002583FE /* GravityWorm.swift in Sources */,
 				B51B7E441AEC2CF7002895B9 /* AppDelegate.swift in Sources */,
 				256A57121AF5AB4600E83694 /* Explosions.swift in Sources */,
 				252C25801AF9AA7D004B97C7 /* Textures.swift in Sources */,

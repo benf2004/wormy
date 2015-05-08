@@ -15,6 +15,7 @@ class BaseWorm : SKSpriteNode {
     var trailing : BaseWorm? = nil
     var leading : BaseWorm? = nil
     var normalSize : CGFloat? = nil
+    var sheilded : Bool = false
     var isDigesting : Bool = false
     var hasBeenConsumed : Bool = false
     
@@ -130,6 +131,13 @@ class BaseWorm : SKSpriteNode {
             return false
         }
     }
+    func sheild(sheilded: Bool) {
+        self.sheilded = sheilded
+        trailing?.sheild(sheilded)
+    }
+    
+    
+    
     
     func anchorPosition() -> CGPoint {
         return CGPoint(x: self.position.x - self.size.width / 2, y: self.position.y)

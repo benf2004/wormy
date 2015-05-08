@@ -1,5 +1,5 @@
 //
-//  GravityWorm.swift
+//  SheildWorm.swift
 //  wormy
 //
 //  Created by Ben Finch on 5/7/15.
@@ -7,10 +7,9 @@
 //
 
 import Foundation
-class GravityWorm : BaseWorm{
+class ShieldWorm : BaseWorm{
     override func activate(){
-        if (hasBeenConsumed) {
-            physics()?.affectedByGravity = true
-        }
-    }
-}
+        head().sheild(true)
+       
+    
+}   }
