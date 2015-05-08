@@ -14,6 +14,7 @@
 		256A570E1AF5324800E83694 /* BaseWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A570D1AF5324800E83694 /* BaseWorm.swift */; };
 		256A57101AF53BCE00E83694 /* HeadWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A570F1AF53BCE00E83694 /* HeadWorm.swift */; };
 		256A57121AF5AB4600E83694 /* Explosions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A57111AF5AB4600E83694 /* Explosions.swift */; };
+		2595E40A1AFD7D5100D6D6EB /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595E4091AFD7D5100D6D6EB /* TestScene.swift */; };
 		25A1483E1AF86A41006F7898 /* NeckWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A1483D1AF86A41006F7898 /* NeckWorm.swift */; };
 		25DCDD1E1AFCC0B00032C2E8 /* Level001.sks in Resources */ = {isa = PBXBuildFile; fileRef = 25DCDD1D1AFCC0B00032C2E8 /* Level001.sks */; };
 		B51B7E441AEC2CF7002895B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B7E431AEC2CF7002895B9 /* AppDelegate.swift */; };
@@ -43,6 +44,7 @@
 		256A570D1AF5324800E83694 /* BaseWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWorm.swift; sourceTree = "<group>"; };
 		256A570F1AF53BCE00E83694 /* HeadWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadWorm.swift; sourceTree = "<group>"; };
 		256A57111AF5AB4600E83694 /* Explosions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Explosions.swift; sourceTree = "<group>"; };
+		2595E4091AFD7D5100D6D6EB /* TestScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
 		25A1483D1AF86A41006F7898 /* NeckWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeckWorm.swift; sourceTree = "<group>"; };
 		25DCDD1D1AFCC0B00032C2E8 /* Level001.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level001.sks; sourceTree = "<group>"; };
 		B51B7E3E1AEC2CF7002895B9 /* wormy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wormy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +83,7 @@
 			children = (
 				252D4BCF1AFC24CE005DC561 /* BaseScene.swift */,
 				25DCDD1D1AFCC0B00032C2E8 /* Level001.sks */,
+				2595E4091AFD7D5100D6D6EB /* TestScene.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			files = (
 				256A57101AF53BCE00E83694 /* HeadWorm.swift in Sources */,
 				2567B3991AFCDD2600CACB8F /* GravityWorm.swift in Sources */,
+				2595E40A1AFD7D5100D6D6EB /* TestScene.swift in Sources */,
 				B51B7E4A1AEC2CF8002895B9 /* GameViewController.swift in Sources */,
 				B51B7E441AEC2CF7002895B9 /* AppDelegate.swift in Sources */,
 				256A57121AF5AB4600E83694 /* Explosions.swift in Sources */,
