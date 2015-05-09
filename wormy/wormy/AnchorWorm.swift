@@ -7,11 +7,18 @@
 //
 
 import Foundation
+import SpriteKit
 
 class AnchorWorm : BaseWorm {
     override func activate() {
         if (!sheilded) {
-            physics()?.mass=3009
+            physics()?.mass=999999999
+            let unanchor = SKAction.runBlock {
+                self.die()
+            }
+            let wait = SKAction.waitForDuration(5)
+            let sequence = SKAction.sequence([wait, unanchor])
+            self.runAction(sequence)
         }
     }
 }

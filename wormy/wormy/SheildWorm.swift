@@ -14,14 +14,11 @@ class ShieldWorm : BaseWorm{
             head().sheild(true)
             let unsheild = SKAction.runBlock {
                 self.head().sheild(false)
+                self.die()
             }
             let wait = SKAction.waitForDuration(5)
             let sequence = SKAction.sequence([wait, unsheild])
             self.runAction(sequence)
-
-            
         }
-            
     }
 }
-

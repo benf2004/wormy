@@ -131,6 +131,15 @@ class BaseWorm : SKSpriteNode {
             return false
         }
     }
+    
+    func lengthToEnd() -> Int {
+        if (isTail()) {
+            return 1
+        } else {
+            return trailing!.lengthToEnd() + 1
+        }
+    }
+    
     func sheild(sheilded: Bool) {
         self.sheilded = sheilded
         trailing?.sheild(sheilded)
@@ -146,14 +155,18 @@ class BaseWorm : SKSpriteNode {
     
     func activate() {
         if (!sheilded) {
-            self.detachFromLeading()
-            self.detachFromTrailing()
-            let location = self.position
-            let explosion = BaseExplosion.explosion(location)
-            explosion.targetNode = scene!
-            scene!.addChild(explosion)
-            self.removeFromParent()
+            die()
         }
+    }
+    
+    func die() {
+        self.detachFromLeading()
+        self.detachFromTrailing()
+        let location = self.position
+        let explosion = BaseExplosion.explosion(location)
+        explosion.targetNode = scene!
+        scene!.addChild(explosion)
+        self.removeFromParent()
     }
     
     func digest(food: BaseWorm) {

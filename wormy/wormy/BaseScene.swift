@@ -10,6 +10,8 @@ import SpriteKit
 
 class BaseScene: SKScene, SKPhysicsContactDelegate {
     var worm: HeadWorm!
+    var score: Int = 0
+    
     override func didMoveToView(view: SKView) {
         initialize()
     }
@@ -43,6 +45,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     func initialize() {
         placeWorm()
         deliverFood(2)
+        //startScoreKeeper()
         self.physicsWorld.contactDelegate = self
     }
     
@@ -78,5 +81,22 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         // y coordinate between MinY (top) and MidY (middle):
         let randomY = randomInRange(Int(CGRectGetMinY(self.frame)), hi: Int(CGRectGetMaxY(self.frame)))
         return CGPoint(x: randomX, y: randomY)
+    }
+    
+    func startScoreKeeper() {
+        let wait = SKAction.waitForDuration(5)
+        let incrementScore = SKAction.runBlock {
+            self.score = self.score + self.fibbonaci(self.worm.lengthToEnd())
+            println(self.score)
+        }
+        let sequence = SKAction.sequence([wait, incrementScore])
+        let scoreKeeper = SKAction.repeatActionForever(sequence)
+        self.runAction(scoreKeeper)
+    }
+    
+    func fibbonaci(start : Int) -> Int {
+        if (start == 0) {return 0}
+        else if (start == 1) {return 1}
+        else {return (fibbonaci(start-1) + fibbonaci(start-2))}
     }
 }
