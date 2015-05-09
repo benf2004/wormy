@@ -24,8 +24,4 @@ class ShieldWorm : BaseWorm{
             
     }
 }
-//        head().sheild(true)
-//            let unsheild = SKaction.runBlock {
-//             head().sheild(true)
-//                let wait = SKAction.waitForDuration(5)
-//                head().unshield.true
+
