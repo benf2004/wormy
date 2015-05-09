@@ -15,11 +15,11 @@ class TestScene : BaseScene {
             let foodType = self.randomInRange(0, hi: 100)
             var food : BaseWorm!
             switch foodType {
-            case 0 ... 50 :
+            case 0 ... 80 :
                 food = BaseWorm(textureName: Textures.simple, position: self.randomPosition())
-            case 51 ... 80 :
-                food = GravityWorm(textureName: Textures.simplered, position: self.randomPosition())
             case 81 ... 90 :
+                food = GravityWorm(textureName: Textures.simplered, position: self.randomPosition())
+            case 91 ... 95 :
                 food = ShieldWorm(textureName: Textures.simpleblack, position: self.randomPosition())
             default:
                 food = AnchorWorm(textureName: Textures.simpleblue, position: self.randomPosition())

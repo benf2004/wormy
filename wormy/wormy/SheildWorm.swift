@@ -7,10 +7,25 @@
 //
 
 import Foundation
+import SpriteKit
 class ShieldWorm : BaseWorm{
     override func activate(){
         if !sheilded {
-        head().sheild(true)
-       
-    
-        }   }   }
+            head().sheild(true)
+            let unsheild = SKAction.runBlock {
+                self.head().sheild(false)
+            }
+            let wait = SKAction.waitForDuration(5)
+            let sequence = SKAction.sequence([wait, unsheild])
+            self.runAction(sequence)
+
+            
+        }
+            
+    }
+}
+//        head().sheild(true)
+//            let unsheild = SKaction.runBlock {
+//             head().sheild(true)
+//                let wait = SKAction.waitForDuration(5)
+//                head().unshield.true
