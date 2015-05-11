@@ -24,9 +24,8 @@ class AngryHeadWorm : HeadWorm {
     }
     
     func target() {
-        var nextPosition : CGPoint = Game.randomPosition(self.scene!.frame)
-        //todo:: find the highest value segment in worm and aim for it.
-        moveToLocation(nextPosition)
+        var highestValueTarget = opponent.highestValueNode()
+        moveToLocation(highestValueTarget.position)
     }
     
     required init?(coder aDecoder: NSCoder) {

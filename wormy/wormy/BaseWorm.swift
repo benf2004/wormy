@@ -10,6 +10,8 @@ import Foundation
 import SpriteKit
 
 class BaseWorm : SKSpriteNode {
+    var targetValue : Int = 1
+    
     var forwardJoint : SKPhysicsJoint? = nil
     var rearwardJoint : SKPhysicsJoint? = nil
     var trailing : BaseWorm? = nil
@@ -135,6 +137,19 @@ class BaseWorm : SKSpriteNode {
             return 1
         } else {
             return trailing!.lengthToEnd() + 1
+        }
+    }
+    
+    func highestValueNode() -> BaseWorm {
+        if (isTail()) {
+            return self
+        } else {
+            let trailingValue = trailing!.highestValueNode()
+            if (self.targetValue > trailingValue.targetValue) {
+                return self
+            } else {
+                return trailingValue
+            }
         }
     }
     
