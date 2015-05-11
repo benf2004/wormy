@@ -64,39 +64,21 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     func deliverFood(frequency : NSTimeInterval) {
         let wait = SKAction.waitForDuration(frequency)
         let run = SKAction.runBlock {
-            var food = BaseWorm(textureName: Textures.simple, position: self.randomPosition())
-            food.sheild(true)
+            var food = BaseWorm(textureName: Textures.simple, position: Game.randomPosition(self.frame))
+            food.shield(true)
             self.addChild(food)
         }
         self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
     }
     
-    func randomInRange(lo: Int, hi : Int) -> Int {
-        return lo + Int(arc4random_uniform(UInt32(hi - lo + 1)))
-    }
-    
-    func randomPosition() -> CGPoint {
-        // x coordinate between MinX (left) and MaxX (right):
-        let randomX = randomInRange(Int(CGRectGetMinX(self.frame)), hi: Int(CGRectGetMaxX(self.frame)))
-        // y coordinate between MinY (top) and MidY (middle):
-        let randomY = randomInRange(Int(CGRectGetMinY(self.frame)), hi: Int(CGRectGetMaxY(self.frame)))
-        return CGPoint(x: randomX, y: randomY)
-    }
-    
     func startScoreKeeper() {
         let wait = SKAction.waitForDuration(5)
         let incrementScore = SKAction.runBlock {
-            self.score = self.score + self.fibbonaci(self.worm.lengthToEnd())
-            println(self.score)
+            self.score = self.score + Game.fibbonaci(self.worm.lengthToEnd())
+            //Ben ... set the label value to the score here.
         }
         let sequence = SKAction.sequence([wait, incrementScore])
         let scoreKeeper = SKAction.repeatActionForever(sequence)
         self.runAction(scoreKeeper)
-    }
-    
-    func fibbonaci(start : Int) -> Int {
-        if (start == 0) {return 0}
-        else if (start == 1) {return 1}
-        else {return (fibbonaci(start-1) + fibbonaci(start-2))}
     }
 }

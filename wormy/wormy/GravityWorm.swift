@@ -9,7 +9,7 @@
 import Foundation
 class GravityWorm : BaseWorm{
     override func activate(){
-        if (!sheilded) {
+        if (!shielded) {
             physics()?.affectedByGravity = true
         }
     }

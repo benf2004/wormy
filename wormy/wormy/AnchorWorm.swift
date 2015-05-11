@@ -11,7 +11,7 @@ import SpriteKit
 
 class AnchorWorm : BaseWorm {
     override func activate() {
-        if (!sheilded) {
+        if (!shielded) {
             physics()?.mass=999999999
             let unanchor = SKAction.runBlock {
                 self.die()

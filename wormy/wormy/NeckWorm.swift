@@ -20,10 +20,6 @@ class NeckWorm : BaseWorm {
         //intentional no-op
     }
     
-    override func decay() {
-        //intentional no-op
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

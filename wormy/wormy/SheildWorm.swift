@@ -10,14 +10,14 @@ import Foundation
 import SpriteKit
 class ShieldWorm : BaseWorm{
     override func activate(){
-        if !sheilded {
-            head().sheild(true)
-            let unsheild = SKAction.runBlock {
-                self.head().sheild(false)
+        if !shielded {
+            head().shield(true)
+            let unshield = SKAction.runBlock {
+                self.head().shield(false)
                 self.die()
             }
             let wait = SKAction.waitForDuration(5)
-            let sequence = SKAction.sequence([wait, unsheild])
+            let sequence = SKAction.sequence([wait, unshield])
             self.runAction(sequence)
         }
     }

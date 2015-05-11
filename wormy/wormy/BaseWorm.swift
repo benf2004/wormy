@@ -15,9 +15,8 @@ class BaseWorm : SKSpriteNode {
     var trailing : BaseWorm? = nil
     var leading : BaseWorm? = nil
     var normalSize : CGFloat? = nil
-    var sheilded : Bool = false
+    var shielded : Bool = false
     var isDigesting : Bool = false
-    var hasBeenConsumed : Bool = false
     
     convenience init(textureName : String) {
         self.init(textureName: textureName, position: CGPoint(x: 0,y: 0))
@@ -49,7 +48,6 @@ class BaseWorm : SKSpriteNode {
     
     func attach(next : BaseWorm) {
         if (isTail()) {
-            next.hasBeenConsumed = true
             self.scene!.addChild(next)
             next.affectedByGravity(false)
             next.position = CGPoint(x: position.x - size.width / 2, y: position.y)
@@ -140,23 +138,35 @@ class BaseWorm : SKSpriteNode {
         }
     }
     
-    func sheild(sheilded: Bool) {
-        self.sheilded = sheilded
-        trailing?.sheild(sheilded)
+    func shield(shielded: Bool) {
+        self.shielded = shielded
+        trailing?.shield(shielded)
     }
     
     func anchorPosition() -> CGPoint {
         return CGPoint(x: self.position.x - self.size.width / 2, y: self.position.y)
     }
     
-    func decay() {
-        
-    }
-    
     func activate() {
-        if (!sheilded) {
+        if (!shielded) {
             die()
         }
+    }
+    
+    func killNeighborsAndDie(distance : Int) {
+        if (distance > 0) {
+            leading?.killNeighborsAndDie(distance - 1)
+            trailing?.killNeighborsAndDie(distance - 1)
+        }
+        die()
+    }
+    
+    func activateNeighborsAndDie(distance : Int) {
+        if (distance > 0) {
+            leading?.activateNeighborsAndDie(distance - 1)
+            trailing?.activateNeighborsAndDie(distance - 1)
+        }
+        die()
     }
     
     func die() {
@@ -183,7 +193,7 @@ class BaseWorm : SKSpriteNode {
         }
         let digestNext = SKAction.runBlock {
             if (self.trailing == nil) {
-                food.sheild(self.sheilded)
+                food.shield(self.shielded)
                 self.attach(food)
             } else {
                 self.trailing!.digest(food)

@@ -17,6 +17,10 @@
 		2595E40A1AFD7D5100D6D6EB /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2595E4091AFD7D5100D6D6EB /* TestScene.swift */; };
 		25A1483E1AF86A41006F7898 /* NeckWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A1483D1AF86A41006F7898 /* NeckWorm.swift */; };
 		25DCDD1E1AFCC0B00032C2E8 /* Level001.sks in Resources */ = {isa = PBXBuildFile; fileRef = 25DCDD1D1AFCC0B00032C2E8 /* Level001.sks */; };
+		25F912D31B00FB34004338B8 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F912D21B00FB34004338B8 /* Game.swift */; };
+		25F912D51B01013C004338B8 /* WanderingHeadWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F912D41B01013C004338B8 /* WanderingHeadWorm.swift */; };
+		25F912D71B01031A004338B8 /* HungryHeadWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F912D61B01031A004338B8 /* HungryHeadWorm.swift */; };
+		25F912D91B010385004338B8 /* AngryHeadWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F912D81B010385004338B8 /* AngryHeadWorm.swift */; };
 		B51B7E441AEC2CF7002895B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B7E431AEC2CF7002895B9 /* AppDelegate.swift */; };
 		B51B7E4A1AEC2CF8002895B9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B7E491AEC2CF8002895B9 /* GameViewController.swift */; };
 		B51B7E4D1AEC2CF8002895B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B51B7E4B1AEC2CF8002895B9 /* Main.storyboard */; };
@@ -47,6 +51,10 @@
 		2595E4091AFD7D5100D6D6EB /* TestScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
 		25A1483D1AF86A41006F7898 /* NeckWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeckWorm.swift; sourceTree = "<group>"; };
 		25DCDD1D1AFCC0B00032C2E8 /* Level001.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level001.sks; sourceTree = "<group>"; };
+		25F912D21B00FB34004338B8 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		25F912D41B01013C004338B8 /* WanderingHeadWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WanderingHeadWorm.swift; sourceTree = "<group>"; };
+		25F912D61B01031A004338B8 /* HungryHeadWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HungryHeadWorm.swift; sourceTree = "<group>"; };
+		25F912D81B010385004338B8 /* AngryHeadWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AngryHeadWorm.swift; sourceTree = "<group>"; };
 		B51B7E3E1AEC2CF7002895B9 /* wormy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wormy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51B7E421AEC2CF7002895B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B51B7E431AEC2CF7002895B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +105,9 @@
 				256A570F1AF53BCE00E83694 /* HeadWorm.swift */,
 				B544B9201AF7A47700E8D0C3 /* AnchorWorm.swift */,
 				25A1483D1AF86A41006F7898 /* NeckWorm.swift */,
+				25F912D41B01013C004338B8 /* WanderingHeadWorm.swift */,
+				25F912D61B01031A004338B8 /* HungryHeadWorm.swift */,
+				25F912D81B010385004338B8 /* AngryHeadWorm.swift */,
 			);
 			name = Worm;
 			sourceTree = "<group>";
@@ -107,6 +118,7 @@
 				256A57091AF3BF0D00E83694 /* Collisions.swift */,
 				256A57111AF5AB4600E83694 /* Explosions.swift */,
 				252C257F1AF9AA7D004B97C7 /* Textures.swift */,
+				25F912D21B00FB34004338B8 /* Game.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -273,13 +285,17 @@
 				256A57101AF53BCE00E83694 /* HeadWorm.swift in Sources */,
 				2567B3991AFCDD2600CACB8F /* GravityWorm.swift in Sources */,
 				2595E40A1AFD7D5100D6D6EB /* TestScene.swift in Sources */,
+				25F912D71B01031A004338B8 /* HungryHeadWorm.swift in Sources */,
 				B51B7E4A1AEC2CF8002895B9 /* GameViewController.swift in Sources */,
 				B51B7E441AEC2CF7002895B9 /* AppDelegate.swift in Sources */,
 				256A57121AF5AB4600E83694 /* Explosions.swift in Sources */,
 				252C25801AF9AA7D004B97C7 /* Textures.swift in Sources */,
 				252D4BD01AFC24CE005DC561 /* BaseScene.swift in Sources */,
 				B544B9211AF7A47700E8D0C3 /* AnchorWorm.swift in Sources */,
+				25F912D31B00FB34004338B8 /* Game.swift in Sources */,
+				25F912D51B01013C004338B8 /* WanderingHeadWorm.swift in Sources */,
 				25A1483E1AF86A41006F7898 /* NeckWorm.swift in Sources */,
+				25F912D91B010385004338B8 /* AngryHeadWorm.swift in Sources */,
 				B5B401A11AFCE8700089FCF0 /* SheildWorm.swift in Sources */,
 				256A570E1AF5324800E83694 /* BaseWorm.swift in Sources */,
 				256A570A1AF3BF0D00E83694 /* Collisions.swift in Sources */,
@@ -410,6 +426,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -424,6 +441,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

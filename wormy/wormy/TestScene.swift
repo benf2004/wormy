@@ -12,19 +12,19 @@ class TestScene : BaseScene {
     override func deliverFood(frequency : NSTimeInterval) {
         let wait = SKAction.waitForDuration(frequency)
         let run = SKAction.runBlock {
-            let foodType = self.randomInRange(0, hi: 100)
+            let foodType = Game.randomInRange(0, hi: 100)
             var food : BaseWorm!
             switch foodType {
             case 0 ... 80 :
-                food = BaseWorm(textureName: Textures.simple, position: self.randomPosition())
+                food = BaseWorm(textureName: Textures.simple, position: Game.randomPosition(self.frame))
             case 81 ... 90 :
-                food = GravityWorm(textureName: Textures.simplered, position: self.randomPosition())
+                food = GravityWorm(textureName: Textures.simplered, position: Game.randomPosition(self.frame))
             case 91 ... 95 :
-                food = ShieldWorm(textureName: Textures.simpleblack, position: self.randomPosition())
+                food = ShieldWorm(textureName: Textures.simpleblack, position: Game.randomPosition(self.frame))
             default:
-                food = AnchorWorm(textureName: Textures.simpleblue, position: self.randomPosition())
+                food = AnchorWorm(textureName: Textures.simpleblue, position: Game.randomPosition(self.frame))
             }
-            food.sheild(true)
+            food.shield(true)
             self.addChild(food)
         }
         self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
