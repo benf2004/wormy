@@ -27,6 +27,7 @@ class TestScene : BaseScene {
             food.shield(true)
             self.addChild(food)
         }
+        
         self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
     }
 }
