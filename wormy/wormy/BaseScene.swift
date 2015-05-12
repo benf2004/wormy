@@ -35,8 +35,16 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     func didBeginContact(contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == Categories.head) {
             if (contact.bodyB.categoryBitMask == Categories.body) {
-                if let body = contact.bodyB.node as? BaseWorm {
-                    worm.consume(body)
+                let head = contact.bodyA.node as! HeadWorm
+                let segment = contact.bodyB.node as! BaseWorm
+                
+                if (segment.headless()) {
+                    head.consume(segment)
+                } else if (segment is HeadWorm) {
+                    head.killNeighborsAndDie(head.lengthToEnd())
+                    segment.killNeighborsAndDie(segment.lengthToEnd())
+                } else {
+                    segment.activate()
                 }
             }
         }

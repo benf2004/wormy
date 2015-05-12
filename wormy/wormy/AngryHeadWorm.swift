@@ -14,13 +14,16 @@ class AngryHeadWorm : HeadWorm {
     init(position : CGPoint, opponent : HeadWorm) {
         super.init(position: position)
         self.opponent = opponent
-        
+    }
+    
+    override func initialize() {
         let targetBlock = SKAction.runBlock {
             self.target()
         }
-        let waitBlock = SKAction.waitForDuration(3, withRange: 2)
+        let waitBlock = SKAction.waitForDuration(0.1, withRange: 0.05)
         let sequence = SKAction.sequence([waitBlock, targetBlock])
-        SKAction.repeatActionForever(sequence)
+        let action = SKAction.repeatActionForever(sequence)
+        self.runAction(action)
     }
     
     func target() {

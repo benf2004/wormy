@@ -11,12 +11,16 @@ import SpriteKit
 class WanderingHeadWorm : HeadWorm {
     override init(position : CGPoint) {
         super.init(position: position)
+    }
+    
+    override func initialize() {
         let wanderBlock = SKAction.runBlock {
             self.wander()
         }
-        let waitBlock = SKAction.waitForDuration(3, withRange: 2)
+        let waitBlock = SKAction.waitForDuration(3)
         let sequence = SKAction.sequence([waitBlock, wanderBlock])
-        SKAction.repeatActionForever(sequence)
+        let action = SKAction.repeatActionForever(sequence)
+        self.runAction(action)
     }
     
     func wander() {

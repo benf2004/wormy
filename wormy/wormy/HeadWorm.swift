@@ -25,25 +25,20 @@ class HeadWorm : BaseWorm {
     }
     
     override func activate() {
-        self.killNeighborsAndDie(self.lengthToEnd())
     }
     
     func consume(wormNode : BaseWorm) {
-        if (wormNode.head() !== self) {
-            let prev = wormNode.leading
-            let next = wormNode.trailing
-            
-            wormNode.detachFromTrailing()
-            wormNode.detachFromLeading()
-            
-            wormNode.removeFromParent()
-            self.digest(wormNode)
-            
-            next?.moveToLocation(self.position)
-            prev?.moveToLocation(self.position)
-        } else {
-            wormNode.activate()
-        }
+        let prev = wormNode.leading
+        let next = wormNode.trailing
+        
+        wormNode.detachFromTrailing()
+        wormNode.detachFromLeading()
+        
+        wormNode.removeFromParent()
+        self.digest(wormNode)
+        
+        next?.moveToLocation(self.position)
+        prev?.moveToLocation(self.position)
     }
     
     func animate() {

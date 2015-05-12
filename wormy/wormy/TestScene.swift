@@ -9,6 +9,15 @@
 import SpriteKit
 
 class TestScene : BaseScene {
+    override func placeWorm() {
+        super.placeWorm()
+        let wanderer = AngryHeadWorm(position: Game.randomPosition(self.frame), opponent: worm)
+        self.addChild(wanderer)
+        for i in 1...5 {
+            wanderer.consume(NeckWorm())
+        }
+    }
+    
     override func deliverFood(frequency : NSTimeInterval) {
         let wait = SKAction.waitForDuration(frequency)
         let run = SKAction.runBlock {

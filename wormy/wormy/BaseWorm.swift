@@ -137,6 +137,10 @@ class BaseWorm : SKSpriteNode {
         }
     }
     
+    func headless() -> Bool {
+        return !(head() is HeadWorm)
+    }
+    
     func lengthToEnd() -> Int {
         if (isTail()) {
             return 1
