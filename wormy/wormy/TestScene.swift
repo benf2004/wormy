@@ -23,15 +23,16 @@ class TestScene : BaseScene {
         let run = SKAction.runBlock {
             let foodType = Game.randomInRange(0, hi: 100)
             var food : BaseWorm!
+            let newPosition = Game.randomPosition(self.frame)
             switch foodType {
             case 0 ... 80 :
-                food = BaseWorm(textureName: Textures.simple, position: Game.randomPosition(self.frame))
+                food = BaseWorm(textureName: Textures.simple, position: newPosition)
             case 81 ... 90 :
-                food = GravityWorm(textureName: Textures.simplered, position: Game.randomPosition(self.frame))
+                food = GravityWorm(textureName: Textures.simplered, position: newPosition)
             case 91 ... 95 :
-                food = ShieldWorm(textureName: Textures.simpleblack, position: Game.randomPosition(self.frame))
+                food = ShieldWorm(textureName: Textures.simpleblack, position: newPosition)
             default:
-                food = AnchorWorm(textureName: Textures.simpleblue, position: Game.randomPosition(self.frame))
+                food = AnchorWorm(textureName: Textures.simpleblue, position: newPosition)
             }
             food.shield(true)
             self.addChild(food)

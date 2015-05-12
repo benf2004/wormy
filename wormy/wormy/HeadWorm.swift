@@ -15,8 +15,8 @@ class HeadWorm : BaseWorm {
         self.animate()
         if let physics = self.physics() {
             physics.categoryBitMask = Categories.head
-            physics.collisionBitMask = Categories.body
-            physics.contactTestBitMask = Categories.body
+            physics.collisionBitMask = Categories.body | Categories.head
+            physics.contactTestBitMask = Categories.body | Categories.head
         }
     }
     

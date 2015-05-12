@@ -40,11 +40,16 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
                 
                 if (segment.headless()) {
                     head.consume(segment)
-                } else if (segment is HeadWorm) {
-                    head.killNeighborsAndDie(head.lengthToEnd())
-                    segment.killNeighborsAndDie(segment.lengthToEnd())
                 } else {
                     segment.activate()
+                }
+            } else if (contact.bodyB.categoryBitMask == Categories.head) {
+                let head = contact.bodyA.node as! HeadWorm
+                let otherHead = contact.bodyB.node as! HeadWorm
+                
+                if (head !== otherHead) {
+//                    head.killNeighborsAndDie(head.lengthToEnd())
+//                    otherHead.killNeighborsAndDie(otherHead.lengthToEnd())
                 }
             }
         }
