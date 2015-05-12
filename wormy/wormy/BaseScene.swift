@@ -35,21 +35,21 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     func didBeginContact(contact: SKPhysicsContact) {
         if (contact.bodyA.categoryBitMask == Categories.head) {
             if (contact.bodyB.categoryBitMask == Categories.body) {
-                let head = contact.bodyA.node as! HeadWorm
-                let segment = contact.bodyB.node as! BaseWorm
-                
-                if (segment.headless()) {
-                    head.consume(segment)
-                } else {
-                    segment.activate()
+                if let head = contact.bodyA.node as? HeadWorm {
+                    if let segment = contact.bodyB.node as? BaseWorm {
+                        if (segment.headless()) {
+                            head.consume(segment)
+                        } else {
+                            segment.activate()
+                        }
+                    }
                 }
             } else if (contact.bodyB.categoryBitMask == Categories.head) {
-                let head = contact.bodyA.node as! HeadWorm
-                let otherHead = contact.bodyB.node as! HeadWorm
-                
-                if (head !== otherHead) {
-//                    head.killNeighborsAndDie(head.lengthToEnd())
-//                    otherHead.killNeighborsAndDie(otherHead.lengthToEnd())
+                if let head = contact.bodyA.node as? HeadWorm {
+                    if let otherHead = contact.bodyB.node as? HeadWorm {
+//                        head.killNeighborsAndDie(head.lengthToEnd())
+//                        otherHead.killNeighborsAndDie(otherHead.lengthToEnd())
+                    }
                 }
             }
         }
@@ -57,6 +57,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     
     func initialize() {
         placeWorm()
+        placeObstacles()
         deliverFood(2)
         //startScoreKeeper()
         self.physicsWorld.contactDelegate = self
@@ -72,6 +73,10 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             worm.consume(NeckWorm())
             worm.consume(NeckWorm())
         }
+    }
+    
+    func placeObstacles() {
+        
     }
     
     func deliverFood(frequency : NSTimeInterval) {

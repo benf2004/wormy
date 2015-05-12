@@ -9,12 +9,30 @@
 import SpriteKit
 
 class TestScene : BaseScene {
-    override func placeWorm() {
-        super.placeWorm()
-        let wanderer = AngryHeadWorm(position: Game.randomPosition(self.frame), opponent: worm)
-        self.addChild(wanderer)
-        for i in 1...5 {
-            wanderer.consume(NeckWorm())
+    
+    override func placeObstacles() {
+        let dormancy : NSTimeInterval = 4
+        let wait = SKAction.waitForDuration(0.5)
+        let buildAngryWorm = SKAction.runBlock {
+            if let angryStub = self.childNodeWithName("AngryWorm") {
+                let initialPosition = angryStub.position
+                angryStub.removeFromParent()
+                let angryWorm = AngryHeadWorm(position: initialPosition, opponent: self.worm, dormancy: dormancy)
+                self.addChild(angryWorm)
+                for i in 1...3 {
+                    angryWorm.consume(NeckWorm())
+                }
+            }
+        }
+        self.runAction(SKAction.sequence([wait, buildAngryWorm]))
+        
+        self.enumerateChildNodesWithName("Cage") {
+            node, stop in
+            let uncageWait = SKAction.waitForDuration(5)
+            let uncage = SKAction.runBlock {
+                node.removeFromParent()
+            }
+            self.runAction(SKAction.sequence([uncageWait, uncage]))
         }
     }
     

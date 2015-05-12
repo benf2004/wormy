@@ -10,8 +10,10 @@ import SpriteKit
 
 class AngryHeadWorm : HeadWorm {
     var opponent : HeadWorm!
+    var dormancy : NSTimeInterval!
     
-    init(position : CGPoint, opponent : HeadWorm) {
+    init(position : CGPoint, opponent : HeadWorm, dormancy : NSTimeInterval) {
+        self.dormancy = dormancy
         super.init(position: position)
         self.opponent = opponent
     }
@@ -23,7 +25,9 @@ class AngryHeadWorm : HeadWorm {
         let waitBlock = SKAction.waitForDuration(0.1, withRange: 0.05)
         let sequence = SKAction.sequence([waitBlock, targetBlock])
         let action = SKAction.repeatActionForever(sequence)
-        self.runAction(action)
+        
+        let lieDormant = SKAction.waitForDuration(dormancy)
+        self.runAction(SKAction.sequence([lieDormant, action]))
     }
     
     func target() {
