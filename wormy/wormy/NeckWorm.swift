@@ -16,6 +16,10 @@ class NeckWorm : BaseWorm {
         super.init(textureName: Textures.simpleblack, position : CGPoint(x: 0, y: 0))
     }
     
+    override func initialize() {
+        targetValue = 0
+    }
+    
     override func activate() {
         //intentional no-op
     }

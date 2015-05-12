@@ -8,7 +8,11 @@
 
 import Foundation
 import SpriteKit
-class ShieldWorm : BaseWorm{
+class ShieldWorm : BaseWorm {
+    override func initialize() {
+        targetValue = 10
+    }
+    
     override func activate(){
         if !shielded {
             head().shield(true)

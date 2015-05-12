@@ -10,6 +10,10 @@ import Foundation
 import SpriteKit
 
 class AnchorWorm : BaseWorm {
+    override func initialize() {
+        targetValue = 4
+    }
+    
     override func activate() {
         if (!shielded) {
             physics()?.mass=999999999

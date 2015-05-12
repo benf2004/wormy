@@ -10,9 +10,6 @@ import Foundation
 import SpriteKit
 
 class HeadWorm : BaseWorm {
-    //todo... figure out how to override properties in swift
-    //override var targetValue : Int = 0
-    
     init(position : CGPoint) {
         super.init(textureName: Textures.head, position: position)
         self.animate()
@@ -21,6 +18,10 @@ class HeadWorm : BaseWorm {
             physics.collisionBitMask = Categories.body
             physics.contactTestBitMask = Categories.body
         }
+    }
+    
+    override func initialize() {
+        targetValue = 0
     }
     
     override func activate() {

@@ -46,6 +46,11 @@ class BaseWorm : SKSpriteNode {
         }
         
         self.position = position
+        initialize()
+    }
+    
+    func initialize() {
+        
     }
     
     func attach(next : BaseWorm) {
