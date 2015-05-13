@@ -33,25 +33,35 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
-        if (contact.bodyA.categoryBitMask == Categories.head) {
-            if (contact.bodyB.categoryBitMask == Categories.body) {
-                if let head = contact.bodyA.node as? HeadWorm {
-                    if let segment = contact.bodyB.node as? BaseWorm {
-                        if (segment.headless()) {
-                            head.consume(segment)
-                        } else {
-                            segment.activate()
-                        }
-                    }
-                }
-            } else if (contact.bodyB.categoryBitMask == Categories.head) {
-                if let head = contact.bodyA.node as? HeadWorm {
-                    if let otherHead = contact.bodyB.node as? HeadWorm {
-//                        head.killNeighborsAndDie(head.lengthToEnd())
-//                        otherHead.killNeighborsAndDie(otherHead.lengthToEnd())
-                    }
-                }
+        var head1 : HeadWorm? = nil
+        var head2 : HeadWorm? = nil
+        var segment : BaseWorm? = nil
+        
+        if (contact.bodyA.categoryBitMask == Categories.head &&
+            contact.bodyB.categoryBitMask == Categories.body) {
+                head1 = contact.bodyA.node as? HeadWorm
+                segment = contact.bodyB.node as? BaseWorm
+        } else if (contact.bodyA.categoryBitMask == Categories.body &&
+            contact.bodyB.categoryBitMask == Categories.head) {
+                head1 = contact.bodyB.node as? HeadWorm
+                segment = contact.bodyA.node as? BaseWorm
+        } else if (contact.bodyA.categoryBitMask == Categories.head &&
+            contact.bodyB.categoryBitMask == Categories.head) {
+                head1 = contact.bodyA.node as? HeadWorm
+                head2 = contact.bodyB.node as? HeadWorm
+        }
+        
+        if let food = segment {
+            if (food.headless()) {
+                head1?.consume(food)
+            } else {
+                food.activate()
             }
+        }
+        
+        if let murderer = head2 {
+//            head1?.killNeighborsAndDie(head1!.lengthToEnd())
+//            murderer.killNeighborsAndDie(murderer.lengthToEnd())
         }
     }
     
@@ -61,6 +71,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         deliverFood(2)
         //startScoreKeeper()
         self.physicsWorld.contactDelegate = self
+        self.physicsWorld.gravity = CGVector(dx: 0, dy: 4.9)
     }
     
     func placeWorm() {
