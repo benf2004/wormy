@@ -55,18 +55,20 @@ class BaseWorm : SKSpriteNode {
     
     func attach(next : BaseWorm) {
         if (isTail()) {
-            self.scene!.addChild(next)
-            next.affectedByGravity(false)
-            self.size.width = normalSize!
-            self.size.height = normalSize!
-            next.position = CGPoint(x: position.x - size.width / 2, y: position.y)
-            let joint = SKPhysicsJointPin.jointWithBodyA(self.physics(), bodyB: next.physics(), anchor: anchorPosition())
-            rearwardJoint = joint
-            next.forwardJoint = joint
-            trailing = next
-            next.leading = self
-            head().reorderZ()
-            self.scene!.physicsWorld.addJoint(joint)
+            if (next.parent == nil) {
+                self.scene!.addChild(next)
+                next.affectedByGravity(false)
+                self.size.width = normalSize!
+                self.size.height = normalSize!
+                next.position = CGPoint(x: position.x - size.width / 2, y: position.y)
+                let joint = SKPhysicsJointPin.jointWithBodyA(self.physics(), bodyB: next.physics(), anchor: anchorPosition())
+                rearwardJoint = joint
+                next.forwardJoint = joint
+                trailing = next
+                next.leading = self
+                head().reorderZ()
+                self.scene!.physicsWorld.addJoint(joint)
+            }
         } else {
             trailing!.attach(next)
         }

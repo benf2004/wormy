@@ -18,10 +18,12 @@ class TestScene : BaseScene {
                 let initialPosition = angryStub.position
                 angryStub.removeFromParent()
 //                let angryWorm = AngryHeadWorm(position: initialPosition, opponent: self.worm, dormancy: dormancy)
-                let angryWorm = HungryHeadWorm(position: initialPosition)
-                self.addChild(angryWorm)
-                for i in 1...3 {
-                    angryWorm.consume(NeckWorm())
+                for j in 1...7 {
+                    let angryWorm = HungryHeadWorm(position: Game.randomPosition(self.frame))
+                    self.addChild(angryWorm)
+                    for i in 1...3 {
+                        angryWorm.consume(NeckWorm())
+                    }
                 }
             }
         }

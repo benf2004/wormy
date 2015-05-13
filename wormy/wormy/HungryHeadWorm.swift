@@ -23,7 +23,7 @@ class HungryHeadWorm : HeadWorm {
         let findFood = SKAction.runBlock {
             self.target()
         }
-        let findWait = SKAction.waitForDuration(2)
+        let findWait = SKAction.waitForDuration(2, withRange: 0.6)
         let findTarget = SKAction.repeatActionForever(SKAction.sequence([findFood, findWait]))
         
         self.runAction(gotoTarget)

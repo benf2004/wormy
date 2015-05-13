@@ -68,7 +68,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     func initialize() {
         placeWorm()
         placeObstacles()
-        deliverFood(2)
+        deliverFood(0.5)
         //startScoreKeeper()
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 4.9)
