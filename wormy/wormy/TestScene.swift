@@ -17,11 +17,12 @@ class TestScene : BaseScene {
             if let angryStub = self.childNodeWithName("AngryWorm") {
                 let initialPosition = angryStub.position
                 angryStub.removeFromParent()
-                let angryWorm = AngryHeadWorm(position: initialPosition, opponent: self.worm, dormancy: dormancy)
-                self.addChild(angryWorm)
-                for i in 1...3 {
-                    angryWorm.consume(NeckWorm())
-                }
+//                let angryWorm = AngryHeadWorm(position: initialPosition, opponent: self.worm, dormancy: dormancy)
+//                let angryWorm = HungryHeadWorm(position: initialPosition)
+//                self.addChild(angryWorm)
+//                for i in 1...3 {
+//                    angryWorm.consume(NeckWorm())
+//                }
             }
         }
         self.runAction(SKAction.sequence([wait, buildAngryWorm]))
