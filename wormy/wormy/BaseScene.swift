@@ -80,14 +80,53 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             wormStub.removeFromParent()
             worm = HeadWorm(position: initialPosition)
             self.addChild(worm)
-            worm.consume(NeckWorm())
-            worm.consume(NeckWorm())
-            worm.consume(NeckWorm())
+            for i in 1...3 {
+                worm.consume(NeckWorm())
+            }
         }
     }
     
     func placeObstacles() {
-        
+        placeHungryWorms()
+        placeAngryWorms()
+        placeCage()
+    }
+    
+    func placeHungryWorms() {
+        self.enumerateChildNodesWithName("HungryWorm") {
+            node, stop in
+            let initialPosition = node.position
+            node.removeFromParent()
+            let hungryWorm = HungryHeadWorm(position: initialPosition)
+            self.addChild(hungryWorm)
+            for i in 1...3 {
+                hungryWorm.consume(NeckWorm())
+            }
+        }
+    }
+    
+    func placeAngryWorms() {
+        self.enumerateChildNodesWithName("AngryWorm") {
+            node, stop in
+            let initialPosition = node.position
+            node.removeFromParent()
+            let angryWorm = AngryHeadWorm(position: initialPosition, opponent: self.worm, dormancy: 3)
+            self.addChild(angryWorm)
+            for i in 1...3 {
+                angryWorm.consume(NeckWorm())
+            }
+        }
+    }
+    
+    func placeCage() {
+        self.enumerateChildNodesWithName("Cage") {
+            node, stop in
+            let uncageWait = SKAction.waitForDuration(5)
+            let uncage = SKAction.runBlock {
+                node.removeFromParent()
+            }
+            self.runAction(SKAction.sequence([uncageWait, uncage]))
+        }
     }
     
     func deliverFood(frequency : NSTimeInterval) {

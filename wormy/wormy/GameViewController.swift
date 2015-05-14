@@ -16,7 +16,7 @@ extension SKNode {
             var archiver = NSKeyedUnarchiver(forReadingWithData: sceneData)
             
             archiver.setClass(self.classForKeyedUnarchiver(), forClassName: "SKScene")
-            let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as! TestScene
+            let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as! SKNode
             archiver.finishDecoding()
             return scene
         } else {
@@ -28,21 +28,17 @@ extension SKNode {
 class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Configure the view.
+        let skView = self.view as! SKView
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+        
+        /* Sprite Kit applies additional optimizations to improve rendering performance */
+        skView.ignoresSiblingOrder = true
 
-        if let scene = TestScene.unarchiveFromFile("CageScreen") as? BaseScene {
-            // Configure the view.
-            let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
-            
-            /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
-            
-            skView.presentScene(scene)
-        }
+        //SceneLoader.transitionToScene("FeedingFrenzy", view: skView, sceneClass: FullFoodScene.self)
+        SceneLoader.transitionToMenu(skView)
     }
 
     override func shouldAutorotate() -> Bool {

@@ -55,7 +55,7 @@ class BaseWorm : SKSpriteNode {
     
     func attach(next : BaseWorm) {
         if (isTail()) {
-            if (next.parent == nil) {
+            if (next.parent == nil && self.scene != nil) {
                 self.scene!.addChild(next)
                 next.affectedByGravity(false)
                 self.size.width = normalSize!
