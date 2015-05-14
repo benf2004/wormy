@@ -70,6 +70,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         placeObstacles()
         deliverFood(0.5)
         //startScoreKeeper()
+        startLengthTracker()
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 4.9)
     }
@@ -148,5 +149,18 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         let sequence = SKAction.sequence([wait, incrementScore])
         let scoreKeeper = SKAction.repeatActionForever(sequence)
         self.runAction(scoreKeeper)
+    }
+    
+    func startLengthTracker() {
+        let wait = SKAction.waitForDuration(0.5)
+        
+        let displayLength = SKAction.runBlock {
+            if let label = self.childNodeWithName("LengthLabel") as? SKLabelNode {
+                label.text = String(self.worm.lengthToEnd())
+            }
+        }
+        let sequence = SKAction.sequence([wait, displayLength])
+        let lengthTracker = SKAction.repeatActionForever(sequence)
+        self.runAction(lengthTracker)
     }
 }
