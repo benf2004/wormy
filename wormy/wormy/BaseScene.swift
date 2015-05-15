@@ -166,6 +166,9 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
                 //label.text = String(self.worm.lengthToEnd())
                 label.text = String(self.timeRemaining)
             }
+            if let totalScoreLabel = self.childNodeWithName("TotalScore") as? SKLabelNode {
+                totalScoreLabel.text = String(self.score)
+            }
         }
         let sequence = SKAction.sequence([update, wait])
         self.runAction(SKAction.repeatActionForever(sequence))
