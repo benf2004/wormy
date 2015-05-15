@@ -163,8 +163,8 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             self.score = self.score + self.worm.lengthToEnd()
             self.timeRemaining = self.timeRemaining - 1
             if let label = self.childNodeWithName("LengthLabel") as? SKLabelNode {
-                //label.text = String(self.worm.lengthToEnd())
-                label.text = String(self.timeRemaining)
+                label.text = String(self.worm.lengthToEnd())
+                //label.text = String(self.timeRemaining)
             }
             if let totalScoreLabel = self.childNodeWithName("TotalScore") as? SKLabelNode {
                 totalScoreLabel.text = String(self.score)
