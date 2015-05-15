@@ -24,6 +24,13 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             if touchedNode.name == "RestartButton" {
                 SceneLoader.restartScene()
             }
+            if touchedNode.name == "Menu" {
+                SceneLoader.transitionToMenu(self.view!)
+            }
+            
+            
+            
+            
             if let wormNode = self.nodeAtPoint(location) as? BaseWorm {
                 wormNode.activate()
             }
