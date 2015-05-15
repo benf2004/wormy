@@ -25,6 +25,13 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             if touchedNode.name == "RestartButton" {
                 SceneLoader.restartScene()
             }
+            if touchedNode.name == "Menu" {
+                SceneLoader.transitionToMenu(self.view!)
+            }
+            
+            
+            
+            
             if let wormNode = self.nodeAtPoint(location) as? BaseWorm {
                 wormNode.activate()
             }
@@ -165,8 +172,16 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             self.score = self.score + self.worm.lengthToEnd()
             self.timeRemaining = self.timeRemaining - 1
             if let label = self.childNodeWithName("LengthLabel") as? SKLabelNode {
-                //label.text = String(self.worm.lengthToEnd())
-                label.text = String(self.timeRemaining)
+                label.text = String(self.worm.lengthToEnd())
+                //label.text = String(self.timeRemaining)
+            }
+            if let totalScoreLabel = self.childNodeWithName("TotalScore") as? SKLabelNode {
+                totalScoreLabel.text = String(self.score)
+            }
+            
+            if let timer = self.childNodeWithName("Timer") as? SKLabelNode {
+                    timer.text = String(self.timeRemaining)
+                
             }
         }
         let sequence = SKAction.sequence([update, wait])
