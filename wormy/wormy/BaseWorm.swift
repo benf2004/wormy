@@ -201,10 +201,11 @@ class BaseWorm : SKSpriteNode {
         self.detachFromLeading()
         self.detachFromTrailing()
         let location = self.position
-        let explosion = BaseExplosion.explosion(location)
-        if let targetScene = scene {
-            explosion.targetNode = targetScene
-            targetScene.addChild(explosion)
+        if let explosion = SceneLoader.loadEffect("Explosion") {
+            explosion.position = location
+            if let targetScene = scene {
+                targetScene.addChild(explosion)
+            }
         }
         self.removeFromParent()
     }

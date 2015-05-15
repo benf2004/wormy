@@ -11,6 +11,7 @@ import SpriteKit
 class BaseScene: SKScene, SKPhysicsContactDelegate {
     var worm: HeadWorm!
     var score: Int = 0
+    var timeRemaining: Int = 60
     
     override func didMoveToView(view: SKView) {
         initialize()
@@ -19,8 +20,12 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
-            if let touchedNode = self.nodeAtPoint(location) as? BaseWorm {
-                touchedNode.activate()
+            let touchedNode = self.nodeAtPoint(location)
+            if touchedNode.name == "RestartButton" {
+                SceneLoader.restartScene()
+            }
+            if let wormNode = self.nodeAtPoint(location) as? BaseWorm {
+                wormNode.activate()
             }
         }
     }
@@ -69,8 +74,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         placeWorm()
         placeObstacles()
         deliverFood(0.5)
-        //startScoreKeeper()
-        startLengthTracker()
+        updateHud()
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 4.9)
     }
@@ -91,6 +95,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         placeHungryWorms()
         placeAngryWorms()
         placeCage()
+        placeFire()
     }
     
     func placeHungryWorms() {
@@ -130,6 +135,18 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    func placeFire() {
+        self.enumerateChildNodesWithName("Fire") {
+            node, stop in
+            let position = node.position
+            node.removeFromParent()
+            if let fire = SceneLoader.loadEffect("Fire") {
+                fire.position = position
+                self.addChild(fire)
+            }
+        }
+    }
+    
     func deliverFood(frequency : NSTimeInterval) {
         let wait = SKAction.waitForDuration(frequency)
         let run = SKAction.runBlock {
@@ -140,27 +157,17 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
     }
     
-    func startScoreKeeper() {
-        let wait = SKAction.waitForDuration(5)
-        let incrementScore = SKAction.runBlock {
-            self.score = self.score + Game.fibbonaci(self.worm.lengthToEnd())
-            //Ben ... set the label value to the score here.
-        }
-        let sequence = SKAction.sequence([wait, incrementScore])
-        let scoreKeeper = SKAction.repeatActionForever(sequence)
-        self.runAction(scoreKeeper)
-    }
-    
-    func startLengthTracker() {
-        let wait = SKAction.waitForDuration(0.5)
-        
-        let displayLength = SKAction.runBlock {
+    func updateHud() {
+        let wait = SKAction.waitForDuration(1.0)
+        let update = SKAction.runBlock {
+            self.score = self.score + self.worm.lengthToEnd()
+            self.timeRemaining = self.timeRemaining - 1
             if let label = self.childNodeWithName("LengthLabel") as? SKLabelNode {
-                label.text = String(self.worm.lengthToEnd())
+                //label.text = String(self.worm.lengthToEnd())
+                label.text = String(self.timeRemaining)
             }
         }
-        let sequence = SKAction.sequence([wait, displayLength])
-        let lengthTracker = SKAction.repeatActionForever(sequence)
-        self.runAction(lengthTracker)
+        let sequence = SKAction.sequence([update, wait])
+        self.runAction(SKAction.repeatActionForever(sequence))
     }
 }

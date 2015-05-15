@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2521D90E1B053FD800AD1BB5 /* HUD.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2521D90D1B053FD800AD1BB5 /* HUD.sks */; };
 		252C25801AF9AA7D004B97C7 /* Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C257F1AF9AA7D004B97C7 /* Textures.swift */; };
 		252D4BD01AFC24CE005DC561 /* BaseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252D4BCF1AFC24CE005DC561 /* BaseScene.swift */; };
 		254562BA1B04307E00CD3EE3 /* SceneLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254562B91B04307E00CD3EE3 /* SceneLoader.swift */; };
@@ -22,6 +23,9 @@
 		256A57121AF5AB4600E83694 /* Explosions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A57111AF5AB4600E83694 /* Explosions.swift */; };
 		25A1483E1AF86A41006F7898 /* NeckWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A1483D1AF86A41006F7898 /* NeckWorm.swift */; };
 		25DCDD1E1AFCC0B00032C2E8 /* Level001.sks in Resources */ = {isa = PBXBuildFile; fileRef = 25DCDD1D1AFCC0B00032C2E8 /* Level001.sks */; };
+		25F352E61B058E7F0055762F /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 25F352E51B058E7F0055762F /* Fire.sks */; };
+		25F352F91B05925A0055762F /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 25F352F71B05925A0055762F /* Explosion.sks */; };
+		25F352FA1B05925A0055762F /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F352F81B05925A0055762F /* spark.png */; };
 		25F912D31B00FB34004338B8 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F912D21B00FB34004338B8 /* Game.swift */; };
 		25F912D51B01013C004338B8 /* WanderingHeadWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F912D41B01013C004338B8 /* WanderingHeadWorm.swift */; };
 		25F912D71B01031A004338B8 /* HungryHeadWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F912D61B01031A004338B8 /* HungryHeadWorm.swift */; };
@@ -46,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2521D90D1B053FD800AD1BB5 /* HUD.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HUD.sks; sourceTree = "<group>"; };
 		252C257F1AF9AA7D004B97C7 /* Textures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Textures.swift; sourceTree = "<group>"; };
 		252D4BCF1AFC24CE005DC561 /* BaseScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseScene.swift; sourceTree = "<group>"; };
 		254562B91B04307E00CD3EE3 /* SceneLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneLoader.swift; sourceTree = "<group>"; };
@@ -61,6 +66,9 @@
 		256A57111AF5AB4600E83694 /* Explosions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Explosions.swift; sourceTree = "<group>"; };
 		25A1483D1AF86A41006F7898 /* NeckWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeckWorm.swift; sourceTree = "<group>"; };
 		25DCDD1D1AFCC0B00032C2E8 /* Level001.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level001.sks; sourceTree = "<group>"; };
+		25F352E51B058E7F0055762F /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
+		25F352F71B05925A0055762F /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
+		25F352F81B05925A0055762F /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		25F912D21B00FB34004338B8 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		25F912D41B01013C004338B8 /* WanderingHeadWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WanderingHeadWorm.swift; sourceTree = "<group>"; };
 		25F912D61B01031A004338B8 /* HungryHeadWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HungryHeadWorm.swift; sourceTree = "<group>"; };
@@ -110,6 +118,7 @@
 		254562BB1B04491000CD3EE3 /* SceneLayouts */ = {
 			isa = PBXGroup;
 			children = (
+				2521D90D1B053FD800AD1BB5 /* HUD.sks */,
 				25DCDD1D1AFCC0B00032C2E8 /* Level001.sks */,
 				254562BE1B044D8B00CD3EE3 /* FeedingFrenzy.sks */,
 				254562C01B04504700CD3EE3 /* AngryWorm.sks */,
@@ -138,11 +147,21 @@
 			isa = PBXGroup;
 			children = (
 				256A57091AF3BF0D00E83694 /* Collisions.swift */,
-				256A57111AF5AB4600E83694 /* Explosions.swift */,
 				252C257F1AF9AA7D004B97C7 /* Textures.swift */,
 				25F912D21B00FB34004338B8 /* Game.swift */,
 			);
 			name = Game;
+			sourceTree = "<group>";
+		};
+		25F352E21B058A8C0055762F /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				256A57111AF5AB4600E83694 /* Explosions.swift */,
+				25F352E51B058E7F0055762F /* Fire.sks */,
+				25F352F71B05925A0055762F /* Explosion.sks */,
+				25F352F81B05925A0055762F /* spark.png */,
+			);
+			name = Effects;
 			sourceTree = "<group>";
 		};
 		B51B7E351AEC2CF7002895B9 = {
@@ -166,6 +185,7 @@
 		B51B7E401AEC2CF7002895B9 /* wormy */ = {
 			isa = PBXGroup;
 			children = (
+				25F352E21B058A8C0055762F /* Effects */,
 				254562BB1B04491000CD3EE3 /* SceneLayouts */,
 				252D4BCE1AFC248E005DC561 /* Scenes */,
 				256A57081AF3BEF800E83694 /* Game */,
@@ -290,7 +310,11 @@
 				B51B7E4F1AEC2CF8002895B9 /* Images.xcassets in Resources */,
 				25DCDD1E1AFCC0B00032C2E8 /* Level001.sks in Resources */,
 				B51B7E4D1AEC2CF8002895B9 /* Main.storyboard in Resources */,
+				25F352FA1B05925A0055762F /* spark.png in Resources */,
+				25F352E61B058E7F0055762F /* Fire.sks in Resources */,
 				254562C11B04504700CD3EE3 /* AngryWorm.sks in Resources */,
+				2521D90E1B053FD800AD1BB5 /* HUD.sks in Resources */,
+				25F352F91B05925A0055762F /* Explosion.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

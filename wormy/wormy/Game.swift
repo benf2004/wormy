@@ -9,7 +9,7 @@
 import SpriteKit
 
 struct Game {
-    
+
     static func randomInRange(lo: Int, hi : Int) -> Int {
         return lo + Int(arc4random_uniform(UInt32(hi - lo + 1)))
     }
@@ -38,6 +38,7 @@ struct Game {
         return Game.randomInRange(Int(CGRectGetMinY(frame)), hi: Int(CGRectGetMaxY(frame)))
     }
     
+    //this is too slow.  there are faster fibbonaci algorithms online
     static func fibbonaci(length : Int) -> Int {
         if (length == 0) {return 0}
         else if (length == 1) {return 1}

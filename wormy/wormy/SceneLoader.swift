@@ -9,22 +9,33 @@
 import SpriteKit
 
 struct SceneLoader {
+    static var currentScene : (String, SKView, BaseScene.Type)? = nil
     
     static func loadScene(name : String, sceneClass : BaseScene.Type) -> SKScene? {
-        let scene = sceneClass.unarchiveFromFile(name) as? BaseScene
-        scene?.scaleMode = .AspectFill
-        return scene
+        if let scene = sceneClass.unarchiveFromFile(name) as? BaseScene {
+            overlayHUD(scene)
+            return scene
+        } else {
+            return nil
+        }
     }
     
     static func transition(scene : SKScene, view: SKView) {
-        let transition = SKTransition.revealWithDirection(SKTransitionDirection.Down, duration: 1.0)
-        scene.scaleMode = SKSceneScaleMode.AspectFill
+        let transition = SKTransition.fadeWithDuration(0.5)
+        scene.scaleMode = SKSceneScaleMode.ResizeFill
         view.presentScene(scene, transition: transition)
     }
     
     static func transitionToScene(name : String, view : SKView, sceneClass : BaseScene.Type) {
+        currentScene = (name, view, sceneClass)
         if let scene = loadScene(name, sceneClass: sceneClass) {
             transition(scene, view: view)
+        }
+    }
+    
+    static func restartScene() {
+        if let scene = currentScene {
+            transitionToScene(scene.0, view: scene.1, sceneClass: scene.2)
         }
     }
     
@@ -32,5 +43,18 @@ struct SceneLoader {
         if let scene = MenuScene.unarchiveFromFile("Menu") as? MenuScene {
             transition(scene, view: view)
         }
+    }
+    
+    static func overlayHUD(scene : SKScene) {
+        if let hud = SKScene.unarchiveFromFile("HUD") as? SKScene {
+            for node in hud.children {
+                node.removeFromParent()
+                scene.addChild(node as! SKNode)
+            }
+        }
+    }
+    
+    static func loadEffect(name : String) -> SKEmitterNode? {
+        return SKEmitterNode.unarchiveFromFile(name) as? SKEmitterNode
     }
 }
