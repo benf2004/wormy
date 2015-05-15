@@ -57,4 +57,12 @@ struct SceneLoader {
     static func loadEffect(name : String) -> SKEmitterNode? {
         return SKEmitterNode.unarchiveFromFile(name) as? SKEmitterNode
     }
+    
+    static func loadLevelProperties(name : String) -> NSDictionary? {
+        if let path = NSBundle.mainBundle().pathForResource(name, ofType: "plist") {
+            return NSDictionary(contentsOfFile: path)
+        } else {
+            return nil
+        }
+    }
 }

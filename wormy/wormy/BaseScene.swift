@@ -12,6 +12,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     var worm: HeadWorm!
     var score: Int = 0
     var timeRemaining: Int = 60
+    var objective : Objective? = nil
     
     override func didMoveToView(view: SKView) {
         initialize()
@@ -71,6 +72,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func initialize() {
+        initializeObjective()
         placeWorm()
         placeObstacles()
         deliverFood(0.5)
@@ -169,5 +171,15 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         }
         let sequence = SKAction.sequence([update, wait])
         self.runAction(SKAction.repeatActionForever(sequence))
+    }
+    
+    func initializeObjective() {
+        if let levelName = scene?.name {
+            if let properties = SceneLoader.loadLevelProperties(levelName) {
+                if let lengthObjective = properties["LengthObjective"] as? Int {
+                    self.objective = LengthObjective(properties: properties)
+                }
+            }
+        }
     }
 }
