@@ -5,7 +5,7 @@
 	<key>InitialMessage</key>
 	<string>Goal: 75</string>
 	<key>LengthObjective</key>
-	<integer>75</integer>
+	<integer>55</integer>
 	<key>SecondsAllowed</key>
 	<integer>60</integer>
 </dict>
