@@ -11,10 +11,11 @@ import Foundation
 struct FoodTruck {
     init(properties : NSDictionary) {
         if let foodTruck = properties["FoodTruck"] as? NSDictionary {
-            foodTruck.enumerateKeysAndObjectsUsingBlock {
-                (key, object, stop) -> Void in
-                println(key)
-                println(object)
+            for food in foodTruck {
+//                println(food)
+//                if let item = foodTruck[food] as? String {
+//                    println(item)
+//                }
             }
         }
     }

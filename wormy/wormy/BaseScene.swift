@@ -88,7 +88,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         initializeObjective()
         placeWorm()
         placeObstacles()
-        deliverFood(0.5)
+        initializeFoodTruck()
         initializeHud()
         showInitialMessage()
         self.physicsWorld.contactDelegate = self
@@ -176,7 +176,10 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func deliverFood(frequency : NSTimeInterval) {
+    func initializeFoodTruck() {
+        let foodTruck = FoodTruck(properties: levelProperties!)
+        
+        let frequency = 0.5
         let wait = SKAction.waitForDuration(frequency)
         let run = SKAction.runBlock {
             var food = BaseWorm(textureName: Textures.simple, position: Game.randomPosition(self.frame))
