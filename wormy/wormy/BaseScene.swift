@@ -59,6 +59,14 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             contact.bodyB.categoryBitMask == Categories.head) {
                 head1 = contact.bodyA.node as? HeadWorm
                 head2 = contact.bodyB.node as? HeadWorm
+        } else if (contact.bodyA.categoryBitMask == Categories.activator) {
+            if let collidor = contact.bodyB.node as? BaseWorm {
+                collidor.activate()
+            }
+        } else if (contact.bodyB.categoryBitMask == Categories.activator) {
+            if let collidor = contact.bodyA.node as? BaseWorm {
+                collidor.activate()
+            }
         }
         
         if let food = segment {
@@ -104,6 +112,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         placeAngryWorms()
         placeCage()
         placeFire()
+        placeActivators()
     }
     
     func placeHungryWorms() {
@@ -152,6 +161,16 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
                 fire.position = position
                 self.addChild(fire)
             }
+        }
+    }
+    
+    func placeActivators() {
+        self.enumerateChildNodesWithName("Activator") {
+            node, stop in
+            let position = node.position
+            node.removeFromParent()
+            let activator = Activator(textureName: Textures.activator, position: position)
+            self.addChild(activator)
         }
     }
     

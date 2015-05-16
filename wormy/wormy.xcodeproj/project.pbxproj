@@ -25,6 +25,11 @@
 		259B660E1B06B4CC00C1545D /* Objectives.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B660D1B06B4CC00C1545D /* Objectives.swift */; };
 		259B66101B06C74900C1545D /* FeedingFrenzy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 259B660F1B06C74900C1545D /* FeedingFrenzy.plist */; };
 		259B66121B06CA2400C1545D /* AngryWorm.plist in Resources */ = {isa = PBXBuildFile; fileRef = 259B66111B06CA2400C1545D /* AngryWorm.plist */; };
+		259B66151B06E3D400C1545D /* Activator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B66141B06E3D400C1545D /* Activator.swift */; };
+		259B66171B06E8FF00C1545D /* Level002.sks in Resources */ = {isa = PBXBuildFile; fileRef = 259B66161B06E8FF00C1545D /* Level002.sks */; };
+		259B66191B06EA1B00C1545D /* Level002.plist in Resources */ = {isa = PBXBuildFile; fileRef = 259B66181B06EA1B00C1545D /* Level002.plist */; };
+		259B661B1B06EBEC00C1545D /* Level003.sks in Resources */ = {isa = PBXBuildFile; fileRef = 259B661A1B06EBEC00C1545D /* Level003.sks */; };
+		259B661D1B06ED2200C1545D /* Level003.plist in Resources */ = {isa = PBXBuildFile; fileRef = 259B661C1B06ED2200C1545D /* Level003.plist */; };
 		25A1483E1AF86A41006F7898 /* NeckWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A1483D1AF86A41006F7898 /* NeckWorm.swift */; };
 		25DCDD1E1AFCC0B00032C2E8 /* Level001.sks in Resources */ = {isa = PBXBuildFile; fileRef = 25DCDD1D1AFCC0B00032C2E8 /* Level001.sks */; };
 		25F352E61B058E7F0055762F /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 25F352E51B058E7F0055762F /* Fire.sks */; };
@@ -72,6 +77,11 @@
 		259B660D1B06B4CC00C1545D /* Objectives.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Objectives.swift; sourceTree = "<group>"; };
 		259B660F1B06C74900C1545D /* FeedingFrenzy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FeedingFrenzy.plist; sourceTree = "<group>"; };
 		259B66111B06CA2400C1545D /* AngryWorm.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AngryWorm.plist; sourceTree = "<group>"; };
+		259B66141B06E3D400C1545D /* Activator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activator.swift; sourceTree = "<group>"; };
+		259B66161B06E8FF00C1545D /* Level002.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level002.sks; sourceTree = "<group>"; };
+		259B66181B06EA1B00C1545D /* Level002.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level002.plist; sourceTree = "<group>"; };
+		259B661A1B06EBEC00C1545D /* Level003.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level003.sks; sourceTree = "<group>"; };
+		259B661C1B06ED2200C1545D /* Level003.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level003.plist; sourceTree = "<group>"; };
 		25A1483D1AF86A41006F7898 /* NeckWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeckWorm.swift; sourceTree = "<group>"; };
 		25DCDD1D1AFCC0B00032C2E8 /* Level001.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level001.sks; sourceTree = "<group>"; };
 		25F352E51B058E7F0055762F /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
@@ -126,11 +136,13 @@
 		254562BB1B04491000CD3EE3 /* SceneLayouts */ = {
 			isa = PBXGroup;
 			children = (
-				2521D90D1B053FD800AD1BB5 /* HUD.sks */,
 				25DCDD1D1AFCC0B00032C2E8 /* Level001.sks */,
+				259B66161B06E8FF00C1545D /* Level002.sks */,
+				259B661A1B06EBEC00C1545D /* Level003.sks */,
 				254562BE1B044D8B00CD3EE3 /* FeedingFrenzy.sks */,
 				254562C01B04504700CD3EE3 /* AngryWorm.sks */,
 				254562C41B04559900CD3EE3 /* Menu.sks */,
+				2521D90D1B053FD800AD1BB5 /* HUD.sks */,
 			);
 			name = SceneLayouts;
 			sourceTree = "<group>";
@@ -165,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				259B660A1B06B24600C1545D /* Level001.plist */,
+				259B66181B06EA1B00C1545D /* Level002.plist */,
+				259B661C1B06ED2200C1545D /* Level003.plist */,
 				259B660F1B06C74900C1545D /* FeedingFrenzy.plist */,
 				259B66111B06CA2400C1545D /* AngryWorm.plist */,
 			);
@@ -177,6 +191,14 @@
 				259B660D1B06B4CC00C1545D /* Objectives.swift */,
 			);
 			name = Objectives;
+			sourceTree = "<group>";
+		};
+		259B66131B06E3C000C1545D /* Obstacles */ = {
+			isa = PBXGroup;
+			children = (
+				259B66141B06E3D400C1545D /* Activator.swift */,
+			);
+			name = Obstacles;
 			sourceTree = "<group>";
 		};
 		25F352E21B058A8C0055762F /* Effects */ = {
@@ -211,6 +233,7 @@
 		B51B7E401AEC2CF7002895B9 /* wormy */ = {
 			isa = PBXGroup;
 			children = (
+				259B66131B06E3C000C1545D /* Obstacles */,
 				259B66091B06B20F00C1545D /* SceneProperties */,
 				25F352E21B058A8C0055762F /* Effects */,
 				254562BB1B04491000CD3EE3 /* SceneLayouts */,
@@ -339,6 +362,8 @@
 				254562BF1B044D8B00CD3EE3 /* FeedingFrenzy.sks in Resources */,
 				B51B7E4F1AEC2CF8002895B9 /* Images.xcassets in Resources */,
 				259B66121B06CA2400C1545D /* AngryWorm.plist in Resources */,
+				259B661B1B06EBEC00C1545D /* Level003.sks in Resources */,
+				259B66191B06EA1B00C1545D /* Level002.plist in Resources */,
 				25DCDD1E1AFCC0B00032C2E8 /* Level001.sks in Resources */,
 				B51B7E4D1AEC2CF8002895B9 /* Main.storyboard in Resources */,
 				25F352FA1B05925A0055762F /* spark.png in Resources */,
@@ -346,6 +371,8 @@
 				254562C11B04504700CD3EE3 /* AngryWorm.sks in Resources */,
 				2521D90E1B053FD800AD1BB5 /* HUD.sks in Resources */,
 				25F352F91B05925A0055762F /* Explosion.sks in Resources */,
+				259B66171B06E8FF00C1545D /* Level002.sks in Resources */,
+				259B661D1B06ED2200C1545D /* Level003.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				254562C71B0459CD00CD3EE3 /* MenuScene.swift in Sources */,
+				259B66151B06E3D400C1545D /* Activator.swift in Sources */,
 				256A57101AF53BCE00E83694 /* HeadWorm.swift in Sources */,
 				2567B3991AFCDD2600CACB8F /* GravityWorm.swift in Sources */,
 				25F912D71B01031A004338B8 /* HungryHeadWorm.swift in Sources */,
