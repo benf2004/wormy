@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>InitialMessage</key>
+	<string>Goal:  75</string>
 	<key>LengthObjective</key>
 	<integer>75</integer>
 	<key>SecondsAllowed</key>

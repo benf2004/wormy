@@ -82,6 +82,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         placeObstacles()
         deliverFood(0.5)
         initializeHud()
+        showInitialMessage()
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 4.9)
     }
@@ -219,6 +220,14 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         self.runAction(SKAction.sequence([wait, erase]))
+    }
+    
+    func showInitialMessage() {
+        if let properties = levelProperties {
+            if let initialMessage = properties["InitialMessage"] as? String {
+                showMessage(initialMessage, duration: 3)
+            }
+        }
     }
     
     func endLevel(success : Bool) {
