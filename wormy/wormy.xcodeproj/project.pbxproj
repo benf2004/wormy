@@ -20,7 +20,8 @@
 		256A570A1AF3BF0D00E83694 /* Collisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A57091AF3BF0D00E83694 /* Collisions.swift */; };
 		256A570E1AF5324800E83694 /* BaseWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A570D1AF5324800E83694 /* BaseWorm.swift */; };
 		256A57101AF53BCE00E83694 /* HeadWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A570F1AF53BCE00E83694 /* HeadWorm.swift */; };
-		256A57121AF5AB4600E83694 /* Explosions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A57111AF5AB4600E83694 /* Explosions.swift */; };
+		259650D81B06FC39003405AC /* FireActivator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259650D71B06FC39003405AC /* FireActivator.swift */; };
+		259650DA1B0780F9003405AC /* FoodTruck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259650D91B0780F9003405AC /* FoodTruck.swift */; };
 		259B660B1B06B24600C1545D /* Level001.plist in Resources */ = {isa = PBXBuildFile; fileRef = 259B660A1B06B24600C1545D /* Level001.plist */; };
 		259B660E1B06B4CC00C1545D /* Objectives.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B660D1B06B4CC00C1545D /* Objectives.swift */; };
 		259B66101B06C74900C1545D /* FeedingFrenzy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 259B660F1B06C74900C1545D /* FeedingFrenzy.plist */; };
@@ -72,7 +73,8 @@
 		256A57091AF3BF0D00E83694 /* Collisions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collisions.swift; sourceTree = "<group>"; };
 		256A570D1AF5324800E83694 /* BaseWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWorm.swift; sourceTree = "<group>"; };
 		256A570F1AF53BCE00E83694 /* HeadWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadWorm.swift; sourceTree = "<group>"; };
-		256A57111AF5AB4600E83694 /* Explosions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Explosions.swift; sourceTree = "<group>"; };
+		259650D71B06FC39003405AC /* FireActivator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireActivator.swift; sourceTree = "<group>"; };
+		259650D91B0780F9003405AC /* FoodTruck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTruck.swift; sourceTree = "<group>"; };
 		259B660A1B06B24600C1545D /* Level001.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level001.plist; sourceTree = "<group>"; };
 		259B660D1B06B4CC00C1545D /* Objectives.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Objectives.swift; sourceTree = "<group>"; };
 		259B660F1B06C74900C1545D /* FeedingFrenzy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FeedingFrenzy.plist; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				256A57091AF3BF0D00E83694 /* Collisions.swift */,
 				252C257F1AF9AA7D004B97C7 /* Textures.swift */,
 				25F912D21B00FB34004338B8 /* Game.swift */,
+				259650D91B0780F9003405AC /* FoodTruck.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				259B66141B06E3D400C1545D /* Activator.swift */,
+				259650D71B06FC39003405AC /* FireActivator.swift */,
 			);
 			name = Obstacles;
 			sourceTree = "<group>";
@@ -204,7 +208,6 @@
 		25F352E21B058A8C0055762F /* Effects */ = {
 			isa = PBXGroup;
 			children = (
-				256A57111AF5AB4600E83694 /* Explosions.swift */,
 				25F352E51B058E7F0055762F /* Fire.sks */,
 				25F352F71B05925A0055762F /* Explosion.sks */,
 				25F352F81B05925A0055762F /* spark.png */,
@@ -397,14 +400,15 @@
 				25F912D71B01031A004338B8 /* HungryHeadWorm.swift in Sources */,
 				B51B7E4A1AEC2CF8002895B9 /* GameViewController.swift in Sources */,
 				254562C31B04531E00CD3EE3 /* FullFoodScene.swift in Sources */,
+				259650DA1B0780F9003405AC /* FoodTruck.swift in Sources */,
 				B51B7E441AEC2CF7002895B9 /* AppDelegate.swift in Sources */,
-				256A57121AF5AB4600E83694 /* Explosions.swift in Sources */,
 				252C25801AF9AA7D004B97C7 /* Textures.swift in Sources */,
 				252D4BD01AFC24CE005DC561 /* BaseScene.swift in Sources */,
 				B544B9211AF7A47700E8D0C3 /* AnchorWorm.swift in Sources */,
 				25F912D31B00FB34004338B8 /* Game.swift in Sources */,
 				25F912D51B01013C004338B8 /* WanderingHeadWorm.swift in Sources */,
 				25A1483E1AF86A41006F7898 /* NeckWorm.swift in Sources */,
+				259650D81B06FC39003405AC /* FireActivator.swift in Sources */,
 				25F912D91B010385004338B8 /* AngryHeadWorm.swift in Sources */,
 				B5B401A11AFCE8700089FCF0 /* SheildWorm.swift in Sources */,
 				254562BA1B04307E00CD3EE3 /* SceneLoader.swift in Sources */,

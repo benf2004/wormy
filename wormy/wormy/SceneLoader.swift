@@ -8,40 +8,37 @@
 
 import SpriteKit
 
-struct SceneLoader {
-    static var currentScene : (String, SKView, BaseScene.Type)? = nil
+struct CurrentScene {
+    init(propertiesName : String, view : SKView, sceneType : BaseScene.Type) {
+        self.propertiesName = propertiesName
+        self.view = view
+        self.sceneType = sceneType
+    }
     
-    static func loadScene(name : String, sceneClass : BaseScene.Type) -> SKScene? {
-        if let scene = sceneClass.unarchiveFromFile(name) as? BaseScene {
+    var propertiesName : String!
+    var view : SKView!
+    var sceneType : BaseScene.Type!
+    var sceneName : String!
+}
+
+struct SceneLoader {
+    static var currentScene : CurrentScene!
+    
+    static func transitionToScene(propertiesName : String, view : SKView, sceneClass : BaseScene.Type) {
+        currentScene = CurrentScene(propertiesName: propertiesName, view: view, sceneType: sceneClass)
+        let properties = loadLevelProperties(propertiesName)
+        if let scene = loadScene(properties!, sceneClass: sceneClass) {
+            transition(scene, view: view)
+        }
+    }
+    
+    static func loadScene(properties : NSDictionary, sceneClass : BaseScene.Type) -> SKScene? {
+        let sceneName = properties["Scene"] as! String
+        if let scene = sceneClass.unarchiveFromFile(sceneName) as? BaseScene {
             overlayHUD(scene)
             return scene
         } else {
             return nil
-        }
-    }
-    
-    static func transition(scene : SKScene, view: SKView) {
-        let transition = SKTransition.fadeWithDuration(0.5)
-        scene.scaleMode = SKSceneScaleMode.ResizeFill
-        view.presentScene(scene, transition: transition)
-    }
-    
-    static func transitionToScene(name : String, view : SKView, sceneClass : BaseScene.Type) {
-        currentScene = (name, view, sceneClass)
-        if let scene = loadScene(name, sceneClass: sceneClass) {
-            transition(scene, view: view)
-        }
-    }
-    
-    static func restartScene() {
-        if let scene = currentScene {
-            transitionToScene(scene.0, view: scene.1, sceneClass: scene.2)
-        }
-    }
-    
-    static func transitionToMenu(view : SKView) {
-        if let scene = MenuScene.unarchiveFromFile("Menu") as? MenuScene {
-            transition(scene, view: view)
         }
     }
     
@@ -51,6 +48,22 @@ struct SceneLoader {
                 node.removeFromParent()
                 scene.addChild(node as! SKNode)
             }
+        }
+    }
+    
+    static func transition(scene : SKScene, view: SKView) {
+        let transition = SKTransition.fadeWithDuration(0.5)
+        scene.scaleMode = SKSceneScaleMode.ResizeFill
+        view.presentScene(scene, transition: transition)
+    }
+    
+    static func restartScene() {
+        transitionToScene(currentScene.propertiesName, view: currentScene.view, sceneClass: currentScene.sceneType)
+    }
+    
+    static func transitionToMenu(view : SKView) {
+        if let scene = MenuScene.unarchiveFromFile("Menu") as? MenuScene {
+            transition(scene, view: view)
         }
     }
     
@@ -64,9 +77,5 @@ struct SceneLoader {
         } else {
             return nil
         }
-    }
-    
-    static func currentSceneName() -> String? {
-        return currentScene?.0
     }
 }

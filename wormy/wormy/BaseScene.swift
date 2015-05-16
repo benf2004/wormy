@@ -157,6 +157,8 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             node, stop in
             let position = node.position
             node.removeFromParent()
+            let fireActivator = FireActivator(textureName: Textures.blank, position: position)
+            self.addChild(fireActivator)
             if let fire = SceneLoader.loadEffect("Fire") {
                 fire.position = position
                 self.addChild(fire)
@@ -215,7 +217,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func intializeProperties() {
-        if let levelName = SceneLoader.currentSceneName() {
+        if let levelName = SceneLoader.currentScene.propertiesName {
             levelProperties = SceneLoader.loadLevelProperties(levelName)
         }
     }

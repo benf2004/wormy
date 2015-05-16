@@ -20,4 +20,5 @@ struct Textures {
     static let pointed = "Pointed"
     static let simpleblack = "simpleblack"
     static let activator = "Activator"
+    static let blank = "blank"
 }

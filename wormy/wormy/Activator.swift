@@ -13,7 +13,11 @@ class Activator : SKSpriteNode {
         let texture = SKTexture(imageNamed: textureName)
         let color = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         super.init(texture: texture, color: color, size: texture.size())
-        
+        self.position = position
+        initialize()
+    }
+    
+    func initialize() {
         self.physicsBody = SKPhysicsBody(rectangleOfSize: self.size)
         if let physics = self.physicsBody {
             physics.affectedByGravity = false
