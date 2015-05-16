@@ -5,10 +5,10 @@
 	<key>Scene</key>
 	<string>Level004</string>
 	<key>LengthObjective</key>
-	<integer>45</integer>
-	<key>SecondsAllowed</key>
 	<integer>55</integer>
+	<key>SecondsAllowed</key>
+	<integer>60</integer>
 	<key>InitialMessage</key>
-	<string>Goal: 45</string>
+	<string>Goal: 55</string>
 </dict>
 </plist>
