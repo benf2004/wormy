@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>InitialMessage</key>
-	<string>Goal: 75</string>
+	<string>Goal: 55</string>
 	<key>LengthObjective</key>
 	<integer>55</integer>
 	<key>SecondsAllowed</key>
