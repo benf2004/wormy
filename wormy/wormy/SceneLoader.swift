@@ -65,4 +65,8 @@ struct SceneLoader {
             return nil
         }
     }
+    
+    static func currentSceneName() -> String? {
+        return currentScene?.0
+    }
 }

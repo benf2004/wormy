@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>LengthObjective</key>
-	<integer>10</integer>
+	<integer>75</integer>
 	<key>SecondsAllowed</key>
 	<integer>60</integer>
 </dict>

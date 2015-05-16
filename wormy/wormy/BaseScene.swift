@@ -172,6 +172,14 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         let update = SKAction.runBlock {
             self.score = self.score + self.worm.lengthToEnd()
             self.timeRemaining = self.timeRemaining - 1
+            if let levelObjective = self.objective {
+                if levelObjective.met(self) {
+                    self.endLevel(true)
+                } else if self.timeRemaining <= 0 {
+                    self.timeRemaining = 0
+                    self.endLevel(false)
+                }
+            }
             if let label = self.childNodeWithName("LengthLabel") as? SKLabelNode {
                 label.text = String(self.worm.lengthToEnd())
             }
@@ -181,21 +189,13 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             if let timer = self.childNodeWithName("Timer") as? SKLabelNode {
                 timer.text = String(self.timeRemaining)
             }
-            if let levelObjective = self.objective {
-                if levelObjective.met(self) {
-                    self.endLevel(true)
-                } else if self.timeRemaining <= 0 {
-                    self.timeRemaining = 0
-                    self.endLevel(false)
-                }
-            }
         }
         let sequence = SKAction.sequence([update, wait])
         self.runAction(SKAction.repeatActionForever(sequence))
     }
     
     func intializeProperties() {
-        if let levelName = self.name {
+        if let levelName = SceneLoader.currentSceneName() {
             levelProperties = SceneLoader.loadLevelProperties(levelName)
         }
     }
@@ -208,22 +208,33 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    func showMessage(message : String, duration : NSTimeInterval) {
+        let wait = SKAction.waitForDuration(duration)
+        if let messageLabel = self.childNodeWithName("Message") as? SKLabelNode {
+            messageLabel.text = message
+        }
+        let erase = SKAction.runBlock {
+            if let messageLabel = self.childNodeWithName("Message") as? SKLabelNode {
+                messageLabel.text = ""
+            }
+        }
+        self.runAction(SKAction.sequence([wait, erase]))
+    }
+    
     func endLevel(success : Bool) {
         let wait = SKAction.waitForDuration(3)
-        if let endMessageLabel = self.childNodeWithName("EndMessage") as? SKLabelNode {
-            if (success) {
-                endMessageLabel.text = "You Win!"
-                let transition = SKAction.runBlock {
-                    SceneLoader.transitionToMenu(self.view!)
-                }
-                self.runAction(SKAction.sequence([wait, transition]))
-            } else {
-                endMessageLabel.text = "You Lose!"
-                let transition = SKAction.runBlock {
-                    SceneLoader.restartScene()
-                }
-                self.runAction(SKAction.sequence([wait, transition]))
+        if (success) {
+            showMessage("You Win!", duration: 2)
+            let transition = SKAction.runBlock {
+                SceneLoader.transitionToMenu(self.view!)
             }
+            self.runAction(SKAction.sequence([wait, transition]))
+        } else {
+            showMessage("You Lose!", duration: 2)
+            let transition = SKAction.runBlock {
+                SceneLoader.restartScene()
+            }
+            self.runAction(SKAction.sequence([wait, transition]))
         }
     }
 }
