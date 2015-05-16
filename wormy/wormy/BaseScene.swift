@@ -13,6 +13,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     var score: Int = 0
     var timeRemaining: Int = 60
     var objective : Objective? = nil
+    var levelProperties : NSDictionary? = nil
     
     override func didMoveToView(view: SKView) {
         initialize()
@@ -28,10 +29,6 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             if touchedNode.name == "Menu" {
                 SceneLoader.transitionToMenu(self.view!)
             }
-            
-            
-            
-            
             if let wormNode = self.nodeAtPoint(location) as? BaseWorm {
                 wormNode.activate()
             }
@@ -79,11 +76,12 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func initialize() {
+        intializeProperties()
         initializeObjective()
         placeWorm()
         placeObstacles()
         deliverFood(0.5)
-        updateHud()
+        initializeHud()
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 4.9)
     }
@@ -166,34 +164,65 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
     }
     
-    func updateHud() {
+    func initializeHud() {
+        if let properties = levelProperties {
+            self.timeRemaining = properties["SecondsAllowed"] as! Int
+        }
         let wait = SKAction.waitForDuration(1.0)
         let update = SKAction.runBlock {
             self.score = self.score + self.worm.lengthToEnd()
             self.timeRemaining = self.timeRemaining - 1
             if let label = self.childNodeWithName("LengthLabel") as? SKLabelNode {
                 label.text = String(self.worm.lengthToEnd())
-                //label.text = String(self.timeRemaining)
             }
             if let totalScoreLabel = self.childNodeWithName("TotalScore") as? SKLabelNode {
                 totalScoreLabel.text = String(self.score)
             }
-            
             if let timer = self.childNodeWithName("Timer") as? SKLabelNode {
-                    timer.text = String(self.timeRemaining)
-                
+                timer.text = String(self.timeRemaining)
+            }
+            if let levelObjective = self.objective {
+                if levelObjective.met(self) {
+                    self.endLevel(true)
+                } else if self.timeRemaining <= 0 {
+                    self.timeRemaining = 0
+                    self.endLevel(false)
+                }
             }
         }
         let sequence = SKAction.sequence([update, wait])
         self.runAction(SKAction.repeatActionForever(sequence))
     }
     
+    func intializeProperties() {
+        if let levelName = self.name {
+            levelProperties = SceneLoader.loadLevelProperties(levelName)
+        }
+    }
+    
     func initializeObjective() {
-        if let levelName = scene?.name {
-            if let properties = SceneLoader.loadLevelProperties(levelName) {
-                if let lengthObjective = properties["LengthObjective"] as? Int {
-                    self.objective = LengthObjective(properties: properties)
+        if let properties = levelProperties {
+            if let lengthObjective = properties["LengthObjective"] as? Int {
+                self.objective = LengthObjective(targetLength: lengthObjective)
+            }
+        }
+    }
+    
+    func endLevel(success : Bool) {
+        let wait = SKAction.waitForDuration(3)
+        if let endMessageLabel = self.childNodeWithName("EndMessage") as? SKLabelNode {
+            if (success) {
+                endMessageLabel.text = "You Win!"
+                let transition = SKAction.runBlock {
+                    SceneLoader.transitionToMenu(self.view!)
                 }
+                self.runAction(SKAction.sequence([wait, transition]))
+            } else {
+                endMessageLabel.text = "You Lose!"
+                let transition = SKAction.runBlock {
+                    SceneLoader.restartScene()
+                }
+                self.runAction(SKAction.sequence([wait, transition]))
             }
         }
     }

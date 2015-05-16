@@ -23,6 +23,7 @@
 		256A57121AF5AB4600E83694 /* Explosions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A57111AF5AB4600E83694 /* Explosions.swift */; };
 		259B660B1B06B24600C1545D /* Level001.plist in Resources */ = {isa = PBXBuildFile; fileRef = 259B660A1B06B24600C1545D /* Level001.plist */; };
 		259B660E1B06B4CC00C1545D /* Objectives.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259B660D1B06B4CC00C1545D /* Objectives.swift */; };
+		259B66101B06C74900C1545D /* FeedingFrenzy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 259B660F1B06C74900C1545D /* FeedingFrenzy.plist */; };
 		25A1483E1AF86A41006F7898 /* NeckWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A1483D1AF86A41006F7898 /* NeckWorm.swift */; };
 		25DCDD1E1AFCC0B00032C2E8 /* Level001.sks in Resources */ = {isa = PBXBuildFile; fileRef = 25DCDD1D1AFCC0B00032C2E8 /* Level001.sks */; };
 		25F352E61B058E7F0055762F /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 25F352E51B058E7F0055762F /* Fire.sks */; };
@@ -68,6 +69,7 @@
 		256A57111AF5AB4600E83694 /* Explosions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Explosions.swift; sourceTree = "<group>"; };
 		259B660A1B06B24600C1545D /* Level001.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level001.plist; sourceTree = "<group>"; };
 		259B660D1B06B4CC00C1545D /* Objectives.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Objectives.swift; sourceTree = "<group>"; };
+		259B660F1B06C74900C1545D /* FeedingFrenzy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FeedingFrenzy.plist; sourceTree = "<group>"; };
 		25A1483D1AF86A41006F7898 /* NeckWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeckWorm.swift; sourceTree = "<group>"; };
 		25DCDD1D1AFCC0B00032C2E8 /* Level001.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level001.sks; sourceTree = "<group>"; };
 		25F352E51B058E7F0055762F /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				259B660A1B06B24600C1545D /* Level001.plist */,
+				259B660F1B06C74900C1545D /* FeedingFrenzy.plist */,
 			);
 			name = SceneProperties;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				254562C51B04559900CD3EE3 /* Menu.sks in Resources */,
+				259B66101B06C74900C1545D /* FeedingFrenzy.plist in Resources */,
 				259B660B1B06B24600C1545D /* Level001.plist in Resources */,
 				254562BF1B044D8B00CD3EE3 /* FeedingFrenzy.sks in Resources */,
 				B51B7E4F1AEC2CF8002895B9 /* Images.xcassets in Resources */,
