@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 FInch Family. All rights reserved.
 //
 
+import Foundation
 import SpriteKit
 
 class AngryHeadWorm : HeadWorm {
@@ -14,7 +15,7 @@ class AngryHeadWorm : HeadWorm {
     
     init(position : CGPoint, opponent : HeadWorm, dormancy : NSTimeInterval) {
         self.dormancy = dormancy
-        super.init(position: position, Textures.angryworm)
+        super.init(position: position, texture: Textures.angryworm)
         self.opponent = opponent
     }
     
@@ -28,10 +29,22 @@ class AngryHeadWorm : HeadWorm {
         
         let lieDormant = SKAction.waitForDuration(dormancy)
         self.runAction(SKAction.sequence([lieDormant, action]))
+        self.animate()
     }
     
     override func animate() {
-        
+        if let leftsmoke = SceneLoader.loadEffect("EarSmoke") {
+            leftsmoke.position = CGPointMake(0, (self.size.height / 2))
+            self.addChild(leftsmoke)
+            leftsmoke.targetNode = self.scene!
+        }
+        if let rightsmoke = SceneLoader.loadEffect("EarSmoke") {
+            rightsmoke.yAcceleration = rightsmoke.yAcceleration * -1
+            rightsmoke.emissionAngle = rightsmoke.emissionAngle * -1
+            rightsmoke.position = CGPointMake(0, -(self.size.height / 2))
+            self.addChild(rightsmoke)
+            rightsmoke.targetNode = self.scene!
+        }
     }
     
     func target() {

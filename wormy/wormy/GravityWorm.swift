@@ -10,11 +10,10 @@ import Foundation
 class GravityWorm : BaseWorm{
     override func initialize() {
         targetValue = 2
+        physics()?.affectedByGravity = true
     }
     
     override func activate(){
-        if (!shielded) {
-            physics()?.affectedByGravity = true
-        }
+        die()
     }
 }

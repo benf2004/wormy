@@ -11,8 +11,8 @@ import SpriteKit
 class HungryHeadWorm : HeadWorm {
     var food : BaseWorm? = nil
     
-    override init(position : CGPoint) {
-        super.init(position: position)
+    init(position : CGPoint) {
+        super.init(position: position, texture: Textures.head)
         let targetBlock = SKAction.runBlock {
             self.targetFood()
         }

@@ -9,8 +9,8 @@
 import SpriteKit
 
 class WanderingHeadWorm : HeadWorm {
-    override init(position : CGPoint) {
-        super.init(position: position)
+    init(position : CGPoint) {
+        super.init(position: position, texture: Textures.head)
     }
     
     override func initialize() {

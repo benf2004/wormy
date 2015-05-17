@@ -16,7 +16,6 @@ class HeadWorm : BaseWorm {
     
     init(position : CGPoint, texture : String) {
         super.init(textureName: texture, position: position)
-        self.animate()
         if let physics = self.physics() {
             physics.categoryBitMask = Categories.head
             physics.collisionBitMask = Categories.body | Categories.head
@@ -25,6 +24,7 @@ class HeadWorm : BaseWorm {
     }
     
     override func initialize() {
+        self.animate()
         targetValue = 0
     }
     

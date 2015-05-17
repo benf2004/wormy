@@ -10,6 +10,8 @@
 	<integer>15</integer>
 	<key>SecondsAllowed</key>
 	<integer>60</integer>
+	<key>FoodFrequency</key>
+	<real>0.5</real>
 	<key>FoodTruck</key>
 	<dict>
 		<key>GravityWorm</key>

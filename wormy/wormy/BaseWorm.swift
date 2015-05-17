@@ -46,7 +46,6 @@ class BaseWorm : SKSpriteNode {
         }
         
         self.position = position
-        initialize()
     }
     
     func initialize() {
@@ -57,7 +56,6 @@ class BaseWorm : SKSpriteNode {
         if (isTail()) {
             if (next.parent == nil && self.scene != nil) {
                 self.scene!.addChild(next)
-                next.affectedByGravity(false)
                 self.size.width = normalSize!
                 self.size.height = normalSize!
                 next.position = CGPoint(x: position.x - size.width / 2, y: position.y)

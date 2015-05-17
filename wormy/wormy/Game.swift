@@ -9,7 +9,6 @@
 import SpriteKit
 
 struct Game {
-
     static func randomInRange(lo: Int, hi : Int) -> Int {
         return lo + Int(arc4random_uniform(UInt32(hi - lo + 1)))
     }

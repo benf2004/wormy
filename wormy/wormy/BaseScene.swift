@@ -14,6 +14,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     var timeRemaining: Int = 60
     var objective : Objective? = nil
     var levelProperties : NSDictionary? = nil
+    var foodTruck : FoodTruck!
     
     override func didMoveToView(view: SKView) {
         initialize()
@@ -101,6 +102,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             wormStub.removeFromParent()
             worm = HeadWorm(position: initialPosition)
             self.addChild(worm)
+            worm.initialize()
             for i in 1...3 {
                 worm.consume(NeckWorm())
             }
@@ -122,6 +124,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             node.removeFromParent()
             let hungryWorm = HungryHeadWorm(position: initialPosition)
             self.addChild(hungryWorm)
+            hungryWorm.initialize()
             for i in 1...3 {
                 hungryWorm.consume(NeckWorm())
             }
@@ -135,6 +138,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             node.removeFromParent()
             let angryWorm = AngryHeadWorm(position: initialPosition, opponent: self.worm, dormancy: 3)
             self.addChild(angryWorm)
+            angryWorm.initialize()
             for i in 1...3 {
                 angryWorm.consume(NeckWorm())
             }
@@ -177,14 +181,19 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func initializeFoodTruck() {
-        let foodTruck = FoodTruck(properties: levelProperties!)
+        self.foodTruck = FoodTruck(properties: levelProperties!)
         
-        let frequency = 0.5
-        let wait = SKAction.waitForDuration(frequency)
+        var frequency = levelProperties!["FoodFrequency"] as? NSTimeInterval
+        if (frequency == nil) {
+            frequency = 0.5
+        }
+        let wait = SKAction.waitForDuration(frequency!)
         let run = SKAction.runBlock {
-            var food = BaseWorm(textureName: Textures.simple, position: Game.randomPosition(self.frame))
+            let position = Game.randomPosition(self.view!.frame)
+            var food = self.foodTruck.randomFood(position)
             food.shield(true)
             self.addChild(food)
+            food.initialize()
         }
         self.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
     }

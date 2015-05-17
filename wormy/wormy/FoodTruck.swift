@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SpriteKit
 
 struct FoodTruck {
     var foodTypes : Array<String> = []
@@ -33,12 +34,16 @@ struct FoodTruck {
         return foodTypes.last!
     }
     
-    func randomFood() -> BaseWorm {
+    func randomFood(position : CGPoint) -> BaseWorm {
         switch randomFoodType() {
         case "GravityWorm":
-            return GravityWorm(textureName: Textures.simple)
+            return GravityWorm(textureName: Textures.simplered, position : position)
+        case "SheildWorm":
+            return ShieldWorm(textureName: Textures.simpleblack, position : position)
+        case "AnchorWorm":
+            return AnchorWorm(textureName: Textures.simpleblue, position : position)
         default:
-            return BaseWorm(textureName: Textures.simple)
+            return BaseWorm(textureName: Textures.simple, position : position)
         }
     }
 }
