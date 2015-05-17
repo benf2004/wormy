@@ -15,7 +15,7 @@
 		<key>GravityWorm</key>
 		<integer>50</integer>
 		<key>BaseWorm</key>
-		<integer>100</integer>
+		<integer>50</integer>
 	</dict>
 </dict>
 </plist>
