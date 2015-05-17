@@ -10,8 +10,12 @@ import Foundation
 import SpriteKit
 
 class HeadWorm : BaseWorm {
-    init(position : CGPoint) {
-        super.init(textureName: Textures.head, position: position)
+    convenience init(position : CGPoint) {
+        self.init(position: position, texture: Textures.head)
+    }
+    
+    init(position : CGPoint, texture : String) {
+        super.init(textureName: texture, position: position)
         self.animate()
         if let physics = self.physics() {
             physics.categoryBitMask = Categories.head
