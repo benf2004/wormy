@@ -39,6 +39,7 @@
 		25F912D51B01013C004338B8 /* WanderingHeadWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F912D41B01013C004338B8 /* WanderingHeadWorm.swift */; };
 		25F912D71B01031A004338B8 /* HungryHeadWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F912D61B01031A004338B8 /* HungryHeadWorm.swift */; };
 		25F912D91B010385004338B8 /* AngryHeadWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F912D81B010385004338B8 /* AngryHeadWorm.swift */; };
+		953E63AC1B08328000F4C707 /* EarSmoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 953E63AB1B08328000F4C707 /* EarSmoke.sks */; };
 		B51B7E441AEC2CF7002895B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B7E431AEC2CF7002895B9 /* AppDelegate.swift */; };
 		B51B7E4A1AEC2CF8002895B9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B7E491AEC2CF8002895B9 /* GameViewController.swift */; };
 		B51B7E4D1AEC2CF8002895B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B51B7E4B1AEC2CF8002895B9 /* Main.storyboard */; };
@@ -93,6 +94,7 @@
 		25F912D41B01013C004338B8 /* WanderingHeadWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WanderingHeadWorm.swift; sourceTree = "<group>"; };
 		25F912D61B01031A004338B8 /* HungryHeadWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HungryHeadWorm.swift; sourceTree = "<group>"; };
 		25F912D81B010385004338B8 /* AngryHeadWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AngryHeadWorm.swift; sourceTree = "<group>"; };
+		953E63AB1B08328000F4C707 /* EarSmoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EarSmoke.sks; sourceTree = "<group>"; };
 		B51B7E3E1AEC2CF7002895B9 /* wormy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wormy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51B7E421AEC2CF7002895B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B51B7E431AEC2CF7002895B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				25F352E51B058E7F0055762F /* Fire.sks */,
 				25F352F71B05925A0055762F /* Explosion.sks */,
 				25F352F81B05925A0055762F /* spark.png */,
+				953E63AB1B08328000F4C707 /* EarSmoke.sks */,
 			);
 			name = Effects;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				2521D90E1B053FD800AD1BB5 /* HUD.sks in Resources */,
 				25F352F91B05925A0055762F /* Explosion.sks in Resources */,
 				259B66171B06E8FF00C1545D /* Level002.sks in Resources */,
+				953E63AC1B08328000F4C707 /* EarSmoke.sks in Resources */,
 				259B661D1B06ED2200C1545D /* Level003.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
