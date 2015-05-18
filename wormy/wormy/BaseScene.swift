@@ -204,7 +204,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         }
         let wait = SKAction.waitForDuration(1.0)
         let update = SKAction.runBlock {
-            self.score = self.score + self.worm.lengthToEnd()
+            //self.score = self.score + self.worm.lengthToEnd()
             self.timeRemaining = self.timeRemaining - 1
             if let levelObjective = self.objective {
                 if levelObjective.met(self) {
