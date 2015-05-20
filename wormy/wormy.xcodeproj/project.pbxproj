@@ -149,11 +149,11 @@
 				259B66161B06E8FF00C1545D /* Level002.sks */,
 				259B661A1B06EBEC00C1545D /* Level003.sks */,
 				B5D11ECB1B0789DC00A488C7 /* Level004.sks */,
+				B599A68B1B0A161300E15682 /* Level005.sks */,
 				254562BE1B044D8B00CD3EE3 /* FeedingFrenzy.sks */,
 				254562C01B04504700CD3EE3 /* AngryWorm.sks */,
 				254562C41B04559900CD3EE3 /* Menu.sks */,
 				2521D90D1B053FD800AD1BB5 /* HUD.sks */,
-				B599A68B1B0A161300E15682 /* Level005.sks */,
 			);
 			name = SceneLayouts;
 			sourceTree = "<group>";
@@ -192,9 +192,9 @@
 				259B66181B06EA1B00C1545D /* Level002.plist */,
 				259B661C1B06ED2200C1545D /* Level003.plist */,
 				B5D11ECD1B078A4900A488C7 /* Level004.plist */,
+				B599A68D1B0A16D300E15682 /* Level005.plist */,
 				259B660F1B06C74900C1545D /* FeedingFrenzy.plist */,
 				259B66111B06CA2400C1545D /* AngryWorm.plist */,
-				B599A68D1B0A16D300E15682 /* Level005.plist */,
 			);
 			name = SceneProperties;
 			sourceTree = "<group>";
