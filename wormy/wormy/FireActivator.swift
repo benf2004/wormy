@@ -19,7 +19,7 @@ class FireActivator : Activator {
             physics.affectedByGravity = false
             physics.allowsRotation = false
             physics.dynamic = false
-            physics.categoryBitMask = Categories.activator
+            physics.categoryBitMask = Categories.obstacle
             physics.contactTestBitMask = Categories.body | Categories.head
         }
     }

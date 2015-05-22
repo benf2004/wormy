@@ -23,7 +23,7 @@ class Activator : SKSpriteNode {
             physics.affectedByGravity = false
             physics.allowsRotation = false
             physics.dynamic = false
-            physics.categoryBitMask = Categories.activator
+            physics.categoryBitMask = Categories.obstacle
             physics.collisionBitMask = Categories.body | Categories.head
             physics.contactTestBitMask = Categories.body | Categories.head
         }

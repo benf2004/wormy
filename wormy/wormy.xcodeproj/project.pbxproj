@@ -15,6 +15,11 @@
 		254562C11B04504700CD3EE3 /* AngryWorm.sks in Resources */ = {isa = PBXBuildFile; fileRef = 254562C01B04504700CD3EE3 /* AngryWorm.sks */; };
 		254562C51B04559900CD3EE3 /* Menu.sks in Resources */ = {isa = PBXBuildFile; fileRef = 254562C41B04559900CD3EE3 /* Menu.sks */; };
 		254562C71B0459CD00CD3EE3 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254562C61B0459CD00CD3EE3 /* MenuScene.swift */; };
+		25507C2D1B0EBA8F007E291D /* Dirt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25507C2C1B0EBA8F007E291D /* Dirt.swift */; };
+		25507C321B0ED007007E291D /* Pebbles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 25507C301B0ED007007E291D /* Pebbles.sks */; };
+		25507C331B0ED007007E291D /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 25507C311B0ED007007E291D /* spark.png */; };
+		25507C351B0ED49D007E291D /* Tunnels.sks in Resources */ = {isa = PBXBuildFile; fileRef = 25507C341B0ED49D007E291D /* Tunnels.sks */; };
+		25507C371B0ED59F007E291D /* Tunnels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25507C361B0ED59F007E291D /* Tunnels.plist */; };
 		2567B3991AFCDD2600CACB8F /* GravityWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2567B3981AFCDD2600CACB8F /* GravityWorm.swift */; };
 		256A570A1AF3BF0D00E83694 /* Collisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A57091AF3BF0D00E83694 /* Collisions.swift */; };
 		256A570E1AF5324800E83694 /* BaseWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256A570D1AF5324800E83694 /* BaseWorm.swift */; };
@@ -34,7 +39,6 @@
 		25DCDD1E1AFCC0B00032C2E8 /* Level001.sks in Resources */ = {isa = PBXBuildFile; fileRef = 25DCDD1D1AFCC0B00032C2E8 /* Level001.sks */; };
 		25F352E61B058E7F0055762F /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 25F352E51B058E7F0055762F /* Fire.sks */; };
 		25F352F91B05925A0055762F /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 25F352F71B05925A0055762F /* Explosion.sks */; };
-		25F352FA1B05925A0055762F /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 25F352F81B05925A0055762F /* spark.png */; };
 		25F912D31B00FB34004338B8 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F912D21B00FB34004338B8 /* Game.swift */; };
 		25F912D51B01013C004338B8 /* WanderingHeadWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F912D41B01013C004338B8 /* WanderingHeadWorm.swift */; };
 		25F912D71B01031A004338B8 /* HungryHeadWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F912D61B01031A004338B8 /* HungryHeadWorm.swift */; };
@@ -72,6 +76,11 @@
 		254562C01B04504700CD3EE3 /* AngryWorm.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AngryWorm.sks; sourceTree = "<group>"; };
 		254562C41B04559900CD3EE3 /* Menu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Menu.sks; sourceTree = "<group>"; };
 		254562C61B0459CD00CD3EE3 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		25507C2C1B0EBA8F007E291D /* Dirt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dirt.swift; sourceTree = "<group>"; };
+		25507C301B0ED007007E291D /* Pebbles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Pebbles.sks; sourceTree = "<group>"; };
+		25507C311B0ED007007E291D /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		25507C341B0ED49D007E291D /* Tunnels.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tunnels.sks; sourceTree = "<group>"; };
+		25507C361B0ED59F007E291D /* Tunnels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tunnels.plist; sourceTree = "<group>"; };
 		2567B3981AFCDD2600CACB8F /* GravityWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GravityWorm.swift; sourceTree = "<group>"; };
 		256A57091AF3BF0D00E83694 /* Collisions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collisions.swift; sourceTree = "<group>"; };
 		256A570D1AF5324800E83694 /* BaseWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWorm.swift; sourceTree = "<group>"; };
@@ -91,7 +100,6 @@
 		25DCDD1D1AFCC0B00032C2E8 /* Level001.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level001.sks; sourceTree = "<group>"; };
 		25F352E51B058E7F0055762F /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
 		25F352F71B05925A0055762F /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
-		25F352F81B05925A0055762F /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		25F912D21B00FB34004338B8 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		25F912D41B01013C004338B8 /* WanderingHeadWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WanderingHeadWorm.swift; sourceTree = "<group>"; };
 		25F912D61B01031A004338B8 /* HungryHeadWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HungryHeadWorm.swift; sourceTree = "<group>"; };
@@ -154,6 +162,7 @@
 				254562C01B04504700CD3EE3 /* AngryWorm.sks */,
 				254562C41B04559900CD3EE3 /* Menu.sks */,
 				2521D90D1B053FD800AD1BB5 /* HUD.sks */,
+				25507C341B0ED49D007E291D /* Tunnels.sks */,
 			);
 			name = SceneLayouts;
 			sourceTree = "<group>";
@@ -195,6 +204,7 @@
 				B599A68D1B0A16D300E15682 /* Level005.plist */,
 				259B660F1B06C74900C1545D /* FeedingFrenzy.plist */,
 				259B66111B06CA2400C1545D /* AngryWorm.plist */,
+				25507C361B0ED59F007E291D /* Tunnels.plist */,
 			);
 			name = SceneProperties;
 			sourceTree = "<group>";
@@ -212,6 +222,7 @@
 			children = (
 				259B66141B06E3D400C1545D /* Activator.swift */,
 				259650D71B06FC39003405AC /* FireActivator.swift */,
+				25507C2C1B0EBA8F007E291D /* Dirt.swift */,
 			);
 			name = Obstacles;
 			sourceTree = "<group>";
@@ -221,8 +232,9 @@
 			children = (
 				25F352E51B058E7F0055762F /* Fire.sks */,
 				25F352F71B05925A0055762F /* Explosion.sks */,
-				25F352F81B05925A0055762F /* spark.png */,
 				953E63AB1B08328000F4C707 /* EarSmoke.sks */,
+				25507C301B0ED007007E291D /* Pebbles.sks */,
+				25507C311B0ED007007E291D /* spark.png */,
 			);
 			name = Effects;
 			sourceTree = "<group>";
@@ -374,6 +386,7 @@
 				254562C51B04559900CD3EE3 /* Menu.sks in Resources */,
 				B599A68C1B0A161300E15682 /* Level005.sks in Resources */,
 				B5D11ECC1B0789DC00A488C7 /* Level004.sks in Resources */,
+				25507C351B0ED49D007E291D /* Tunnels.sks in Resources */,
 				259B66101B06C74900C1545D /* FeedingFrenzy.plist in Resources */,
 				B5D11ECE1B078A4900A488C7 /* Level004.plist in Resources */,
 				259B660B1B06B24600C1545D /* Level001.plist in Resources */,
@@ -381,12 +394,14 @@
 				B51B7E4F1AEC2CF8002895B9 /* Images.xcassets in Resources */,
 				259B66121B06CA2400C1545D /* AngryWorm.plist in Resources */,
 				259B661B1B06EBEC00C1545D /* Level003.sks in Resources */,
+				25507C371B0ED59F007E291D /* Tunnels.plist in Resources */,
 				259B66191B06EA1B00C1545D /* Level002.plist in Resources */,
 				25DCDD1E1AFCC0B00032C2E8 /* Level001.sks in Resources */,
 				B51B7E4D1AEC2CF8002895B9 /* Main.storyboard in Resources */,
 				B599A68E1B0A16D300E15682 /* Level005.plist in Resources */,
-				25F352FA1B05925A0055762F /* spark.png in Resources */,
+				25507C331B0ED007007E291D /* spark.png in Resources */,
 				25F352E61B058E7F0055762F /* Fire.sks in Resources */,
+				25507C321B0ED007007E291D /* Pebbles.sks in Resources */,
 				254562C11B04504700CD3EE3 /* AngryWorm.sks in Resources */,
 				2521D90E1B053FD800AD1BB5 /* HUD.sks in Resources */,
 				25F352F91B05925A0055762F /* Explosion.sks in Resources */,
@@ -420,6 +435,7 @@
 				B51B7E441AEC2CF7002895B9 /* AppDelegate.swift in Sources */,
 				252C25801AF9AA7D004B97C7 /* Textures.swift in Sources */,
 				252D4BD01AFC24CE005DC561 /* BaseScene.swift in Sources */,
+				25507C2D1B0EBA8F007E291D /* Dirt.swift in Sources */,
 				B544B9211AF7A47700E8D0C3 /* AnchorWorm.swift in Sources */,
 				25F912D31B00FB34004338B8 /* Game.swift in Sources */,
 				25F912D51B01013C004338B8 /* WanderingHeadWorm.swift in Sources */,

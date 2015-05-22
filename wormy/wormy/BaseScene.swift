@@ -60,13 +60,29 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             contact.bodyB.categoryBitMask == Categories.head) {
                 head1 = contact.bodyA.node as? HeadWorm
                 head2 = contact.bodyB.node as? HeadWorm
-        } else if (contact.bodyA.categoryBitMask == Categories.activator) {
-            if let collidor = contact.bodyB.node as? BaseWorm {
-                collidor.activate()
+        } else if (contact.bodyA.categoryBitMask == Categories.obstacle) {
+            if let activator = contact.bodyA.node as? Activator {
+                if let collidor = contact.bodyB.node as? BaseWorm {
+                    collidor.activate()
+                }
+            } else if let brick = contact.bodyA.node as? Dirt {
+                brick.transformToPebbles()
+            } else if let pebble = contact.bodyA.node as? SKSpriteNode {
+                if (pebble.name == Textures.pebble) {
+                    pebble.removeFromParent()
+                }
             }
-        } else if (contact.bodyB.categoryBitMask == Categories.activator) {
-            if let collidor = contact.bodyA.node as? BaseWorm {
-                collidor.activate()
+        } else if (contact.bodyB.categoryBitMask == Categories.obstacle) {
+            if let activator = contact.bodyB.node as? Activator {
+                if let collidor = contact.bodyA.node as? BaseWorm {
+                    collidor.activate()
+                }
+            } else if let brick = contact.bodyB.node as? Dirt {
+                brick.transformToPebbles()
+            } else if let pebble = contact.bodyB.node as? SKSpriteNode {
+                if (pebble.name == Textures.pebble) {
+                    pebble.removeFromParent()
+                }
             }
         }
         
@@ -115,6 +131,7 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
         placeCage()
         placeFire()
         placeActivators()
+        placeBricks()
     }
     
     func placeHungryWorms() {
@@ -177,6 +194,39 @@ class BaseScene: SKScene, SKPhysicsContactDelegate {
             node.removeFromParent()
             let activator = Activator(textureName: Textures.activator, position: position)
             self.addChild(activator)
+        }
+    }
+    
+    func placeBricks() {
+        self.enumerateChildNodesWithName("Bricks") {
+            node, stop in
+            let wall = node as! SKSpriteNode
+            let position = node.position
+            let spriteTemplate = Dirt(imageNamed: Textures.brick)
+            let brickSize = spriteTemplate.size
+            let originx = position.x - wall.size.width / 2
+            let originy = position.y - wall.size.height / 2
+            let width = Int(wall.size.width / brickSize.width)
+            let height = Int(wall.size.height / brickSize.height)
+            wall.removeFromParent()
+            for i in 0...width {
+                for j in 0...height {
+                    let brick = Dirt(imageNamed: Textures.brick)
+                    brick.name = Textures.brick
+                    brick.position.x = originx + (CGFloat(i) * brickSize.width)
+                    brick.position.y = originy + (CGFloat(j) * brickSize.height)
+                    brick.physicsBody = SKPhysicsBody(rectangleOfSize: brickSize)
+                    if let physics = brick.physicsBody {
+                        physics.affectedByGravity = false
+                        physics.allowsRotation = false
+                        physics.dynamic = false
+                        physics.friction = 0
+                        physics.categoryBitMask = Categories.obstacle
+                    }
+                    
+                    self.addChild(brick)
+                }
+            }
         }
     }
     

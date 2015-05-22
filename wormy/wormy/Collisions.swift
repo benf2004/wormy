@@ -12,7 +12,5 @@ struct Categories {
     static let head = UInt32(1)
     static let neck = UInt32(2)
     static let body = UInt32(4)
-    static let activator = UInt32(8)
-    
-    static let menu = UInt32(512)
+    static let obstacle = UInt32(8)
 }

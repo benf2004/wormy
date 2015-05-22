@@ -18,8 +18,8 @@ class HeadWorm : BaseWorm {
         super.init(textureName: texture, position: position)
         if let physics = self.physics() {
             physics.categoryBitMask = Categories.head
-            physics.collisionBitMask = Categories.body | Categories.head
-            physics.contactTestBitMask = Categories.body | Categories.head
+            physics.collisionBitMask = Categories.body | Categories.head | Categories.obstacle
+            physics.contactTestBitMask = Categories.body | Categories.head | Categories.obstacle
         }
     }
     

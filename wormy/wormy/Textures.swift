@@ -22,4 +22,6 @@ struct Textures {
     static let activator = "Activator"
     static let blank = "blank"
     static let angryworm = "angryworm"
+    static let brick = "brick"
+    static let pebble = "pebble"
 }
