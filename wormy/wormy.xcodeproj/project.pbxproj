@@ -50,6 +50,8 @@
 		B51B7E4F1AEC2CF8002895B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B51B7E4E1AEC2CF8002895B9 /* Images.xcassets */; };
 		B51B7E5E1AEC2CF8002895B9 /* wormyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B7E5D1AEC2CF8002895B9 /* wormyTests.swift */; };
 		B544B9211AF7A47700E8D0C3 /* AnchorWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B9201AF7A47700E8D0C3 /* AnchorWorm.swift */; };
+		B54679261B0F628A008FA768 /* Level006.sks in Resources */ = {isa = PBXBuildFile; fileRef = B54679251B0F628A008FA768 /* Level006.sks */; };
+		B54679281B0F643F008FA768 /* Level006.plist in Resources */ = {isa = PBXBuildFile; fileRef = B54679271B0F643F008FA768 /* Level006.plist */; };
 		B599A68C1B0A161300E15682 /* Level005.sks in Resources */ = {isa = PBXBuildFile; fileRef = B599A68B1B0A161300E15682 /* Level005.sks */; };
 		B599A68E1B0A16D300E15682 /* Level005.plist in Resources */ = {isa = PBXBuildFile; fileRef = B599A68D1B0A16D300E15682 /* Level005.plist */; };
 		B5B401A11AFCE8700089FCF0 /* SheildWorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B401A01AFCE8700089FCF0 /* SheildWorm.swift */; };
@@ -115,6 +117,8 @@
 		B51B7E5C1AEC2CF8002895B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B51B7E5D1AEC2CF8002895B9 /* wormyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = wormyTests.swift; path = wormyTests/wormyTests.swift; sourceTree = SOURCE_ROOT; };
 		B544B9201AF7A47700E8D0C3 /* AnchorWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorWorm.swift; sourceTree = "<group>"; };
+		B54679251B0F628A008FA768 /* Level006.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level006.sks; sourceTree = "<group>"; };
+		B54679271B0F643F008FA768 /* Level006.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level006.plist; sourceTree = "<group>"; };
 		B599A68B1B0A161300E15682 /* Level005.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level005.sks; sourceTree = "<group>"; };
 		B599A68D1B0A16D300E15682 /* Level005.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Level005.plist; sourceTree = "<group>"; };
 		B5B401A01AFCE8700089FCF0 /* SheildWorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheildWorm.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 				254562C41B04559900CD3EE3 /* Menu.sks */,
 				2521D90D1B053FD800AD1BB5 /* HUD.sks */,
 				25507C341B0ED49D007E291D /* Tunnels.sks */,
+				B54679251B0F628A008FA768 /* Level006.sks */,
 			);
 			name = SceneLayouts;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 				259B660F1B06C74900C1545D /* FeedingFrenzy.plist */,
 				259B66111B06CA2400C1545D /* AngryWorm.plist */,
 				25507C361B0ED59F007E291D /* Tunnels.plist */,
+				B54679271B0F643F008FA768 /* Level006.plist */,
 			);
 			name = SceneProperties;
 			sourceTree = "<group>";
@@ -388,6 +394,7 @@
 				B5D11ECC1B0789DC00A488C7 /* Level004.sks in Resources */,
 				25507C351B0ED49D007E291D /* Tunnels.sks in Resources */,
 				259B66101B06C74900C1545D /* FeedingFrenzy.plist in Resources */,
+				B54679261B0F628A008FA768 /* Level006.sks in Resources */,
 				B5D11ECE1B078A4900A488C7 /* Level004.plist in Resources */,
 				259B660B1B06B24600C1545D /* Level001.plist in Resources */,
 				254562BF1B044D8B00CD3EE3 /* FeedingFrenzy.sks in Resources */,
@@ -406,6 +413,7 @@
 				2521D90E1B053FD800AD1BB5 /* HUD.sks in Resources */,
 				25F352F91B05925A0055762F /* Explosion.sks in Resources */,
 				259B66171B06E8FF00C1545D /* Level002.sks in Resources */,
+				B54679281B0F643F008FA768 /* Level006.plist in Resources */,
 				953E63AC1B08328000F4C707 /* EarSmoke.sks in Resources */,
 				259B661D1B06ED2200C1545D /* Level003.plist in Resources */,
 			);
