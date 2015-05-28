@@ -4,10 +4,8 @@
 <dict>
 	<key>FoodTruck</key>
 	<dict>
-		<key>GravityWorm</key>
-		<integer>50</integer>
 		<key>BaseWorm</key>
-		<integer>50</integer>
+		<integer>100</integer>
 	</dict>
 	<key>Scene</key>
 	<string>Level001</string>
